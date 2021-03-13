@@ -1,0 +1,105 @@
+<html>
+<head>
+<style>
+.jarak-lh{
+  line-height:10px;
+}
+p {
+    font-size: 12spt;
+}
+h1{
+    text-transform: uppercase;
+}
+table{
+    font-size: 12pt;
+}
+.hurufkapital{
+    text-transform: uppercase;
+}
+</style>
+<table align="center" width="100%">
+<tr>
+<td>
+<img src="<?php echo base_url('assets2/logopadsim.jpg')?>" width="100px">
+<td>
+<td>
+<h2 class="jarak-lh"  align="center">PEMERINTAH KOTA PADANGSIDIMPUAN</h2>
+<h2 class="jarak-lh" align="center">BUKU BESAR PEMBANTU</h2>
+<h4 class="jarak-lh"  align="center">Periode : 1 Januari s.d 31 Desember 2021</h4>
+<td>
+</tr>
+<tr>
+<td colspan=3>
+<hr  color="black" size="2px"/>
+</td>
+</tr>
+<table>
+</head>
+
+<body>
+<p class="jarak-lh" align="center"><u><b></u></b></p>
+<p class="jarak-lh" align="center"></p>
+
+<table>
+<tr><p><td>Kode Rekening Buku Besar Pembantu</td>	<td>:</td> <td>Hari</td></p></tr>
+<tr><p><td>Nama Rekening Buku Besar Pembantu</td>	    <td>:</td> <td>Tanggal</td></p></tr>
+<tr><p><td>Pagu APBD</td>	    <td>:</td> <td>Periode</td></p></tr>
+<tr><p><td>Pagu Perubahan APBD</td>	    <td>:</td> <td>Periode</td></p></tr>
+</table>
+<br><br>
+<table border="1" align="center" width="100%">
+                    <tr>
+                        <th rowspan="2">No</th>       
+                        <th rowspan="2">Tanggal</th> 
+                        <th rowspan="2">No. Bukti</th> 
+                        <th rowspan="2">Uraian</th> 
+                        <th rowspan="2">Debet</th> 
+                        <th rowspan="2">Kredit</th>
+                        <th rowspan="2">Saldo</th> 
+                    </tr>
+                  
+                </thead>
+         
+                   
+                </tbody>
+    
+            </table>
+
+<footer>
+<br><br><br>
+<table align="center" style="width:100%">
+
+<tr>
+    <td>Disetujui oleh,</td>
+    <td>Disiapkan oleh,</td>
+</tr>
+<tr>
+    <td>Pengguna Anggaran</td>
+    <td>Bendahara Pengeluaran</td>
+</tr>
+<tr height="75px"></tr>
+<tr>
+    <td>NAMA</td>
+    <td>NAMA</td>
+</tr>
+
+<tr>
+    <td>NIP. </td>
+    <td>NIP. </td>
+</tr>
+
+</table>
+</footer>
+
+</html>
+
+
+
+
+
+
+
+
+
+   
+                    
