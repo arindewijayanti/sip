@@ -12,7 +12,7 @@ class Laporan extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('Laporan/laporan');
+		$this->load->view('laporan/laporan');
 	}
 
 	
@@ -20,7 +20,7 @@ class Laporan extends CI_Controller {
 
     public function posisikasharian()
 	{
-		$this->load->view('Laporan/posisikasharian');
+		$this->load->view('laporan/posisikasharian');
 	}
 
     public function printposisikasharian()
@@ -28,7 +28,7 @@ class Laporan extends CI_Controller {
 		$tanggal = $this->input->post('tanggal');
 		$data['hasil'] = $this->model_transaksi->GetTransaksiHarian($tanggal);
 		$data['tanggal'] = $tanggal;
-        $this->load->view('Laporan/printposisikasharian',$data);
+        $this->load->view('laporan/printposisikasharian',$data);
 	}
 
 /////////////////////
@@ -36,34 +36,34 @@ class Laporan extends CI_Controller {
 
     public function bukukasumum()
 	{
-		$this->load->view('Laporan/bukukasumum');
+		$this->load->view('laporan/bukukasumum');
 	}
     public function printbukukasumum()
 	{
-		$this->load->view('Laporan/printbukukasumum');
+		$this->load->view('laporan/printbukukasumum');
 	}
     public function bukupembantupajak()
 	{
-		$this->load->view('Laporan/bukupembantupajak');
+		$this->load->view('laporan/bukupembantupajak');
 	}
     public function printbukupembantupajak()
 	{
-		$this->load->view('Laporan/printbukupembantupajak');
+		$this->load->view('laporan/printbukupembantupajak');
 	}
 	public function bukubesarpembantu()
 	{
-		$this->load->view('Laporan/bukubesarpembantu');
+		$this->load->view('laporan/bukubesarpembantu');
 	}
     public function printbukubesarpembantu()
 	{
-		$this->load->view('Laporan/printbukubesarpembantu');
+		$this->load->view('laporan/printbukubesarpembantu');
 	}
 	public function rekonsiliasibank()
 	{
-		$this->load->view('Laporan/rekonsiliasibank');
+		$this->load->view('laporan/rekonsiliasibank');
 	}
     public function printrekonsiliasibank()
 	{
-		$this->load->view('Laporan/printrekonsiliasibank');
+		$this->load->view('laporan/printrekonsiliasibank');
 	}
 }
