@@ -41,18 +41,7 @@ table{
 <p class="jarak-lh" align="center"></p>
 
 <table>
-<tr><p><td>Hari</td>	<td>:</td> <td><?php
- $hari   = date('l');
- $hari_indonesia = array('Monday'  => 'Senin',
-    'Tuesday'  => 'Selasa',
-    'Wednesday' => 'Rabu',
-    'Thursday' => 'Kamis',
-    'Friday' => 'Jumat',
-    'Saturday' => 'Sabtu',
-    'Sunday' => 'Minggu');
- echo $hari_indonesia[$hari];
-?>
- </td></p></tr>
+<tr><p><td>Hari</td>	<td>:</td> <td> <?php echo $hari;?></td></p></tr>
 <tr><p><td>Tanggal</td>	    <td>:</td> <td><?= date($tanggal) ?></td></p></tr>
 <tr><p><td>Periode</td>	    <td>:</td> <td><?php 
 $tgl_pertama = date('01-m-Y', strtotime('first day of January'));
@@ -80,18 +69,20 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                 </thead>
                 <?php
                     $no = 1 ;
+                    $totalpenerimaan = 0;
+                    $totalpengeluaran = 0;
                     foreach ($hasil as $item)
                     {
+                        $totalpenerimaan += $item->penerimaan;
+                        $totalpengeluaran += $item->pengeluaran;
                     ?>
                     <tr>
                         <td align="center"><?= $no;?></td>
                         <td><?= $item->jenis_bukti;?></td>
                         <td><?= $item->no_bukti;?></td>
                         <td><?= $item->uraian;?></td>
-                        <td><?= $item->penerimaan;?></td>
-                        <td><?= $item->pengeluaran;?></td>
-               
-                       
+                        <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($item->pengeluaran,0,'.','.'); ?></td>                     
                     </tr>
                     <?php
                             $no++;
@@ -100,21 +91,21 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                 </tbody>
                 <tr>
                         <td align="right" colspan="4">Jumlah</td> 
-                        <td></td>
-                        <td></td>
+                        <td align="center"><?='Rp'.number_format($totalpenerimaan,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($totalpengeluaran,0,'.','.'); ?></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Perubahan Posisi Kas hari ini</td> 
-                        <td></td>
-                        <td></td>
+                        <td align="center"><?='Rp'.number_format($totalpenerimaan,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($totalpengeluaran,0,'.','.'); ?></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Posisi Kas (H-1)</td> 
-                        <td colspan="2"></td>
+                        <td colspan="2" align="center"><?='Rp'.number_format($hmin1['totalpenerimaan']-$hmin1['totalpengeluaran'],0,'.','.'); ?></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Posisi Kas (H)</td> 
-                        <td colspan="2"></td>
+                        <td colspan="2" align="center"><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran'],0,'.','.'); ?></td>
                 </tr>
     
             </table>

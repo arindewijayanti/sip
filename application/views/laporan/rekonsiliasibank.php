@@ -30,8 +30,7 @@ $this->load->view('include/header');
                   <div class="col-md-6">
                     <label for="tanggal">Tanggal</label>
                     <input class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
-                  </div>
-                  
+                  </div>                
                 </div>
               </div>
               

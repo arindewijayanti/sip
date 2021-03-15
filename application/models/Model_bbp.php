@@ -24,6 +24,26 @@ class Model_bbp extends CI_Model {
 		$this->db->where('kode_bbp', $kode_bbp);
 		$this->db->delete('tbl_bbp');
 	}
+
+	function GetBBP($kode_rekening) 
+    {
+		$this->db->where('tbl_buktipajak.kode_rekening', $kode_rekening);
+        $this->db->order_by('tanggal', 'ASC');
+        return $this->db->from('tbl_bbp')
+          ->join('tbl_buktipajak','tbl_buktipajak.kode_buktipajak=tbl_bbp.kode_buktipajak')
+		  ->join('tbl_rekening','tbl_rekening.kode_rekening=tbl_buktipajak.kode_rekening')
+          ->get()
+          ->result();
+    }
+
+	function Gethasilatas($kode_rekening,$tahun) 
+    {
+		$this->db->where('kode_rekening', $kode_rekening);		
+		$this->db->where('tahun', $tahun);
+		$this->db->from('tbl_apbd');
+		return $this->db->get()
+		->result();
+    }
 	
 
 }

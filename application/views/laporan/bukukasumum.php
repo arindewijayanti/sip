@@ -30,19 +30,19 @@ $this->load->view('include/header');
               <div class="col-md-6">
                     <label for="tanggal">Pilih Bulan</label>
                     <br>
-                    <select class="form-control" name="tanggal">
-                <option value="januari">Januari</option>
-                <option value="febuari">Febuari</option>   
-                <option value="Maret">Maret</option>
-                <option value="april">April</option>
-                <option value="mei">Mei</option>
-                <option value="juni">Juni</option> 
-                <option value="juli">Juli</option>
-                <option value="agustus">Agustus</option>    
-                <option value="september">September</option>
-                <option value="oktober">Oktober</option>
-                <option value="november">November</option>
-                <option value="desember">Desember</option>
+                    <select class="form-control" name="bulan">
+                <option value="01">Januari</option>
+                <option value="02">Febuari</option>   
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option> 
+                <option value="07">Juli</option>
+                <option value="08">Agustus</option>    
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
                 
             </select>
                   </div>
@@ -52,10 +52,16 @@ $this->load->view('include/header');
               
                            
               <div class="col-md-6">
-                    <label for="tanggal">Pilih Tahun</label>
+                    <label for="tahun">Pilih Tahun</label>
                     <br>
-                    <input class="form-control" id="tanggal" type="text" aria-describedby="nameHelp" name="tanggal" required/>
-                </div>
+                    <select class="form-control" name="tahun">
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>   
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                
+            </select></div>
                   </div>
               
             

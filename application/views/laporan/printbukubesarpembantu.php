@@ -59,9 +59,39 @@ table{
                     </tr>
                   
                 </thead>
-         
-                   
+                <tbody>
+                <?php
+                    $no = 1 ;
+                    $saldo = 0;
+                    $totaldebet =0;
+                    $totalkredit =0;
+                    $totalsaldo =0;
+                    foreach ($hasil as $item)
+                    {
+                        $saldo += $item->kredit-$item->debet;
+                        $totaldebet += $item->debet;
+                        $totalkredit += $item->kredit;
+                    ?>
+                    <tr>
+                        <td align="center"><?= $no;?></td>
+                        <td><?= $item->tanggal;?></td>
+                        <td><?= $item->kode_buktipajak;?></td>
+                        <td><?= $item->nama_buktipajak;?></td>
+                        <td align="center"><?='Rp'.number_format($item->debet,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($item->kredit,0,'.','.'); ?></td>     
+                        <td align="center"><?='Rp'.number_format($saldo,0,'.','.'); ?></td>                    
+                    </tr>
+                    <?php
+                            $no++;
+                    }
+                    ?>                   
                 </tbody>
+                <tr>
+                        <td align="right" colspan="4">Jumlah</td> 
+                        <td align="center"><?='Rp'.number_format($totaldebet,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($totalkredit,0,'.','.'); ?></td>                        
+                        <td align="center"><?='Rp'.number_format($saldo,0,'.','.'); ?></td>
+                </tr>
     
             </table>
 

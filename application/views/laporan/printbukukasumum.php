@@ -42,7 +42,7 @@ table{
 
 <body>
 <p class="jarak-lh" align="center"><b>BUKU KAS UMUM</b></p>
-<p class="jarak-lh" align="center"><b>Periode.........</b></p>
+<p class="jarak-lh" align="center"><b>Periode  <?= $bulan;?> <?= $tahun;?></b></p>
 
 <br><br>
 <table border="1" align="center" width="100%">
@@ -57,7 +57,27 @@ table{
                     </tr>
                   
                 </thead>
-         
+                <tbody>
+                <?php
+                    $no = 1 ;
+                    $saldo = 0;
+                    foreach ($hasil as $item)
+                    {
+                        $saldo += $item->penerimaan-$item->pengeluaran;
+                    ?>
+                    <tr>
+                        <td align="center"><?= $no;?></td>
+                        <td><?= $item->tanggal;?></td>
+                        <td><?= $item->no_bukti;?></td>
+                        <td><?= $item->uraian;?></td>
+                        <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($item->pengeluaran,0,'.','.'); ?></td>                     
+                        <td align="center"><?='Rp'.number_format($saldo,0,'.','.'); ?></td> 
+                    </tr>
+                    <?php
+                            $no++;
+                    }
+                    ?>
                    
                 </tbody>
     

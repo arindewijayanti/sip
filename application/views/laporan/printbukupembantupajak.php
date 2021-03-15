@@ -24,7 +24,7 @@ table{
 <td>
 <td>
 <h2 class="jarak-lh" >PEMERINTAH KOTA PADANGSIDIMPUAN</h2>
-<h2 class="jarak-lh" >SKPD........</h2>
+<h2 class="jarak-lh" >BADAN KEUANGAN DAERAH<h2>
 <h2 class="jarak-lh" >TAHUN ANGGARAN <?php echo date('Y') ?></h2>
 <td>
 </tr>
@@ -42,7 +42,10 @@ table{
 
 <body>
 <p class="jarak-lh" align="center"><b>BUKU PEMBANTU PAJAK</b></p>
-<p class="jarak-lh" align="center"><b>Periode.........</b></p>
+<p class="jarak-lh" align="center"><b>Periode <?php 
+$tgl_pertama = date('01-m-Y', strtotime('first day of January'));
+$tgl_terakhir = date('t-m-Y', strtotime('last day of December'));
+echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></b></p>
 
 <br><br>
 <table border="1" align="center" width="100%">
@@ -57,7 +60,27 @@ table{
                     </tr>
                   
                 </thead>
-         
+                <tbody>
+                <?php
+                    $no = 1 ;
+                    $saldo = 0;
+                    foreach ($hasil as $item)
+                    {
+                        $saldo += $item->penerimaan-$item->pengeluaran;
+                    ?>
+                    <tr>
+                        <td align="center"><?= $no;?></td>
+                        <td><?= $item->tanggal;?></td>
+                        <td><?= $item->kode_buktipajak;?></td>
+                        <td><?= $item->uraian;?></td>
+                        <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($item->pengeluaran,0,'.','.'); ?></td>     
+                        <td align="center"><?='Rp'.number_format($saldo,0,'.','.'); ?></td>                    
+                    </tr>
+                    <?php
+                            $no++;
+                    }
+                    ?>
                    
                 </tbody>
     

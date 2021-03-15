@@ -36,4 +36,48 @@ class Model_transaksi extends CI_Model {
           	->result();
     }
 
+	function GetTransaksiHmin1($tanggal)
+    {
+        $this->db->select('SUM(penerimaan) as totalpenerimaan,SUM(pengeluaran) as totalpengeluaran');
+		$this->db->where('tanggal <', $tanggal);
+        $this->db->from('tbl_transaksi');
+        return $this->db->get()->row_array();	  
+    }
+
+	function GetTransaksiH($tanggal)
+    {
+        $this->db->select('SUM(penerimaan) as totalpenerimaan,SUM(pengeluaran) as totalpengeluaran');
+		$this->db->where('tanggal <=', $tanggal);
+        $this->db->from('tbl_transaksi');
+        return $this->db->get()->row_array();	  
+    }
+
+	function GetTransaksiBulanan($bulan, $tahun)
+    {
+        $this->db->select('*');
+        $this->db->order_by('kode_transaksi', 'ASC');
+		$this->db->where('DATE_FORMAT(tanggal,"%m")', $bulan);
+		$this->db->where('DATE_FORMAT(tanggal,"%Y")', $tahun);
+        return $this->db->from('tbl_transaksi')
+    		->get()
+          	->result();
+    }
+
+	function GetSaldoBank($tanggal)
+    {
+        $this->db->select('saldo');
+		$this->db->where('tanggal =', $tanggal);
+		$this->db->from('tbl_saldobank');
+		$this->db->limit('1');
+		return $this->db->get()->row_array();	
+	}
+
+	function GetBPP($tahun)
+    {
+        $this->db->select('*');
+		$this->db->where('DATE_FORMAT(tanggal,"%Y") =', $tahun);
+		return $this->db->from('tbl_bpp')
+			->get()
+          	->result();
+	}
 }
