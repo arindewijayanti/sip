@@ -95,18 +95,18 @@ table{
     <td>Disiapkan oleh,</td>
 </tr>
 <tr>
-    <td>Pengguna Anggaran</td>
-    <td>Bendahara Pengeluaran</td>
+    <td>Bendahara Umum Daerah</td>
+    <td>Kuasa Bendahara Umum Daerah</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
-    <td>NAMA</td>
-    <td>NAMA</td>
+    <td>Sulaiman Lubis, S.E.</td>
+    <td>Asir Aryadi, S.E.</td>
 </tr>
 
 <tr>
-    <td>NIP. </td>
-    <td>NIP. </td>
+    <td>NIP. 211211211 </td>
+    <td>NIP. 197602072005021002 </td>
 </tr>
 
 </table>
