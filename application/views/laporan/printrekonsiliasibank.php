@@ -43,7 +43,7 @@ table{
 
 <table>
 <tr><p><td><b>1. Saldo Kas Umum Daerah menurut Buku</b></td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td> <td><td><b><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran'],0,'.','.'); ?></b></td></p></tr>
-<tr><p><td><b>2. Saldo Kas Umum mennurut Bank</b></td>	</td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><u><b><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></b></u></td></p></tr>
+<tr><p><td><b>2. Saldo Kas Umum menurut Bank</b></td>	</td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><u><b><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></b></u></td></p></tr>
 <tr><p><td><i> &nbsp &nbsp  Selisih</td></i><td><td><td> <td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td>Rp Konfirmasi Perhitungan</td></p></tr>
 </table>
 <br>

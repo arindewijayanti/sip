@@ -39,10 +39,17 @@ class Model_bbp extends CI_Model {
 	function Gethasilatas($kode_rekening,$tahun) 
     {
 		$this->db->where('kode_rekening', $kode_rekening);		
+		$this->db->from('tbl_rekening');
+		return $this->db->get()
+		->row_array();
+    }
+	function Getpagu($kode_rekening,$tahun) 
+    {
 		$this->db->where('tahun', $tahun);
+		$this->db->where('kode_rekening', $kode_rekening);		
 		$this->db->from('tbl_apbd');
 		return $this->db->get()
-		->result();
+		->row_array();
     }
 	
 

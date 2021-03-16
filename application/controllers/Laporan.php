@@ -117,6 +117,7 @@ public function printbukubesarpembantu()
 	$kode_rekening = $this->input->post('kode_rekening');
 	$data['kode_rekening'] = $kode_rekening;
 	$data['hasilatas'] = $this->model_bbp->Gethasilatas($kode_rekening,$tahun);
+	$data['pagu'] = $this->model_bbp->Getpagu($kode_rekening,$tahun);
 	$data['hasil'] = $this->model_bbp->GetBBP($kode_rekening);
 	$this->load->view('laporan/printbukubesarpembantu',$data);
 }
