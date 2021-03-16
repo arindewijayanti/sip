@@ -56,6 +56,7 @@ class Buktipajak extends CI_Controller {
         redirect('buktipajak');
 	}
 
+
 	public function action_deletedatabuktipajak($kode_buktipajak = '')
 	{
 			$this->model_buktipajak->deletedatabuktipajak($kode_buktipajak);

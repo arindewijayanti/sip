@@ -8,7 +8,7 @@ $this->load->view('include/header');
           <a href="<?php echo config_item('base_url'); ?>">Halaman Utama</a>
         </li>
   
-        <li class="breadcrumb-item active">Update Data buktipajak</li>
+        <li class="breadcrumb-item active">Update Data Bukti Pajak</li>
       </ol>
 <!-- Example DataTables Card-->
 <?php foreach ($content->result() as $data) {
@@ -38,29 +38,13 @@ $this->load->view('include/header');
                   </div>
                   
                 </div>
-              </div>
-
-              <div class="form-group">
-              <div class="form-row">
-              
-                           
-                  <div class="col-md-6">
-                    <label for="kode_rekening">Nama Rekening</label>
-                    <select class="form-control form-control-sm" id="kode_rekening" name="kode_rekening" required />
-                  <option value="<?= $data->kode_rekening?>">Silahkan Pilih Nama Rekening</option>
-                        <?php $id_rekanan = $this->db->query("SELECT * FROM tbl_rekening");
-                
-                        foreach ($kode_rekening->result() as $kode_rekening) : ?>
-                        
-                        <option value="<?= $kode_rekening->kode_rekening?>"><?= $kode_rekening->nama_rekening?></option>
-                         <?php endforeach; ?>
-                       </select>
+                <div class="col-md-6">
+                    <label for="kode_rekening">Kode Rekening</label>
+                    <input value="<?= $data->kode_rekening?>"class="form-control" id="kode_rekening" type="text" aria-describedby="nameHelp" name="kode_rekening" required/>
                   </div>
                   
                 </div>
               </div>
-
-              
 
               <div class="form-group">
             <div class="form-row">
