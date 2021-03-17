@@ -27,10 +27,17 @@ $this->load->view('include/header');
               <div class="form-row">
               
                            
-                  <div class="col-md-6">
+              <div class="col-md-6">
                     <label for="kode_rekening">Kode Rekening</label>
-                    <input class="form-control" id="kode_rekening" type="text" aria-describedby="nameHelp" name="kode_rekening" required/>
-
+                    <select class="form-control form-control-sm" id="kode_rekening" name="kode_rekening" required />
+                    <option>Silahkan Pilih Kode Rekening</option>
+                        <?php $kode_rekening = $this->db->query("SELECT * FROM tbl_rekening");
+                
+                        foreach ($kode_rekening->result() as $kode_rekening) : ?>
+                        
+                        <option value="<?= $kode_rekening->kode_rekening?>"><?= $kode_rekening->nama_rekening?></option>
+                         <?php endforeach; ?>
+                       </select>
                   </div>
                   <div class="form-group">
               <div class="form-row">

@@ -26,7 +26,7 @@ $this->load->view('include/header');
               <thead>
             
                 <tr class="text-center">
-                  <th>id</th>
+                  <th>No</th>
                   <th>Kode Rekening</th>
                   <th>Tahun</th>
                   <th>Pagu Apbd</th>
