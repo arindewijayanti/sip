@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2021 at 01:38 PM
+-- Generation Time: Mar 30, 2021 at 04:53 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.30
 
@@ -269,7 +269,9 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (48, 2, 12),
 (49, 2, 0),
 (51, 2, 13),
-(52, 2, 8);
+(52, 2, 8),
+(53, 1, 14),
+(54, 1, 15);
 
 -- --------------------------------------------------------
 
@@ -299,7 +301,9 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (10, 'Laporan Buku Pembantu Pajak'),
 (11, 'Laporan Buku Besar Pembantu'),
 (12, 'Laporan Posisi Kas Harian'),
-(13, 'Laporan Buku Kas Umum');
+(13, 'Laporan Buku Kas Umum'),
+(14, 'Berita Acara Pemeriksaan Kas'),
+(15, 'Register Penutupan Kas');
 
 -- --------------------------------------------------------
 
@@ -355,7 +359,9 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `is_active`) VALUE
 (10, 10, 'Laporan Buku Pembantu Pajak', 'laporan/bukupembantupajak', 1),
 (11, 11, 'Laporan Buku Besar Pembantu', 'laporan/bukubesarpembantu', 1),
 (12, 12, 'Laporan Posisi Kas Harian', 'laporan/posisikasharian', 1),
-(13, 13, 'Laporan Buku Kas Umum', 'laporan/bukukasumum', 1);
+(13, 13, 'Laporan Buku Kas Umum', 'laporan/bukukasumum', 1),
+(14, 14, 'Berita Acara Pemeriksaan Kas', 'laporan/bapemeriksaankas', 1),
+(15, 15, 'Register Penutupan Kas', 'laporan/register', 1);
 
 --
 -- Indexes for dumped tables
@@ -489,13 +495,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -507,7 +513,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
