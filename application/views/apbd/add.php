@@ -11,6 +11,7 @@ $this->load->view('include/header');
           <a href="<?php echo config_item('base_url'); ?>">Halaman Utama</a>
         </li>
   
+  
         <li class="breadcrumb-item active">Tambah Data Apbd</li>
       </ol>
 <!-- Example DataTables Card-->
@@ -33,7 +34,8 @@ $this->load->view('include/header');
                     <option>Silahkan Pilih Kode Rekening</option>
                         <?php $kode_rekening = $this->db->query("SELECT * FROM tbl_rekening");
                 
-                        foreach ($kode_rekening->result() as $kode_rekening) : ?>
+               
+               foreach ($kode_rekening->result() as $kode_rekening) : ?>
                         
                         <option value="<?= $kode_rekening->kode_rekening?>"><?= $kode_rekening->nama_rekening?></option>
                          <?php endforeach; ?>

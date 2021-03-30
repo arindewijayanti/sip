@@ -107,7 +107,7 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></b></p>
 </tr>
 
 <tr>
-    <td>NIP. 211211211 </td>
+    <td>NIP. 196905011993031004  </td>
     <td>NIP. 197602072005021002</td>
 </tr>
 
