@@ -121,8 +121,8 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
     <td>Disiapkan oleh,</td>
 </tr>
 <tr>
-    <td>Pengguna Anggaran</td>
-    <td>Bendahara Pengeluaran</td>
+    <td>Kuasa Bendahara Umum Daerah</td>
+    <td>Bendahara Umum Daerah</td>
 </tr>
 <tr height="75px"></tr>
 <tr>

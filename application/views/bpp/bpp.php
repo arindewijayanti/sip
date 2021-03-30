@@ -46,7 +46,7 @@ $this->load->view('include/header');
                     $saldo += $data->penerimaan-$data->pengeluaran;
                   ?>
                   <td><?= $i ?></td>
-                  <td><?= $data->tanggal ?></td>
+                  <td><?=  $data->tanggal ?></td>
                   <td><?= $data->kode_buktipajak ?></td>                  
                   <td><?= $data->uraian ?></td>
                   <td><?= 'Rp'.number_format($data->penerimaan,0,'.','.')?></td>

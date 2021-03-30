@@ -121,5 +121,23 @@ public function printbukubesarpembantu()
 	$data['hasil'] = $this->model_bbp->GetBBP($kode_rekening);
 	$this->load->view('laporan/printbukubesarpembantu',$data);
 }
+public function bapemeriksaankas()
+{
+	$this->load->view('laporan/bapemeriksaankas');
+}
+public function printbapemeriksaankas()
+{
+        
+	$data['pengadaan']= $this->model_suratpengadaan->pengadaan($id_pengadaan);
+
+	$detailpengadaan = $this->model_suratpengadaan->detailpengadaan();
+	if ($detailpengadaan)
+	{
+		$data['detailpengadaan'] = $this->model_suratpengadaan->detailpengadaansurat($id_pengadaan);
+	}
+
+	$this->load->view('suratpengadaan/surat1',$data);
+	
+}
 
 }

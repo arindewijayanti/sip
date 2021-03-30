@@ -33,7 +33,7 @@ table{
 <hr  color="black" size="2px"/>
 </td>
 </tr>
-<table>
+</table>
 </head>
 
 <body>
@@ -70,7 +70,7 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></b></p>
                     ?>
                     <tr>
                         <td align="center"><?= $no;?></td>
-                        <td><?= $item->tanggal;?></td>
+                        <td><? echo $item['tanggal'];?></td>  
                         <td><?= $item->kode_buktipajak;?></td>
                         <td><?= $item->uraian;?></td>
                         <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
@@ -97,8 +97,8 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></b></p>
     <td>Disiapkan oleh,</td>
 </tr>
 <tr>
-    <td>Pengguna Anggaran</td>
-    <td>Bendahara Pengeluaran</td>
+    <td>Kuasa Bendahara Umum Daerah</td>
+    <td>Bendahara Umum Daerah</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
