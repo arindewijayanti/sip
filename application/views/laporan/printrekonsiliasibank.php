@@ -21,7 +21,7 @@ table{
 <tr>
 <td>
 <img src="<?php echo base_url('assets2/logopadsim.jpg')?>" width="100px">
-<p> Periode : <?php echo $tanggal;?></p> 
+<p> Periode : <?php echo date("d/m/Y", strtotime($tanggal));?></p> 
 <td>
 <td>
 <h2 class="jarak-lh"  align="left">PEMERINTAH KOTA PADANGSIDIMPUAN</h2>
@@ -163,22 +163,26 @@ table{
 <table align="center" style="width:100%">
 
 <tr>
-    <td>Disetujui oleh,</td>
-    <td>Disiapkan oleh,</td>
+    <td width="10%"></td>
+    <td width="30%">Disetujui oleh,</td>
+    <td width="30%">Disiapkan oleh,</td>
 </tr>
 <tr>
-    <td>Bendahara Umum Daerah</td>
-    <td>Kuasa Bendahara Umum Daerah</td>
+<td width="10%"></td>
+    <td width="30%">Bendahara Umum Daerah</td>
+    <td width="30%">Kuasa Bendahara Umum Daerah</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
-    <td>Sulaiman Lubis, S.E.</td>
-    <td>Asir Aryadi, S.E.</td>
+<td width="10%"></td>
+    <td width="30%">Sulaiman Lubis, S.E.</td>
+    <td width="30%">Asir Aryadi, S.E.</td>
 </tr>
 
 <tr>
-    <td>NIP. 196905011993031004  </td>
-    <td>NIP. 197602072005021002 </td>
+<td width="10%"></td>
+    <td width="30%">NIP. 196905011993031004  </td>
+    <td width="30%">NIP. 197602072005021002</td>
 </tr>
 
 </table>

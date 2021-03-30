@@ -17,6 +17,7 @@ table{
     text-transform: uppercase;
 }
 </style>
+
 <table align="center" width="100%">
 <tr>
 <td>
@@ -43,9 +44,7 @@ table{
 <body>
 <p class="jarak-lh" align="center"><b>BUKU PEMBANTU PAJAK</b></p>
 <p class="jarak-lh" align="center"><b>Periode <?php 
-$tgl_pertama = date('01-m-Y', strtotime('first day of January'));
-$tgl_terakhir = date('t-m-Y', strtotime('last day of December'));
-echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></b></p>
+echo date("d/m/Y", strtotime($tanggalmulai)); echo " s.d "; echo date("d/m/Y", strtotime($tanggalselesai));?></b></p>
 
 <br><br>
 <table border="1" align="center" width="100%">
@@ -70,7 +69,7 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></b></p>
                     ?>
                     <tr>
                         <td align="center"><?= $no;?></td>
-                        <td><?= $item->tanggal;?></td>
+                        <td><?= date("d/m/Y", strtotime($item->tanggal));?></td>
                         <td><?= $item->kode_buktipajak;?></td>
                         <td><?= $item->uraian;?></td>
                         <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
@@ -93,22 +92,26 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></b></p>
 <table align="center" style="width:100%">
 
 <tr>
-    <td>Disetujui oleh,</td>
-    <td>Disiapkan oleh,</td>
+    <td width="10%"></td>
+    <td width="30%">Disetujui oleh,</td>
+    <td width="30%">Disiapkan oleh,</td>
 </tr>
 <tr>
-    <td>Pengguna Anggaran</td>
-    <td>Bendahara Pengeluaran</td>
+<td width="10%"></td>
+    <td width="30%">Bendahara Umum Daerah</td>
+    <td width="30%">Kuasa Bendahara Umum Daerah</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
-    <td>Sulaiman Lubis, S.E.</td>
-    <td>Asir Aryadi, S.E.</td>
+<td width="10%"></td>
+    <td width="30%">Sulaiman Lubis, S.E.</td>
+    <td width="30%">Asir Aryadi, S.E.</td>
 </tr>
 
 <tr>
-    <td>NIP. 196905011993031004  </td>
-    <td>NIP. 197602072005021002</td>
+<td width="10%"></td>
+    <td width="30%">NIP. 196905011993031004  </td>
+    <td width="30%">NIP. 197602072005021002</td>
 </tr>
 
 </table>

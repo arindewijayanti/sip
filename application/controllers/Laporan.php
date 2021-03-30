@@ -54,24 +54,11 @@ class Laporan extends CI_Controller {
 	}
     public function printbukukasumum()
 	{
-		$bulan = $this->input->post('bulan');
-		$tahun = $this->input->post('tahun');
-		$bulan_indonesia = array(
-		'01'  => 'Januari',
-		'02'  => 'Februari',
-		'03' => 'Maret',
-		'04' => 'April',
-		'05' => 'Mei',
-		'06' => 'Juni',
-		'07' => 'Juli',
-		'08' => 'Agustus',
-		'09' => 'September',
-		'10' => 'Oktober',
-		'11' => 'November',
-		'12' => 'Desember');
-		$data['bulan'] = $bulan_indonesia[$bulan];
-		$data['tahun'] = $tahun;
-		$data['hasil'] = $this->model_transaksi->GetTransaksiBulanan($bulan,$tahun);
+		$tanggalmulai = $this->input->post('tanggalmulai');
+		$tanggalselesai = $this->input->post('tanggalselesai');
+		$data['tanggalmulai'] = $this->input->post('tanggalmulai');
+		$data['tanggalselesai'] = $this->input->post('tanggalselesai');
+		$data['hasil'] = $this->model_transaksi->GetTransaksiBulanan($tanggalmulai,$tanggalselesai);
         $this->load->view('laporan/printbukukasumum',$data);
 	}
 
@@ -82,9 +69,11 @@ class Laporan extends CI_Controller {
 	}
     public function printbukupembantupajak()
 	{
-		$tahun = $this->input->post('tahun');
-		$data['tahun'] = $tahun;
-		$data['hasil'] = $this->model_transaksi->GetBPP($tahun);
+		$tanggalmulai = $this->input->post('tanggalmulai');
+		$tanggalselesai = $this->input->post('tanggalselesai');
+		$data['tanggalmulai'] = $this->input->post('tanggalmulai');
+		$data['tanggalselesai'] = $this->input->post('tanggalselesai');
+		$data['hasil'] = $this->model_transaksi->GetBPP($tanggalmulai, $tanggalselesai);
         $this->load->view('laporan/printbukupembantupajak',$data);
 		
 	}
@@ -118,12 +107,17 @@ public function bukubesarpembantu()
 }
 public function printbukubesarpembantu()
 {
-	$tahun = $this->input->post('tahun');
+	$tanggalmulai = $this->input->post('tanggalmulai');
+	$tanggalselesai = $this->input->post('tanggalselesai');
+	$tahun = 2021;
 	$kode_rekening = $this->input->post('kode_rekening');
 	$data['kode_rekening'] = $kode_rekening;
 	$data['hasilatas'] = $this->model_bbp->Gethasilatas($kode_rekening,$tahun);
 	$data['pagu'] = $this->model_bbp->Getpagu($kode_rekening,$tahun);
-	$data['hasil'] = $this->model_bbp->GetBBP($kode_rekening);
+	$data['hasil'] = $this->model_bbp->GetBBP($kode_rekening,$tanggalmulai,$tanggalselesai);
+	
+	$data['tanggalmulai'] = $this->input->post('tanggalmulai');
+	$data['tanggalselesai'] = $this->input->post('tanggalselesai');
 	$this->load->view('laporan/printbukubesarpembantu',$data);
 }
 
