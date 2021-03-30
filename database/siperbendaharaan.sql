@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2021 at 08:20 PM
+-- Generation Time: Mar 30, 2021 at 01:38 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.30
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_apbd`
+--
+
+CREATE TABLE `tbl_apbd` (
+  `id` int(11) NOT NULL,
+  `tahun` varchar(4) NOT NULL,
+  `kode_rekening` varchar(50) NOT NULL,
+  `pagu_apbd` bigint(128) NOT NULL,
+  `pagu_perubahan_apbd` bigint(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_apbd`
+--
+
+INSERT INTO `tbl_apbd` (`id`, `tahun`, `kode_rekening`, `pagu_apbd`, `pagu_perubahan_apbd`) VALUES
+(1, '2021', '4.2.1.01.04', 4000000000, 3000000000),
+(2, '2021', '4.2.1.01.02', 5000000000, 5000000000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_bbp`
 --
 
@@ -40,11 +62,10 @@ CREATE TABLE `tbl_bbp` (
 --
 
 INSERT INTO `tbl_bbp` (`kode_bbp`, `tanggal`, `kode_buktipajak`, `debet`, `kredit`) VALUES
-(1, '2020-05-14', '05/PBB', '0', '13994219'),
-(2, '2021-03-10', '05/PBB', '0', '738584'),
-(3, '2021-03-10', '05/PBB', '0', '53390800'),
-(4, '2021-03-12', '05/PBB', '0', '2817600'),
-(5, '2021-03-10', '05/PBB', '0', '12257670');
+(2, '2021-03-10', '05/PBB', '0', '797069100'),
+(3, '2021-03-10', '05/PBB', '0', '4589157'),
+(4, '2021-03-12', '05/PBB', '0', '37346498'),
+(5, '2021-03-10', '05/PBB', '0', '4216072');
 
 -- --------------------------------------------------------
 
@@ -67,7 +88,8 @@ CREATE TABLE `tbl_bpp` (
 
 INSERT INTO `tbl_bpp` (`kode_bpp`, `kode_buktipajak`, `uraian`, `tanggal`, `penerimaan`, `pengeluaran`) VALUES
 (1, '123', 'ASD', '2021-03-10', 10000, 0),
-(4, '123', 'benar', '2021-03-10', 0, 2000);
+(4, '123', 'benar', '2021-03-10', 0, 2000),
+(6, '12', 'tes', '2021-03-29', 600000, 0);
 
 -- --------------------------------------------------------
 
@@ -86,7 +108,9 @@ CREATE TABLE `tbl_buktipajak` (
 --
 
 INSERT INTO `tbl_buktipajak` (`kode_buktipajak`, `nama_buktipajak`, `kode_rekening`) VALUES
-('05/PBB', 'Penerimaan KB DPH PBB Perkebunan TA. 2018', '4.2.1.01.04');
+('-', 'tes', '4.2.1.01.01'),
+('05/PBB', 'Penerimaan KB DPH PBB Perkebunan TA. 2018', '4.2.1.01.04'),
+('45', 'df', '4.2.1.01.04');
 
 -- --------------------------------------------------------
 
@@ -104,7 +128,55 @@ CREATE TABLE `tbl_rekening` (
 --
 
 INSERT INTO `tbl_rekening` (`kode_rekening`, `nama_rekening`) VALUES
+('4.2.1.01.01', 'Bagi Hasil dari Pajak Bumi dan Bangunan sektor Pertambangan'),
 ('4.2.1.01.04', 'Bagi Hasil dari Pajak Bumi dan Bangunan sektor Perkebunan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_saldobank`
+--
+
+CREATE TABLE `tbl_saldobank` (
+  `id` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `saldo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_saldobank`
+--
+
+INSERT INTO `tbl_saldobank` (`id`, `tanggal`, `saldo`) VALUES
+(1, '2021-03-10', 200000),
+(3, '2021-03-18', 300000),
+(4, '2021-03-13', 300000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_selisihrekon`
+--
+
+CREATE TABLE `tbl_selisihrekon` (
+  `id_selisihrekon` int(11) NOT NULL,
+  `tanggal_selisih` date NOT NULL,
+  `kode_keterangan` varchar(128) NOT NULL,
+  `uraian` varchar(128) NOT NULL,
+  `nominal` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_selisihrekon`
+--
+
+INSERT INTO `tbl_selisihrekon` (`id_selisihrekon`, `tanggal_selisih`, `kode_keterangan`, `uraian`, `nominal`) VALUES
+(1, '2021-03-13', 'A', 'STS NO', 2000),
+(2, '2021-03-13', 'A', 'STS NO', 1000),
+(3, '2021-03-13', 'B', 'SFDSDF', 1000),
+(4, '2021-03-13', 'C', 'SFGFDF', 500),
+(5, '2021-03-13', 'D', 'DGHDFH', 84000),
+(6, '2021-03-13', 'D', 'asdsfd', 500);
 
 -- --------------------------------------------------------
 
@@ -130,7 +202,8 @@ INSERT INTO `tbl_transaksi` (`kode_transaksi`, `tanggal`, `jenis_bukti`, `no_buk
 (2, '2021-03-10', 'STS', '123', 'dfsf', 200000, 0),
 (3, '2021-03-10', 'LAIN-LAIN', '123', 'ddddd', 0, 10000),
 (4, '2021-03-12', 'SP2D', '123', 'asd', 0, 1000),
-(5, '2021-03-09', 'SP2D', '12', 'benar', 1000, 0);
+(5, '2021-03-13', 'SP2D', '12', 'benar', 100000, 0),
+(6, '2021-03-13', 'STS', '567', 'tes', 0, 70000);
 
 -- --------------------------------------------------------
 
@@ -176,21 +249,27 @@ CREATE TABLE `user_access_menu` (
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
-(1, 1, 1),
-(2, 1, 2),
-(3, 1, 3),
-(4, 1, 4),
-(5, 1, 5),
-(6, 1, 6),
-(7, 1, 7),
-(8, 2, 2),
-(9, 2, 3),
-(10, 3, 4),
-(11, 3, 5),
-(12, 1, 8),
-(13, 1, 9),
-(14, 1, 10),
-(15, 1, 11);
+(28, 1, 1),
+(29, 2, 2),
+(33, 5, 7),
+(34, 5, 8),
+(35, 6, 9),
+(36, 1, 2),
+(37, 1, 3),
+(38, 1, 4),
+(39, 1, 5),
+(40, 1, 6),
+(41, 1, 7),
+(42, 1, 8),
+(43, 1, 9),
+(44, 1, 10),
+(45, 1, 11),
+(46, 1, 12),
+(47, 1, 13),
+(48, 2, 12),
+(49, 2, 0),
+(51, 2, 13),
+(52, 2, 8);
 
 -- --------------------------------------------------------
 
@@ -214,11 +293,13 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 (4, 'Buku Besar Pembantu'),
 (5, 'Buku Pembantu Pajak'),
 (6, 'Transaksi'),
-(7, 'Laporan Posisi Kas Harian'),
-(8, 'Laporan Buku Kas Umum'),
+(7, 'APBD'),
+(8, 'Saldo Bank'),
 (9, 'Laporan Rekonsiliasi Bank'),
 (10, 'Laporan Buku Pembantu Pajak'),
-(11, 'Laporan Buku Besar Pembantu');
+(11, 'Laporan Buku Besar Pembantu'),
+(12, 'Laporan Posisi Kas Harian'),
+(13, 'Laporan Buku Kas Umum');
 
 -- --------------------------------------------------------
 
@@ -268,15 +349,23 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `is_active`) VALUE
 (4, 4, 'Buku Besar Pembantu', 'bbp/bbp', 1),
 (5, 5, 'Buku Pembantu Pajak', 'bpp/bpp', 1),
 (6, 6, 'Transaksi', 'transaksi/transaksi', 1),
-(7, 7, 'Laporan Posisi Kas Harian', 'laporan/posisikasharian', 1),
-(8, 8, 'Laporan Buku Kas Umum', 'laporan/bukukasumum', 1),
+(7, 7, 'APBD', 'apbd/apbd', 1),
+(8, 8, 'Saldo Bank', 'saldobank/saldobank', 1),
 (9, 9, 'Laporan Rekonsiliasi Bank', 'laporan/rekonsiliasibank', 1),
 (10, 10, 'Laporan Buku Pembantu Pajak', 'laporan/bukupembantupajak', 1),
-(11, 11, 'Laporan Buku Besar Pembantu', 'laporan/bukubesarpembantu', 1);
+(11, 11, 'Laporan Buku Besar Pembantu', 'laporan/bukubesarpembantu', 1),
+(12, 12, 'Laporan Posisi Kas Harian', 'laporan/posisikasharian', 1),
+(13, 13, 'Laporan Buku Kas Umum', 'laporan/bukukasumum', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbl_apbd`
+--
+ALTER TABLE `tbl_apbd`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_bbp`
@@ -301,6 +390,18 @@ ALTER TABLE `tbl_buktipajak`
 --
 ALTER TABLE `tbl_rekening`
   ADD PRIMARY KEY (`kode_rekening`);
+
+--
+-- Indexes for table `tbl_saldobank`
+--
+ALTER TABLE `tbl_saldobank`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_selisihrekon`
+--
+ALTER TABLE `tbl_selisihrekon`
+  ADD PRIMARY KEY (`id_selisihrekon`);
 
 --
 -- Indexes for table `tbl_transaksi`
@@ -343,6 +444,12 @@ ALTER TABLE `user_sub_menu`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_apbd`
+--
+ALTER TABLE `tbl_apbd`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `tbl_bbp`
 --
 ALTER TABLE `tbl_bbp`
@@ -352,13 +459,25 @@ ALTER TABLE `tbl_bbp`
 -- AUTO_INCREMENT for table `tbl_bpp`
 --
 ALTER TABLE `tbl_bpp`
-  MODIFY `kode_bpp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `kode_bpp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tbl_saldobank`
+--
+ALTER TABLE `tbl_saldobank`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_selisihrekon`
+--
+ALTER TABLE `tbl_selisihrekon`
+  MODIFY `id_selisihrekon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
-  MODIFY `kode_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `kode_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -370,13 +489,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -388,7 +507,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
