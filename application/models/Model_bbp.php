@@ -25,9 +25,11 @@ class Model_bbp extends CI_Model {
 		$this->db->delete('tbl_bbp');
 	}
 
-	function GetBBP($kode_rekening) 
+	function GetBBP($kode_rekening,$tanggalmulai,$tanggalselesai) 
     {
 		$this->db->where('tbl_buktipajak.kode_rekening', $kode_rekening);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bbp')
           ->join('tbl_buktipajak','tbl_buktipajak.kode_buktipajak=tbl_bbp.kode_buktipajak')

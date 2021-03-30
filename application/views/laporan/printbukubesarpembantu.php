@@ -25,7 +25,7 @@ table{
 <td>
 <h2 class="jarak-lh"  align="center">PEMERINTAH KOTA PADANGSIDIMPUAN</h2>
 <h2 class="jarak-lh" align="center">BUKU BESAR PEMBANTU</h2>
-<h4 class="jarak-lh"  align="center">Periode : 1 Januari s.d 31 Desember 2021</h4>
+<h4 class="jarak-lh"  align="center">Periode :  <?php echo date("d/m/Y", strtotime($tanggalmulai)); echo " s.d "; echo date("d/m/Y", strtotime($tanggalselesai));?></b></p></h4>
 <td>
 </tr>
 <tr>
@@ -43,8 +43,8 @@ table{
 <table>
 <tr><p><td>Kode Rekening Buku Besar Pembantu</td>	<td>:</td> <td><?= $hasilatas['kode_rekening'];?></td></p></tr>
 <tr><p><td>Nama Rekening Buku Besar Pembantu</td>	    <td>:</td> <td><?= $hasilatas['nama_rekening'];?></td></p></tr>
-<tr><p><td>Pagu APBD</td>	    <td>:</td> <td><?= $pagu['pagu_apbd'];?></td></p></tr>
-<tr><p><td>Pagu Perubahan APBD</td>	    <td>:</td> <td><?= $pagu['pagu_perubahan_apbd'];?></td></p></tr>
+<tr><p><td>Pagu APBD</td>	    <td>:</td> <td><?= 'Rp'.number_format($pagu['pagu_apbd'],0,'.','.')?></td></p></tr>
+<tr><p><td>Pagu Perubahan APBD</td>	    <td>:</td> <td><?= 'Rp'.number_format($pagu['pagu_perubahan_apbd'],0,'.','.')?></td></p></tr>
 </table>
 <br><br>
 <table border="1" align="center" width="100%">
@@ -74,7 +74,7 @@ table{
                     ?>
                     <tr>
                         <td align="center"><?= $no;?></td>
-                        <td><?= $item->tanggal;?></td>
+                        <td><?= date("d/m/Y", strtotime($item->tanggal));?></td>
                         <td><?= $item->kode_buktipajak;?></td>
                         <td><?= $item->nama_buktipajak;?></td>
                         <td align="center"><?='Rp'.number_format($item->debet,0,'.','.'); ?></td>
@@ -100,22 +100,26 @@ table{
 <table align="center" style="width:100%">
 
 <tr>
-    <td>Disetujui oleh,</td>
-    <td>Disiapkan oleh,</td>
+    <td width="10%"></td>
+    <td width="30%">Disetujui oleh,</td>
+    <td width="30%">Disiapkan oleh,</td>
 </tr>
 <tr>
-    <td>Pengguna Anggaran</td>
-    <td>Bendahara Pengeluaran</td>
+<td width="10%"></td>
+    <td width="30%">Bendahara Umum Daerah</td>
+    <td width="30%">Kuasa Bendahara Umum Daerah</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
-    <td>Sulaiman Lubis, S.E.</td>
-    <td>Asir Aryadi, S.E.</td>
+<td width="10%"></td>
+    <td width="30%">Sulaiman Lubis, S.E.</td>
+    <td width="30%">Asir Aryadi, S.E.</td>
 </tr>
 
 <tr>
-    <td>NIP. 196905011993031004  </td>
-    <td>NIP. 197602072005021002 </td>
+<td width="10%"></td>
+    <td width="30%">NIP. 196905011993031004  </td>
+    <td width="30%">NIP. 197602072005021002</td>
 </tr>
 
 </table>

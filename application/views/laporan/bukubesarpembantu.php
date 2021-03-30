@@ -39,21 +39,21 @@ $this->load->view('include/header');
                          <?php endforeach; ?>
                        </select>
                   </div>
-                  <div class="form-group">
+                  </div>  
               <div class="form-row">
               
                            
               <div class="col-md-6">
-                    <label for="tahun">Pilih Tahun</label>
+                    <label for="tanggalmulai">Mulai Tanggal</label>
                     <br>
-                    <select class="form-control" name="tahun">
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>   
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-                <option value="2017">2017</option>
-                
-            </select></div>
+                    <input class="form-control" id="tanggalmulai" type="date" aria-describedby="nameHelp" name="tanggalmulai" required/>
+                 </div>
+
+                 <div class="col-md-6">
+                    <label for="tanggalselesai">Sampai Tanggal</label>
+                    <br>
+                    <input class="form-control" id="tanggalselesai" type="date" aria-describedby="nameHelp" name="tanggalselesai" required/>
+                 </div>
                   
                 </div>
               </div>

@@ -28,41 +28,16 @@ $this->load->view('include/header');
               
                            
               <div class="col-md-6">
-                    <label for="tanggal">Pilih Bulan</label>
+                    <label for="tanggalmulai">Mulai Tanggal</label>
                     <br>
-                    <select class="form-control" name="bulan">
-                <option value="01">Januari</option>
-                <option value="02">Febuari</option>   
-                <option value="03">Maret</option>
-                <option value="04">April</option>
-                <option value="05">Mei</option>
-                <option value="06">Juni</option> 
-                <option value="07">Juli</option>
-                <option value="08">Agustus</option>    
-                <option value="09">September</option>
-                <option value="10">Oktober</option>
-                <option value="11">November</option>
-                <option value="12">Desember</option>
-                
-            </select>
-                  </div>
-<br>
-                  <div class="form-group">
-              <div class="form-row">
-              
-                           
-              <div class="col-md-6">
-                    <label for="tahun">Pilih Tahun</label>
+                    <input class="form-control" id="tanggalmulai" type="date" aria-describedby="nameHelp" name="tanggalmulai" required/>
+                 </div>
+
+                 <div class="col-md-6">
+                    <label for="tanggalselesai">Sampai Tanggal</label>
                     <br>
-                    <select class="form-control" name="tahun">
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>   
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-                <option value="2017">2017</option>
-                
-            </select></div>
-                  </div>
+                    <input class="form-control" id="tanggalselesai" type="date" aria-describedby="nameHelp" name="tanggalselesai" required/>
+                 </div>
               
             
              <div class="form-group">

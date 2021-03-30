@@ -52,12 +52,14 @@ class Model_transaksi extends CI_Model {
         return $this->db->get()->row_array();	  
     }
 
-	function GetTransaksiBulanan($bulan, $tahun)
+	function GetTransaksiBulanan($tanggalmulai, $tanggalselesai)
     {
         $this->db->select('*');
         $this->db->order_by('kode_transaksi', 'ASC');
-		$this->db->where('DATE_FORMAT(tanggal,"%m")', $bulan);
-		$this->db->where('DATE_FORMAT(tanggal,"%Y")', $tahun);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
+		//$this->db->where('DATE_FORMAT(tanggal,"%m")', $bulan);
+		//$this->db->where('DATE_FORMAT(tanggal,"%Y")', $tahun);
         return $this->db->from('tbl_transaksi')
     		->get()
           	->result();
@@ -72,12 +74,57 @@ class Model_transaksi extends CI_Model {
 		return $this->db->get()->row_array();	
 	}
 
-	function GetBPP($tahun)
+	function GetBPP($tanggalmulai,$tanggalselesai)
     {
         $this->db->select('*');
-		$this->db->where('DATE_FORMAT(tanggal,"%Y") =', $tahun);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
 		return $this->db->from('tbl_bpp')
 			->get()
           	->result();
 	}
+
+	function GetUraianA($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_selisihrekon', 'ASC');
+		$this->db->where('kode_keterangan', 'A');
+		$this->db->where('tanggal_selisih', $tanggal);
+        return $this->db->from('tbl_selisihrekon')
+    		->get()
+          	->result();
+    }
+
+	function GetUraianB($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_selisihrekon', 'ASC');
+		$this->db->where('kode_keterangan', 'B');
+		$this->db->where('tanggal_selisih', $tanggal);
+        return $this->db->from('tbl_selisihrekon')
+    		->get()
+          	->result();
+    }
+
+	function GetUraianC($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_selisihrekon', 'ASC');
+		$this->db->where('kode_keterangan', 'C');
+		$this->db->where('tanggal_selisih', $tanggal);
+        return $this->db->from('tbl_selisihrekon')
+    		->get()
+          	->result();
+    }
+
+	function GetUraianD($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_selisihrekon', 'ASC');
+		$this->db->where('kode_keterangan', 'D');
+		$this->db->where('tanggal_selisih', $tanggal);
+        return $this->db->from('tbl_selisihrekon')
+    		->get()
+          	->result();
+    }
 }
