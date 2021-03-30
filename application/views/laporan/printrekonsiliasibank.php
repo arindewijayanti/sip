@@ -51,38 +51,110 @@ table{
 <tr><p><td><b> &nbsp &nbsp Keterangan Selisih</b></td>
 <tr><p><td><b>A. Penerimaan yang telah dicatat oleh buku,</b></td>
 <tr><p><td><b> &nbsp &nbsp belum dicatat oleh Bank</b></td>
-<tr><p><td> &nbsp &nbsp a. STS No... </td><td>Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp b. Bukti lain yang sah</td><td> Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp c. Dst </td><td> <u>Rp. ...............</u></td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><u> Rp. ...............</u></td></p></tr>
-<tr><p><td>  </td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td>Rp. ...............</td></p></tr>
+                    <?php
+                    $no = 1 ;
+                    $totala = 0;
+                    foreach ($uraiana as $item)
+                    {
+                        $totala += $item->nominal;
+                    ?>
+                    <tr><p>
+                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td colspan ="30"></td>
+                        <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>                  
+                    </p></tr>
+                    <?php
+                            $no++;
+                    }
+                    ?>
+                    <tr><p>
+                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                        <td colspan ="30"></td>
+                        <td><u><?='Rp'.number_format($totala,0,'.','.'); ?></u></td>
+                        <td colspan ="30"></td>
+                        <td align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo']-$totala,0,'.','.');?></b></td>               
+                    </p></tr>
+
 </table>
+
 <table>
 <tr><p><td><b>B. Pengeluaran yang telah dicatat oleh buku,</b></td>
 <tr><p><td><b> &nbsp &nbsp belum dicatat oleh Bank</b></td>
-<tr><p><td> &nbsp &nbsp a. SP2D No... </td><td>Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp b. Bukti lain yang sah</td><td> Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp c. Dst </td><td> <u>Rp. ...............</u></td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><u> Rp. ...............</u></td></p></tr>
-<tr><p><td>  </td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td>Rp. ...............</td></p></tr>
-</table>
+<?php
+                    $no = 1 ;
+                    $totalb = 0;
+                    foreach ($uraianb as $item)
+                    {
+                        $totalb += $item->nominal;
+                    ?>
+                    <tr><p>
+                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td colspan ="30"></td>
+                        <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>                  
+                    </p></tr>
+                    <?php
+                            $no++;
+                    }
+                    ?>
+                    <tr><p>
+                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                        <td colspan ="30"></td>
+                        <td><u><?='Rp'.number_format($totalb,0,'.','.'); ?></u></td>
+                        <td colspan ="30"></td>
+                        <td align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo']-$totala-$totalb,0,'.','.');?></b></td>               
+                    </p></tr></table>
 <table>
 <tr><p><td><b>C. Penerimaan yang telah dicatat oleh Bank,</b></td>
 <tr><p><td><b> &nbsp &nbsp belum dicatat oleh Buku</b></td>
-<tr><p><td> &nbsp &nbsp a. Nota Kredit No... </td><td>Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp b. Pendapatan Bunga</td><td> Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp c. Pendapatan Jasa Giro</td><td> Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp d. Bukti lain yang sah</td><td> Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp e. Dst </td><td> <u>Rp. ...............</u></td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><u> Rp. ...............</u></td></p></tr>
-<tr><p><td>  </td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td>Rp. ...............</td></p></tr>
-</table>
+<?php
+                    $no = 1 ;
+                    $totalc = 0;
+                    foreach ($uraianc as $item)
+                    {
+                        $totalc += $item->nominal;
+                    ?>
+                    <tr><p>
+                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td colspan ="30"></td>
+                        <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>                  
+                    </p></tr>
+                    <?php
+                            $no++;
+                    }
+                    ?>
+                    <tr><p>
+                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                        <td colspan ="30"></td>
+                        <td><u><?='Rp'.number_format($totalc,0,'.','.'); ?></u></td>
+                        <td colspan ="30"></td>
+                        <td align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo']-$totala-$totalb+$totalc,0,'.','.');?></b></td>               
+                    </p></tr></table>
 <table>
 <tr><p><td><b>D. Pengeluaran yang telah dicatat oleh Bank,</b></td>
 <tr><p><td><b> &nbsp &nbsp belum dicatat oleh Buku</b></td>
-<tr><p><td> &nbsp &nbsp a. Nota Debit No... </td><td>Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp b. Biaya Administrasi Bank</td><td> Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp c. Bukti lain yang sah</td><td> Rp. ...............</td></p></tr>
-<tr><p><td> &nbsp &nbsp d. Dst </td><td> <u>Rp. ...............</u></td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><u> Rp. ...............</u></td></p></tr>
-<tr><p><td>  </td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td>Rp. ...............</td></p></tr>
-</table>
+<?php
+                    $no = 1 ;
+                    $totald = 0;
+                    foreach ($uraiand as $item)
+                    {
+                        $totald+= $item->nominal;
+                    ?>
+                    <tr><p>
+                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td colspan ="30"></td>
+                        <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>                  
+                    </p></tr>
+                    <?php
+                            $no++;
+                    }
+                    ?>
+                    <tr><p>
+                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp </td>
+                        <td colspan ="30"></td>
+                        <td><u><?='Rp'.number_format($totald,0,'.','.'); ?></u></td>
+                        <td colspan ="30"></td>
+                        <td align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,0,'.','.');?></b></td>               
+                    </p></tr></table>
 
                   
             

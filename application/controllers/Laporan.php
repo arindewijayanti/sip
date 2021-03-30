@@ -101,6 +101,11 @@ class Laporan extends CI_Controller {
 		$data['tanggal'] = $tanggal;
 		$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
 		$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
+
+		$data['uraiana'] = $this->model_transaksi->GetUraianA($tanggal);
+		$data['uraianb'] = $this->model_transaksi->GetUraianB($tanggal);
+		$data['uraianc'] = $this->model_transaksi->GetUraianC($tanggal);
+		$data['uraiand'] = $this->model_transaksi->GetUraianD($tanggal);
         $this->load->view('laporan/printrekonsiliasibank',$data);
 	}
 	////////////////////////////

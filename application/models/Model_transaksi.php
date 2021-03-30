@@ -80,4 +80,48 @@ class Model_transaksi extends CI_Model {
 			->get()
           	->result();
 	}
+
+	function GetUraianA($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_selisihrekon', 'ASC');
+		$this->db->where('kode_keterangan', 'A');
+		$this->db->where('tanggal_selisih', $tanggal);
+        return $this->db->from('tbl_selisihrekon')
+    		->get()
+          	->result();
+    }
+
+	function GetUraianB($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_selisihrekon', 'ASC');
+		$this->db->where('kode_keterangan', 'B');
+		$this->db->where('tanggal_selisih', $tanggal);
+        return $this->db->from('tbl_selisihrekon')
+    		->get()
+          	->result();
+    }
+
+	function GetUraianC($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_selisihrekon', 'ASC');
+		$this->db->where('kode_keterangan', 'C');
+		$this->db->where('tanggal_selisih', $tanggal);
+        return $this->db->from('tbl_selisihrekon')
+    		->get()
+          	->result();
+    }
+
+	function GetUraianD($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_selisihrekon', 'ASC');
+		$this->db->where('kode_keterangan', 'D');
+		$this->db->where('tanggal_selisih', $tanggal);
+        return $this->db->from('tbl_selisihrekon')
+    		->get()
+          	->result();
+    }
 }
