@@ -120,22 +120,27 @@ public function printbukubesarpembantu()
 	$data['tanggalselesai'] = $this->input->post('tanggalselesai');
 	$this->load->view('laporan/printbukubesarpembantu',$data);
 }
+///////////////////////////
 public function bapemeriksaankas()
 {
 	$this->load->view('laporan/bapemeriksaankas');
 }
 public function printbapemeriksaankas()
 {
-        
-	$data['pengadaan']= $this->model_suratpengadaan->pengadaan($id_pengadaan);
+	$data['tanggal'] = $this->input->post('tanggal');
+	$this->load->view('laporan/printbapemeriksaankas',$data);
+	
+}
 
-	$detailpengadaan = $this->model_suratpengadaan->detailpengadaan();
-	if ($detailpengadaan)
-	{
-		$data['detailpengadaan'] = $this->model_suratpengadaan->detailpengadaansurat($id_pengadaan);
-	}
-
-	$this->load->view('suratpengadaan/surat1',$data);
+///////////////////////////
+public function register()
+{
+	$this->load->view('laporan/register');
+}
+public function printregister()
+{
+	$data['tanggal'] = $this->input->post('tanggal');
+	$this->load->view('laporan/printregister',$data);
 	
 }
 

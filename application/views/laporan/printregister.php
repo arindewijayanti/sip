@@ -131,35 +131,38 @@ $tahun = $tahun_indonesia[$tahun];
 </head>
 
 <body>
-<p class="jarak-lh" align="center"><b>BERITA ACARA PEMERIKSAAN KAS</b></p>
+<p class="jarak-lh" align="center"><b>REGISTER PENUTUPAN KAS</b></p>
 <br>
- <p>Pada hari ini <?php echo $hari;?> tanggal <?php echo $tanggalhuruf;?> bulan <?php echo $bulanhuruf;?> tahun <?php echo $tahun;?> yang bertandatangan di bawah ini : </p>
-
+ 
 <table>
-<tr><td>Nama</td>	 <td>:</td> <td>Sulaiman Lubis, SE</td></tr>
-<tr><td>NIP</td>     <td>:</td>	<td>19690501 199303 1 004</td></tr>
-<tr><td>Pangkat/Jabatan/Gol</td>     <td>:</td>	<td>Pembina Utama Muda / IV/ c</td></tr>
-<tr><td></td>     <td></td>	<td>Pejabat Pengelola Keuangan Daerah Selaku Bendahara Umum Daerah Kota Padangsidimpuan.</td></tr>
+<tr><td>Tanggal Penutupan Kas ......</td>	 <td>:</td> <td> 20 Maret 2021 </td></tr>
+<tr><td>Nama Penutup Kas/Kuasa BUS</td>     <td>:</td>	<td>Asir Aryadi, SE</td></tr>
+<tr><td>Tanggal Penutupan Kas yang lalu ......</td>     <td>:</td>	<td>19 Maret 2021</td></tr>
+<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td>Rp ....</td></tr>
+<tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td>Rp ....</td></tr>
+<br>
+<tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td>Rp ....</td></tr>
+<tr><td>Saldo Kas ......</td>     <td>:</td>	<td>Rp ....</td></tr>
 </table>
-<p>Sesuai dengan Surat Keputusan Walikota Padangsidimpuan Nomor : 2/KPTS/2021 tanggal 04 Januari 2021 dan setelah memperlihatkan surat bukti, dilakukan pemeriksaan pengawasan melekat pada :</p>
-<table>
-<tr><td>Nama</td>	 <td>:</td> <td>Asir Aryadi, SE</td></tr>
-<tr><td>NIP</td>     <td>:</td>	<td>19760207 200502 1 002</td></tr>
-<tr><td>Pangkat/Jabatan/Gol</td>     <td>:</td>	<td>Penata Tingkat I / III d</td></tr>
-<tr><td></td>     <td></td>	<td>Kuasa Bendahara Umum Daerah Kota Padangsidimpuan.</td></tr>
+<table style="width:100%">
+<br>
+<tr><p>Kertas berharga dan bagian Kas yang diizinkan Ordonansi :</p></tr>
+<tr><td>a. </td><td>SP2D ......</td>	 <td>Rp ....</td></tr>
+<tr><td>b. </td><td>Wessel</td>    	<td>Rp ....</td></tr>
+<tr><td>c. </td><td>Saldo bank Sumut AC 2511 ......</td>   	<td>Rp ....</td></tr>
+<tr><td>d. </td><td>M e t e r a i ......</td>     	<td>Rp ....</td></tr>
+<tr><td>e. </td><td>Dan Lain-lain ......</td>     	<td>Rp ....</td></tr>
+<tr><td></td><td>&nbsp J u m l a h ......</td>      <td>Rp ....</td></tr>
+<tr><td></td><td>&nbsp Selisih ......</td>      <td>Rp ....</td></tr>
 </table>
-<p>Yang ditunjuk dengan Surat Keputusan Walikota Nomor : 91/KPTS/2021 tanggal 24 Februari 2021 ditugaskan sebagai Kuasa Bendahara Umum Daerah Pemerintah Kota Padangsidimpuan Tahun Anggaran 2021 berdasakan hasil pemeriksaan atas penutupan kas pada Buku Kas Umum Kuasa Bendahara Daerah dijumpai kenyataan sebagai berikut :</p>
 
-<p>Jumlah uang yang kami hitung dihadapan Pejabat tersebut adalah :</p>
 <table width="100%">
-<tr><td width="5%">a. </td>	 <td width="65%">SP2D dan alat pembayaran lainnya</td> <td width="25%">= .......</td></tr>
-<tr><td width="5%">b. </td>     <td width="65%">Saldo Bank Sumut AC 2511</td>	<td width="25%">= ........</td></tr>
-<tr><td width="5%">c. </td>     <td width="65%">Surat/Barang berharga lainnya</td>	<td width="25%"><u>= ........</u></td></tr>
-<tr><td width="5%"></td>     <td width="65%">Jumlah</td>	<td width="25%">= .....</td></tr>
-<tr><td width="5%"></td>     <td width="65%">Saldo Uang menurut Buku Kas, Register Buku Kas</td>	<td width="25%"><u>= .....</u></td></tr>
-<tr><td width="5%"></td>     <td width="65%">Selisih antara Saldo Kas dan Saldo Buku</td>	<td width="25%">= .....</td></tr>
+<tr><p><u>Penjelasan Perbedaan :</u></p></tr>
+<tr><p>Potongan PFK s/d Hari ini :</p></tr>
+<tr><p><td width="10%"></td><td width="40%">- Potongan Gaji</td> <td>Rp.</td></p><tr>
+<tr><p><td width="10%"></td><td width="40%"> - Potongan PPN & PPh</td> <u><td>Rp.</td></u></p></tr>
+<tr><p><td width="10%"></td><td width="40%"> - Jumlah</td><u><td>Rp.</td></u></p></tr>
 </table>
-
 
 <footer>
 <br><br><br>
@@ -168,7 +171,7 @@ $tahun = $tahun_indonesia[$tahun];
 <tr>
     <td width="10%"></td>
     <td width="30%">DISETUJUI</td>
-    <td width="30%">Padangsidimpuan, tanggal tersebut diatas</td>
+    <td width="30%">Padangsidimpuan, 21 Maret 2021</td>
 </tr>
 <tr>
 <td width="10%"></td>
