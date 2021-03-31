@@ -33,9 +33,17 @@ $this->load->view('include/header');
 
                   </div>
                   <div class="col-md-6">
-                    <label for="kode_keterangan">Kode Keterangan</label>
-                    <input class="form-control" id="usekode_keteranganrname" type="text" aria-describedby="nameHelp" name="kode_keterangan" required/>
-                  </div>
+                    <label for="kode_keterangan">Nomor Bukti</label>
+                    <select class="form-control form-control-sm" id="kode_keterangan" name="kode_keterangan" required />
+                    <option>Silahkan Pilih Keterangan</option>
+                        <?php $kode_keterangan = $this->db->query("SELECT * FROM tbl_keteranganselisih");
+                
+                        foreach ($kode_keterangan->result() as $kode_keterangan) : ?>
+                        
+                        <option value="<?= $kode_keterangan->kode_keterangan?>"><?= $kode_keterangan->uraian?></option>
+                         <?php endforeach; ?>
+                       </select> </div>
+                </div>
                   <div class="col-md-6">
                     <label for="uraian">Uraian</label>
                     <input class="form-control" id="uraian" type="text" aria-describedby="nameHelp" name="uraian" required/>
@@ -46,7 +54,7 @@ $this->load->view('include/header');
                   </div>
                 </div>
               </div>
-              
+              </div>
             
              <div class="form-group">
             <div class="form-row">
