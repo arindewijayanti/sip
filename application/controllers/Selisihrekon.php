@@ -42,7 +42,7 @@ class Selisihrekon extends CI_Controller {
 					redirect('selisihrekon','refresh');
 	}
 
-	function updatedataselisihrekon($nominal = NULL)
+	function updatedataselisihrekon($id_selisihrekon = NULL)
     {
             $this->db->where('id_selisihrekon', $id_selisihrekon);
             $data['content'] = $this->db->get('tbl_selisihrekon');

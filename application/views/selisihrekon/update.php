@@ -29,7 +29,7 @@ $this->load->view('include/header');
 
                   <div class="col-md-6">
                     <label for="tanggal_selisih">Tanggal Selisih</label>
-                    <input value="<?= $data->tanggal_selisih?>"class="form-control" id="tanggal_selisih" type="text" aria-describedby="nameHelp" name="tanggal_selisih" required/>
+                    <input value="<?php echo date("d/m/Y", strtotime($data->tanggal_selisih));?>"class="form-control" id="tanggal_selisih" type="text" aria-describedby="nameHelp" name="tanggal_selisih" required/>
                   </div>
                   <div class="col-md-6">
                     <label for="kode_keterangan">Kode Keterangan</label>
