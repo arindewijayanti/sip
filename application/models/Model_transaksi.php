@@ -36,6 +36,15 @@ class Model_transaksi extends CI_Model {
           	->result();
     }
 
+	function GetTransaksiHarianRegister($tanggal)
+    {
+        $this->db->select('SUM(penerimaan) as totalpenerimaanharian,SUM(pengeluaran) as totalpengeluaranharian');
+        $this->db->order_by('kode_transaksi', 'ASC');
+		$this->db->where('tanggal', $tanggal);
+        $this->db->from('tbl_transaksi');
+    	return $this->db->get()->row_array();
+    }
+
 	function GetTransaksiHmin1($tanggal)
     {
         $this->db->select('SUM(penerimaan) as totalpenerimaan,SUM(pengeluaran) as totalpengeluaran');
