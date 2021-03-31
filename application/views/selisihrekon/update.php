@@ -29,12 +29,19 @@ $this->load->view('include/header');
 
                   <div class="col-md-6">
                     <label for="tanggal_selisih">Tanggal Selisih</label>
-                    <input value="<?php echo date("d/m/Y", strtotime($data->tanggal_selisih));?>"class="form-control" id="tanggal_selisih" type="text" aria-describedby="nameHelp" name="tanggal_selisih" required/>
+                    <input value="<?= $data->tanggal_selisih;?>"class="form-control" id="tanggal_selisih" type="date" aria-describedby="nameHelp" name="tanggal_selisih" required/>
                   </div>
                   <div class="col-md-6">
-                    <label for="kode_keterangan">Kode Keterangan</label>
-                    <input value="<?= $data->kode_keterangan?>"class="form-control" id="kode_keterangan" type="text" aria-describedby="nameHelp" name="kode_keterangan" required/>
-                  </div>
+                    <label for="kode_keterangan">Nomor Bukti</label>
+                    <select class="form-control form-control-sm" id="kode_keterangan" name="kode_keterangan" required />
+                    <option value="<?= $data->kode_keterangan?>"><?= $data->kode_keterangan?></option>
+                        <?php $kode_keterangan = $this->db->query("SELECT * FROM tbl_keteranganselisih");
+                
+                        foreach ($kode_keterangan->result() as $kode_keterangan) : ?>
+                        
+                        <option value="<?= $kode_keterangan->kode_keterangan?>"><?= $kode_keterangan->uraian_keteranganselisih?></option>
+                         <?php endforeach; ?>
+                       </select> </div>
                   <div class="col-md-6">
                     <label for="uraian">Uraian</label>
                     <input value="<?= $data->uraian?>"class="form-control" id="uraian" type="text" aria-describedby="nameHelp" name="uraian" required/>
