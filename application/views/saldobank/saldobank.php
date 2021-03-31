@@ -38,7 +38,7 @@ $this->load->view('include/header');
                   $i = 1;
                   foreach ($content->result() as $data) : ?>
                   <td><?= $i ?></td>
-                  <td><?= $data->tanggal?></td>
+                  <td><?php echo date("d/m/Y", strtotime($data->tanggal));?></td>
                   <td><?= $data->saldo?></td>
                   <td> 
                     <a href="<?php echo base_url()?>saldobank/updatedatasaldobank/<?php echo $data->id; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
