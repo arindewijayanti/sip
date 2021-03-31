@@ -42,7 +42,7 @@ $this->load->view('include/header');
                   {
                   ?>
                   <td><?= $i ?></td>
-                  <td><?=  $data->tanggal_selisih ?></td>
+                  <td> <?php echo date("d/m/Y", strtotime($data->tanggal_selisih));?></td>
                   <td><?= $data->kode_keterangan?></td>                  
                   <td><?= $data->uraian ?></td>
                   <td><?=$data->nominal?></td>

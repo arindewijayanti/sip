@@ -45,7 +45,7 @@ $this->load->view('include/header');
                     $saldo += $data->kredit;
                   ?>
                   <td><?= $i ?></td>
-                  <td><?= $data->tanggal ?></td>
+                  <td><?php echo date("d/m/Y", strtotime($data->tanggal));?></td>
                   <td><?= $data->kode_buktipajak ?></td>
                   <td><?= 'Rp'.number_format($data->debet,0,'.','.')?></td>
                   <td><?= 'Rp'.number_format($data->kredit,0,'.','.')?></td>
