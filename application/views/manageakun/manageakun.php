@@ -29,9 +29,8 @@ $this->load->view('include/header');
                   <th>No</th>
                   <th>Nama</th>
                   <th>Username</th>                  
-                  <th>Paswword</th>
+                  <th>Password</th>
                   <th>Role id</th>
-                  <th>Is active</th>
                   <th>Opsi</th>
                 </tr>
               </thead>
@@ -47,7 +46,6 @@ $this->load->view('include/header');
                   <td><?= $data->username?></td>                  
                   <td><?= $data->password ?></td>
                   <td><?=$data->role_id?></td>
-                  <td><?= $data->is_active?></td>
                   <td> 
                     <a href="<?php echo base_url()?>manageakun/updatedatamanageakun/<?php echo $data->id; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
                     <a href="<?php echo base_url()?>manageakun/action_deletedatamanageakun/<?php echo $data->id; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
