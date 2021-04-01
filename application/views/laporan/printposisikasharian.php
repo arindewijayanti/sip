@@ -100,7 +100,8 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                         $totalpengeluaranbbp += $item->debet;
                     ?>
                     <tr>
-                        <td colspan="4" align="right"><?= $item->nama_buktipajak;?></td>
+                         <td></td><td></td><td></td>
+                        <td><?= $item->nama_buktipajak;?></td>
                         <td align="center"><?='Rp'.number_format($item->kredit,0,'.','.'); ?></td>
                         <td align="center"><?='Rp'.number_format($item->debet,0,'.','.'); ?></td>                     
                     </tr>
@@ -117,7 +118,8 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                         $totalpengeluaranbpp += $item->pengeluaran;
                     ?>
                     <tr>
-                        <td colspan="4" align="right"><?= $item->uraian;?></td>
+                        <td></td><td></td><td></td>
+                        <td><?= $item->uraian;?></td>
                         <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
                         <td align="center"><?='Rp'.number_format($item->pengeluaran,0,'.','.'); ?></td>                     
                     </tr>
