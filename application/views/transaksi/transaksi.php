@@ -47,7 +47,7 @@ $this->load->view('include/header');
                     $saldo += $data->penerimaan-$data->pengeluaran;
                   ?>
                   <td><?= $i ?></td>
-                  <td><?= $data->tanggal ?></td>
+                  <td><?php echo date("d/m/Y", strtotime($data->tanggal));?></td>   
                   <td><?= $data->jenis_bukti?></td>     
                   <td><?= $data->no_bukti?></td>                  
                   <td><?= $data->uraian ?></td>

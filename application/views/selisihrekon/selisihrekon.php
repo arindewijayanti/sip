@@ -45,7 +45,7 @@ $this->load->view('include/header');
                   <td> <?php echo date("d/m/Y", strtotime($data->tanggal_selisih));?></td>
                   <td><?= $data->uraian_keteranganselisih?></td>                  
                   <td><?= $data->uraian?></td>
-                  <td><?=$data->nominal?></td>
+                  <td><?='Rp.'.number_format($data->nominal,0,'.','.');?></td> 
                   <td> 
                     <a href="<?php echo base_url()?>selisihrekon/updatedataselisihrekon/<?php echo $data->id_selisihrekon; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
                     <a href="<?php echo base_url()?>selisihrekon/action_deletedataselisihrekon/<?php echo $data->id_selisihrekon; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
