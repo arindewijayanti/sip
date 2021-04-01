@@ -9,6 +9,7 @@ class Laporan extends CI_Controller {
         $this->load->model('model_transaksi'); 
 		$this->load->model('model_bbp'); 
 		$this->load->model('model_bpp'); 
+		$this->load->model('model_sk'); 
 
     }
 
@@ -162,6 +163,12 @@ public function printbapemeriksaankas()
 	$data['hasilBPP'] = $this->model_bpp->GetTransaksiHarianBPP($tanggal);
 
 	$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
+
+
+
+	$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
+	$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
+
 	$this->load->view('laporan/printbapemeriksaankas',$data);
 	
 }
@@ -174,7 +181,9 @@ public function register()
 public function printregister()
 {
 	$tanggal =$this->input->post('tanggal');
+	$tanggallalu =$this->input->post('tanggallalu');
 	$data['tanggal'] = $tanggal;
+	$data['tanggallalu'] = $tanggallalu;
 	$data['harianregister'] = $this->model_transaksi->GetTransaksiHarianRegister($tanggal);
 	$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
 	$data['hbpp'] = $this->model_bpp->GetTransaksiH($tanggal);

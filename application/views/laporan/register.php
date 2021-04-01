@@ -8,7 +8,7 @@ $this->load->view('include/header');
       <div class="container">
       <ol class="breadcrumb" >
         <li class="breadcrumb-item">
-          <a href="<?php echo config_item('base_url'); ?>">Halaman Utama</a>
+          <a href="<?php echo base_url('user/index')?>">Halaman Utama</a>
         </li>
   
         <li class="breadcrumb-item active"> Register Penutupan Kas</li>
@@ -31,7 +31,13 @@ $this->load->view('include/header');
                     <input class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
                   </div>
                 </div>
-              </div>              
+              </div>       
+              <div class="col-md-6">
+                    <label for="tanggallalu">Tanggal Penutupan Kas yang Lalu</label>
+                    <input class="form-control" id="tanggallalu" type="date" aria-describedby="nameHelp" name="tanggallalu" required/>
+                  </div>
+                </div>
+              </div>                
             
              <div class="form-group">
             <div class="form-row">

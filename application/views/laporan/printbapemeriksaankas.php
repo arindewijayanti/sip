@@ -1,6 +1,14 @@
 <html>
 <head>
 <style>
+@media print 
+{
+   @page 
+
+   {
+    size: 8.27in 12.99in;
+  }
+}
 .jarak-lh{
   line-height:10px;
 }
@@ -12,6 +20,7 @@ h1{
 }
 table{
     font-size: 12pt;
+    border-collapse: collapse;
 }
 .hurufkapital{
     text-transform: uppercase;
@@ -136,16 +145,16 @@ $tahun = $tahun_indonesia[$tahun];
  <p>Pada hari ini <?php echo $hari;?> tanggal <?php echo $tanggalhuruf;?> bulan <?php echo $bulanhuruf;?> tahun <?php echo $tahun;?> yang bertandatangan di bawah ini : </p>
 
 <table>
-<tr><td>Nama</td>	 <td>:</td> <td>Sulaiman Lubis, SE</td></tr>
-<tr><td>NIP</td>     <td>:</td>	<td>19690501 199303 1 004</td></tr>
-<tr><td>Pangkat/Jabatan/Gol</td>     <td>:</td>	<td>Pembina Utama Muda / IV/ c</td></tr>
+<tr><td>Nama</td>	 <td>:</td> <td><?= $hasilSK1->nama ?></td></tr>
+<tr><td>NIP</td>     <td>:</td>	<td><?= $hasilSK1->nip ?></td></tr>
+<tr><td>Pangkat/Jabatan/Gol</td>     <td>:</td>	<td><?= $hasilSK1->jabatan ?></td></tr>
 <tr><td></td>     <td></td>	<td>Pejabat Pengelola Keuangan Daerah Selaku Bendahara Umum Daerah Kota Padangsidimpuan.</td></tr>
 </table>
 <p>Sesuai dengan Surat Keputusan Walikota Padangsidimpuan Nomor : 2/KPTS/2021 tanggal 04 Januari 2021 dan setelah memperlihatkan surat bukti, dilakukan pemeriksaan pengawasan melekat pada :</p>
 <table>
-<tr><td>Nama</td>	 <td>:</td> <td>Asir Aryadi, SE</td></tr>
-<tr><td>NIP</td>     <td>:</td>	<td>19760207 200502 1 002</td></tr>
-<tr><td>Pangkat/Jabatan/Gol</td>     <td>:</td>	<td>Penata Tingkat I / III d</td></tr>
+<tr><td>Nama</td>	 <td>:</td> <td><?= $hasilSK2->nama ?></td></tr>
+<tr><td>NIP</td>     <td>:</td>	<td><?= $hasilSK2->nip ?></td></tr>
+<tr><td>Pangkat/Jabatan/Gol</td>     <td>:</td>	<td><?= $hasilSK2->jabatan  ?></td></tr>
 <tr><td></td>     <td></td>	<td>Kuasa Bendahara Umum Daerah Kota Padangsidimpuan.</td></tr>
 </table>
 <p>Yang ditunjuk dengan Surat Keputusan Walikota Nomor : 91/KPTS/2021 tanggal 24 Februari 2021 ditugaskan sebagai Kuasa Bendahara Umum Daerah Pemerintah Kota Padangsidimpuan Tahun Anggaran 2021 berdasakan hasil pemeriksaan atas penutupan kas pada Buku Kas Umum Kuasa Bendahara Daerah dijumpai kenyataan sebagai berikut :</p>

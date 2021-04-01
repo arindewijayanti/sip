@@ -1,6 +1,14 @@
 <html>
 <head>
 <style>
+@media print 
+{
+   @page 
+
+   {
+    size: 8.27in 12.99in;
+  }
+}
 .jarak-lh{
   line-height:10px;
 }
@@ -12,6 +20,7 @@ h1{
 }
 table{
     font-size: 12pt;
+    border-collapse: collapse;
 }
 .hurufkapital{
     text-transform: uppercase;
