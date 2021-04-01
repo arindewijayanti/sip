@@ -8,6 +8,7 @@ class Laporan extends CI_Controller {
         parent::__construct();
         $this->load->model('model_transaksi'); 
 		$this->load->model('model_bbp'); 
+		$this->load->model('model_bpp'); 
 
     }
 
@@ -40,8 +41,17 @@ class Laporan extends CI_Controller {
 		//print_r($hari); exit(); 
 		$data['tanggal'] = $tgl;
 		$data['hasil'] = $this->model_transaksi->GetTransaksiHarian($tanggal);
-		$data['hmin1'] = $this->model_transaksi->GetTransaksiHmin1($tanggal);
+		
 		$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
+		$data['hbpp'] = $this->model_bpp->GetTransaksiH($tanggal);
+		$data['hbbp'] = $this->model_bbp->GetTransaksiH($tanggal);
+
+		$data['hmin1'] = $this->model_transaksi->GetTransaksiHmin1($tanggal);
+		$data['hmin1bpp'] = $this->model_bpp->GetTransaksiH($tanggal);
+		$data['hmin1bbp'] = $this->model_bbp->GetTransaksiH($tanggal);
+		
+		$data['hasilBBP'] = $this->model_bbp->GetTransaksiHarianBBP($tanggal);
+		$data['hasilBPP'] = $this->model_bpp->GetTransaksiHarianBPP($tanggal);
         $this->load->view('laporan/printposisikasharian',$data);
 	}
 
@@ -89,6 +99,7 @@ class Laporan extends CI_Controller {
 		$tanggal = $this->input->post('tanggal');
 		$data['tanggal'] = $tanggal;
 		$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
+		
 		$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
 
 		$data['uraiana'] = $this->model_transaksi->GetUraianA($tanggal);
