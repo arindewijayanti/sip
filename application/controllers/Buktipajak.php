@@ -28,11 +28,18 @@ class Buktipajak extends CI_Controller {
 	
 	function action_menambahdatabuktipajak()
     {       
-                    	$data = array(
+                    $data = array(
                             'kode_buktipajak'=>$this->input->post('kode_buktipajak'),
                             'nama_buktipajak'=>$this->input->post('nama_buktipajak'),
 							'kode_rekening'=>$this->input->post('kode_rekening')
 					);
+					if($data['kode_buktipajak']==NULL){
+						$data['kode_buktipajak']=$data['nama_buktipajak'];
+					}elseif($data['kode_buktipajak']=='-'){
+						$data['kode_buktipajak']=$data['nama_buktipajak'];
+					}else{
+						$data['kode_buktipajak']=$data['kode_buktipajak'];
+					}
 					$this->model_buktipajak->menambahdatabuktipajak($data);
 					redirect('buktipajak','refresh');
 	}

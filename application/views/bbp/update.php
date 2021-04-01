@@ -7,7 +7,7 @@ $this->load->view('include/header');
       <div class="container">
       <ol class="breadcrumb" >
         <li class="breadcrumb-item">
-          <a href="<?php echo config_item('base_url'); ?>">Halaman Utama</a>
+          <a href="<?php echo base_url('bbp/bbp')?>">Buku Besar Pembantu</a>
         </li>
   
         <li class="breadcrumb-item active">Update Data Buku Besar Pembantu</li>

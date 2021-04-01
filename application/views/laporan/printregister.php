@@ -62,24 +62,7 @@ $tanggalsuratsebelumnya = date("d", strtotime($tanggalsebelumnya));
 $tahunsuratsebelumnya = date("Y", strtotime($tanggalsebelumnya)); 
 $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 ?>
-<table align="center" width="100%">
-<tr>
-<td>
-<img src="<?php echo base_url('assets2/logopadsim.jpg')?>" width="100px">
-<td>
-<td>
-<h3 class="jarak-lh" align="center">PEMERINTAH KOTA PADANGSIDIMPUAN</h3>
-<h1 class="jarak-lh" align="center">BADAN KEUANGAN DAERAH</h1>
-<p class="jarak-lh" align="center">Jln. Jen. Dr. Abd.Haris Nasution Pal - IV Pijorkoling Telp (0634)27075 Fax. (0634) 27075</p>
-<p class="jarak-lh" align="center">Kec. Padangsidimpuan Tenggara</p>
-<td>
-</tr>
-<tr>
-<td colspan=3>
-<hr  color="black" size="2px"/>
-</td>
-</tr>
-</table>
+
 </head>
 
 <body>
@@ -90,8 +73,8 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr><td>Tanggal Penutupan Kas ......</td>	 <td>:</td> <td> <?php echo $tanggalhuruf;?> <?php echo $bulannama;?> <?php echo $tahun;?></td></tr>
 <tr><td>Nama Penutup Kas/Kuasa BUS</td>     <td>:</td>	<td>Asir Aryadi, SE</td></tr>
 <tr><td>Tanggal Penutupan Kas yang lalu ......</td>     <td>:</td>	<td><?php echo $tanggalhurufsebelumnya;?> <?php echo $bulannamasebelumnya;?> <?php echo $tahunsebelumnya?></td></tr>
-<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp'.number_format($harianregister['totalpenerimaanharian'],0,'.','.'); ?></td></tr>
-<tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp'.number_format($harianregister['totalpengeluaranharian'],0,'.','.'); ?></td></tr>
+<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpenerimaan'],0,'.','.'); ?></td></tr>
+<tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpengeluaran'],0,'.','.'); ?></td></tr>
 <br>
 <tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran'],0,'.','.'); ?></td></tr>
 <tr><td>Saldo Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></td></tr>

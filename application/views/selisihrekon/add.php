@@ -8,7 +8,7 @@ $this->load->view('include/header');
       <div class="container">
       <ol class="breadcrumb" >
         <li class="breadcrumb-item">
-          <a href="<?php echo config_item('base_url'); ?>">Halaman Utama</a>
+          <a href="<?php echo base_url('selisihrekon/selisihrekon')?>">Selisih</a>
         </li>
   
         <li class="breadcrumb-item active">Tambah Data Selisih</li>
@@ -40,7 +40,7 @@ $this->load->view('include/header');
                 
                         foreach ($kode_keterangan->result() as $kode_keterangan) : ?>
                         
-                        <option value="<?= $kode_keterangan->kode_keterangan?>"><?= $kode_keterangan->uraian?></option>
+                        <option value="<?= $kode_keterangan->kode_keterangan?>"><?= $kode_keterangan->uraian_keteranganselisih?></option>
                          <?php endforeach; ?>
                        </select> </div>
                 </div>

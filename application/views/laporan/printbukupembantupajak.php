@@ -69,11 +69,7 @@ echo date("d/m/Y", strtotime($tanggalmulai)); echo " s.d "; echo date("d/m/Y", s
                     ?>
                     <tr>
                         <td align="center"><?= $no;?></td>
-<<<<<<< HEAD
-                        <td><? echo $item['tanggal'];?></td>  
-=======
                         <td><?= date("d/m/Y", strtotime($item->tanggal));?></td>
->>>>>>> d73cd4d22209c548073b35f96865f5f0218fbf0a
                         <td><?= $item->kode_buktipajak;?></td>
                         <td><?= $item->uraian;?></td>
                         <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>

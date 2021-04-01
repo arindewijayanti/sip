@@ -5,7 +5,7 @@ $this->load->view('include/header');
       <div class="container">
       <ol class="breadcrumb" >
         <li class="breadcrumb-item">
-          <a href="<?php echo config_item('base_url'); ?>">Halaman Utama</a>
+          <a href="<?php echo base_url('selisihrekon/selisihrekon')?>">Selisih</a>
         </li>
   
         <li class="breadcrumb-item active">Update Data Selisih</li>
@@ -29,11 +29,7 @@ $this->load->view('include/header');
 
                   <div class="col-md-6">
                     <label for="tanggal_selisih">Tanggal Selisih</label>
-<<<<<<< HEAD
-                    <input value="<?= $data->tanggal_selisih?> "class="form-control" id="tanggal_selisih" type="date" aria-describedby="nameHelp" name="tanggal_selisih" required/>
-=======
                     <input value="<?= $data->tanggal_selisih;?>"class="form-control" id="tanggal_selisih" type="date" aria-describedby="nameHelp" name="tanggal_selisih" required/>
->>>>>>> 8d0b0aa609fff7ffbd0021d4856d112dab698d00
                   </div>
                   <div class="col-md-6">
                     <label for="kode_keterangan">Nomor Bukti</label>

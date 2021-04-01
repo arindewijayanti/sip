@@ -8,7 +8,7 @@ $this->load->view('include/header');
       <div class="container">
       <ol class="breadcrumb" >
         <li class="breadcrumb-item">
-          <a href="<?php echo config_item('base_url'); ?>">Halaman Utama</a>
+          <a href="<?php echo base_url('buktipajak/buktipajak')?>">Bukti Pajak</a>
         </li>
   
         <li class="breadcrumb-item active">Tambah Data Bukti Pajak</li>
@@ -29,7 +29,7 @@ $this->load->view('include/header');
                            
                   <div class="col-md-6">
                     <label for="kode_buktipajak">Kode Bukti Pajak</label>
-                    <input class="form-control" id="kode_buktipajak" type="text" aria-describedby="nameHelp" name="kode_buktipajak" required/>
+                    <input value="-" class="form-control" id="kode_buktipajak" type="text" aria-describedby="nameHelp" name="kode_buktipajak"/>
 
                   </div>
                   <div class="col-md-6">
@@ -46,7 +46,6 @@ $this->load->view('include/header');
                   <div class="col-md-6">
                     <label for="kode_rekening">Nama Rekening</label>
                     <select class="form-control form-control-sm" id="kode_rekening" name="kode_rekening" required />
-                    <option>Silahkan Pilih Nama Rekening</option>
                         <?php $kode_rekening = $this->db->query("SELECT * FROM tbl_rekening");
                 
                         foreach ($kode_rekening->result() as $kode_rekening) : ?>
