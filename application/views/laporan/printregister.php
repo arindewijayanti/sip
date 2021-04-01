@@ -108,12 +108,32 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr><td width="5%"></td><td width="40%">&nbsp Selisih ......</td>      <td><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo'],0,'.','.');?></td></tr>
 </table>
 
-<table width="100%">
+<table width="80%">
 <tr><p><u>Penjelasan Perbedaan :</u></p></tr>
-<tr><p>Potongan PFK s/d Hari ini :</p></tr>
-<tr><p><td width="10%"></td><td width="40%">- Potongan Gaji</td> <td>Rp ....</td></p><tr>
-<tr><p><td width="10%"></td><td width="40%"> - Potongan PPN & PPh</td> <td><u>Rp ....</u></td></p></tr>
-<tr><p><td width="10%"></td><td width="40%"> - Jumlah</td><td><u>Rp ....</u></td></p></tr>
+
+                    <?php
+                    $no = 1 ;
+                    $total = 0;
+                    foreach ($uraian as $item)
+                    {
+                        $total += $item->nominal;
+                    ?>
+                    <tr>
+                    <td width="5%"><?= $no;?>.</td><td width="40%"><?= $item->uraian;?></td>	 <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>
+                    </tr>
+                    <?php
+                            $no++;
+                    }
+                    ?>
+
+
+
+
+<tr height="20"></tr>
+<tr><td colspan="3"><p>Potongan PFK s/d Hari ini :</p></td></tr>
+<tr><td width="5%">-</td><td width="40%">Potongan Gaji</td>	 <td>Rp ....</td></tr>
+<tr><td width="5%">-</td><td width="40%">Potongan PPN & PPh</td>	 <td>Rp ....</td></tr>
+<tr><td width="5%">-</td><td width="40%">Jumlah</td>	 <td>Rp ....</td></tr>
 </table>
 
 <footer>
@@ -121,33 +141,33 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <table align="center" style="width:100%">
 
 <tr>
-    <td width="10%"></td>
+    <td width="5%"></td>
     <td width="30%">DISETUJUI</td>
     <td width="30%">Padangsidimpuan, <?php echo $tanggalhuruf;?> <?php echo $bulannama;?> <?php echo $tahun;?></td>
 </tr>
 <tr>
-<td width="10%"></td>
+    <td width="5%"></td>
     <td width="30%">Kuasa Bendahara Umum Daerah</td>
     <td width="30%">Kepala Badan Keuangan Daerah</td>
 </tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%"></td>
     <td width="30%">Selaku PPKD</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">Asir Aryadi, S.E.</td>
     <td width="30%">Sulaiman Lubis, S.E.</td>
 </tr>
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">Penata Tingkat I</td>
     <td width="30%">Pembina Utama Muda</td>
 </tr>
 
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">NIP. 197602072005021002</td>
     <td width="30%">NIP. 196905011993031004</td>
 </tr>

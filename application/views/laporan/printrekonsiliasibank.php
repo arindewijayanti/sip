@@ -163,24 +163,24 @@ table{
 <table align="center" style="width:100%">
 
 <tr>
-    <td width="10%"></td>
+    <td width="5%"></td>
     <td width="30%">Disetujui oleh,</td>
     <td width="30%">Disiapkan oleh,</td>
 </tr>
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">Bendahara Umum Daerah</td>
     <td width="30%">Kuasa Bendahara Umum Daerah</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">Sulaiman Lubis, S.E.</td>
     <td width="30%">Asir Aryadi, S.E.</td>
 </tr>
 
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">NIP. 196905011993031004  </td>
     <td width="30%">NIP. 197602072005021002</td>
 </tr>

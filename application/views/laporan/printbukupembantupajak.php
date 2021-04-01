@@ -101,14 +101,9 @@ echo date("d/m/Y", strtotime($tanggalmulai)); echo " s.d "; echo date("d/m/Y", s
     <td width="30%">Disiapkan oleh,</td>
 </tr>
 <tr>
-<<<<<<< HEAD
-    <td>Kuasa Bendahara Umum Daerah</td>
-    <td>Bendahara Umum Daerah</td>
-=======
 <td width="10%"></td>
     <td width="30%">Bendahara Umum Daerah</td>
     <td width="30%">Kuasa Bendahara Umum Daerah</td>
->>>>>>> d73cd4d22209c548073b35f96865f5f0218fbf0a
 </tr>
 <tr height="75px"></tr>
 <tr>

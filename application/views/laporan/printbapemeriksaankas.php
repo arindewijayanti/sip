@@ -168,33 +168,33 @@ $tahun = $tahun_indonesia[$tahun];
 <table align="center" style="width:100%">
 
 <tr>
-    <td width="10%"></td>
+    <td width="5%"></td>
     <td width="30%">DISETUJUI</td>
     <td width="30%">Padangsidimpuan, tanggal tersebut diatas</td>
 </tr>
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">Kuasa Bendahara Umum Daerah</td>
     <td width="30%">Kepala Badan Keuangan Daerah</td>
 </tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%"></td>
     <td width="30%">Selaku PPKD</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">Asir Aryadi, S.E.</td>
     <td width="30%">Sulaiman Lubis, S.E.</td>
 </tr>
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">Penata Tingkat I</td>
     <td width="30%">Pembina Utama Muda</td>
 </tr>
 
 <tr>
-<td width="10%"></td>
+<td width="5%"></td>
     <td width="30%">NIP. 197602072005021002</td>
     <td width="30%">NIP. 196905011993031004</td>
 </tr>

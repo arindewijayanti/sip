@@ -147,6 +147,7 @@ public function printregister()
 	$data['harianregister'] = $this->model_transaksi->GetTransaksiHarianRegister($tanggal);
 	$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
 	$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
+	$data['uraian'] = $this->model_transaksi->GetUraian($tanggal);
 	$this->load->view('laporan/printregister',$data);
 	
 }
