@@ -13,13 +13,15 @@ class Selisihrekon extends CI_Controller {
 
 	function index()
 	{
-        $data['content'] = $this->db->get('tbl_selisihrekon');
+        $data['content'] = $this->model_selisihrekon->GetSelisihRekon();
+       // $data['content'] = $this->db->get('tbl_selisihrekon')->join('tbl_keteranganselisih, tbl_keteranganselisih.kode_keterangan=tbl_selisihrekon.kode_keterangan');
         $this->load->view('selisihrekon/selisihrekon', $data);
 	}
     
     function selisihrekon()
 	{
-        $data['content'] = $this->db->get('tbl_selisihrekon');
+        $data['content'] = $this->model_selisihrekon->GetSelisihRekon();
+       // $data['content'] = $this->db->get('tbl_selisihrekon')->join('tbl_keteranganselisih, tbl_keteranganselisih.kode_keterangan=tbl_selisihrekon.kode_keterangan');
         $this->load->view('selisihrekon/selisihrekon', $data);
 	}
 

@@ -18,97 +18,49 @@ table{
 }
 </style>
 <?php
-
 $tgl = date("d-m-Y", strtotime($tanggal));
-
-$hari = date("l", strtotime($tanggal)); 
-$hari_indonesia = array('Monday'  => 'senin',
-'Tuesday'  => 'selasa',
-'Wednesday' => 'rabu',
-'Thursday' => 'kamis',
-'Friday' => 'jumat',
-'Saturday' => 'sabtu',
-'Sunday' => 'minggu');
-$hari = $hari_indonesia[$hari];
-
-
 $bulanhuruf = date("m", strtotime($tanggal)); 
-$bulanhuruf_indonesia = array(
-'01'  => 'satu',
-'02'  => 'dua',
-'03' => 'tiga',
-'04' => 'empat',
-'05' => 'lima',
-'06' => 'enam',
-'07' => 'tujuh',
-'08' => 'delapan',
-'09' => 'sembilan',
-'10' => 'sepuluh',
-'11' => 'sebelas',
-'12' => 'dua belas');
-$bulanhuruf = $bulanhuruf_indonesia[$bulanhuruf];
 $bulannama_indonesia = array(
-    'satu'  => 'Januari',
-    'dua'  => 'Februari',
-    'tiga' => 'Maret',
-    'empat' => 'April',
-    'lima' => 'Mei',
-    'enam' => 'Juni',
-    'tujuh' => 'Juli',
-    'delapan' => 'Agustus',
-    'sembilan' => 'September',
-    'sepuluh' => 'Oktober',
-    'sebelas' => 'November',
-    'dua belas' => 'Desember');
+    '01'  => 'Januari',
+    '02'  => 'Februari',
+    '03' => 'Maret',
+    '04' => 'April',
+    '05' => 'Mei',
+    '06' => 'Juni',
+    '07' => 'Juli',
+    '08' => 'Agustus',
+    '09' => 'September',
+    '10' => 'Oktober',
+    '11' => 'November',
+    '12' => 'Desember');
 $bulannama = $bulannama_indonesia[$bulanhuruf];
-
 $tanggalhuruf = date("d", strtotime($tanggal)); 
 $tanggalsurat = date("d", strtotime($tanggal)); 
 $tahunsurat = date("Y", strtotime($tanggal)); 
-$tanggalhuruf_indonesia = array(
-'01'  => 'satu',
-'02'  => 'dua',
-'03' => 'tiga',
-'04' => 'empat',
-'05' => 'lima',
-'06' => 'enam',
-'07' => 'tujuh',
-'08' => 'delapan',
-'09' => 'sembilan',
-'10' => 'sepuluh',
-'11' => 'sebelas',
-'12' => 'dua belas',
-'13' => 'tiga belas',
-'14' => 'empat belas',
-'15' => 'lima belas',
-'16' => 'enam belas',
-'17' => 'tujuh belas',
-'18' => 'delapan belas',
-'19' => 'sembilan belas',
-'20' => 'dua puluh',
-'21' => 'dua puluh satu',
-'22' => 'dua puluh dua',
-'23' => 'dua puluh tiga',
-'24' => 'dua puluh empat',
-'25' => 'dua puluh lima',
-'26' => 'dua puluh enam',
-'27' => 'dua puluh tujuh',
-'28' => 'dua puluh delapan',
-'29' => 'dua puluh sembilan',
-'30' => 'tiga puluh',
-'31' => 'tiga puluh satu');
-$tanggalhuruf = $tanggalhuruf_indonesia[$tanggalhuruf];
+$tahun = date("Y", strtotime($tanggal)); 
 
-$tahun = date("y", strtotime($tanggal)); 
-$tahun_indonesia = array(
-'20'  => 'dua ribu dua puluh',
-'21'  => 'dua ribu dua puluh satu',
-'22' => 'dua ribu dua puluh dua',
-'23' => 'dua ribu dua puluh tiga',
-'24' => 'dua ribu dua puluh empat',
-'25' => 'dua ribu dua puluh lima',
-'26' => 'dua ribu dia puluh enam');
-$tahun = $tahun_indonesia[$tahun];
+$tanggalsebelumnya = date('Y-m-d', strtotime('-1 days', strtotime($tanggal)));
+
+$tglsebelumnya = date("d-m-Y", strtotime($tanggalsebelumnya));
+$bulanhurufsebelumnya = date("m", strtotime($tanggalsebelumnya)); 
+$bulannama_indonesiasebelumnya = array(
+    '01'  => 'Januari',
+    '02'  => 'Februari',
+    '03' => 'Maret',
+    '04' => 'April',
+    '05' => 'Mei',
+    '06' => 'Juni',
+    '07' => 'Juli',
+    '08' => 'Agustus',
+    '09' => 'September',
+    '10' => 'Oktober',
+    '11' => 'November',
+    '12' => 'Desember');
+$bulannamasebelumnya = $bulannama_indonesiasebelumnya[$bulanhurufsebelumnya];
+$tanggalhurufsebelumnya = date("d", strtotime($tanggalsebelumnya)); 
+$tanggalsuratsebelumnya = date("d", strtotime($tanggalsebelumnya)); 
+$tahunsuratsebelumnya = date("Y", strtotime($tanggalsebelumnya)); 
+$tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 ?>
 <table align="center" width="100%">
 <tr>
@@ -135,33 +87,33 @@ $tahun = $tahun_indonesia[$tahun];
 <br>
  
 <table>
-<tr><td>Tanggal Penutupan Kas ......</td>	 <td>:</td> <td> 20 Maret 2021 </td></tr>
+<tr><td>Tanggal Penutupan Kas ......</td>	 <td>:</td> <td> <?php echo $tanggalhuruf;?> <?php echo $bulannama;?> <?php echo $tahun;?></td></tr>
 <tr><td>Nama Penutup Kas/Kuasa BUS</td>     <td>:</td>	<td>Asir Aryadi, SE</td></tr>
-<tr><td>Tanggal Penutupan Kas yang lalu ......</td>     <td>:</td>	<td>19 Maret 2021</td></tr>
-<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td>Rp ....</td></tr>
-<tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td>Rp ....</td></tr>
+<tr><td>Tanggal Penutupan Kas yang lalu ......</td>     <td>:</td>	<td><?php echo $tanggalhurufsebelumnya;?> <?php echo $bulannamasebelumnya;?> <?php echo $tahunsebelumnya?></td></tr>
+<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp'.number_format($harianregister['totalpenerimaanharian'],0,'.','.'); ?></td></tr>
+<tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp'.number_format($harianregister['totalpengeluaranharian'],0,'.','.'); ?></td></tr>
 <br>
-<tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td>Rp ....</td></tr>
-<tr><td>Saldo Kas ......</td>     <td>:</td>	<td>Rp ....</td></tr>
+<tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran'],0,'.','.'); ?></td></tr>
+<tr><td>Saldo Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></td></tr>
 </table>
-<table style="width:100%">
+<table style="width:80%">
 <br>
 <tr><p>Kertas berharga dan bagian Kas yang diizinkan Ordonansi :</p></tr>
-<tr><td>a. </td><td>SP2D ......</td>	 <td>Rp ....</td></tr>
-<tr><td>b. </td><td>Wessel</td>    	<td>Rp ....</td></tr>
-<tr><td>c. </td><td>Saldo bank Sumut AC 2511 ......</td>   	<td>Rp ....</td></tr>
-<tr><td>d. </td><td>M e t e r a i ......</td>     	<td>Rp ....</td></tr>
-<tr><td>e. </td><td>Dan Lain-lain ......</td>     	<td>Rp ....</td></tr>
-<tr><td></td><td>&nbsp J u m l a h ......</td>      <td>Rp ....</td></tr>
-<tr><td></td><td>&nbsp Selisih ......</td>      <td>Rp ....</td></tr>
+<tr><td width="5%">a. </td><td width="40%">SP2D ......</td>	 <td>Rp ....</td></tr>
+<tr><td width="5%">b. </td><td width="40%">Wessel</td>    	<td>Rp ....</td></tr>
+<tr><td width="5%">c. </td><td width="40%">Saldo bank Sumut AC 2511 ......</td>   	<td><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></td></tr>
+<tr><td width="5%">d. </td><td width="40%">M e t e r a i ......</td>     	<td>Rp ....</td></tr>
+<tr><td width="5%">e. </td><td width="40%">Dan Lain-lain ......</td>     	<td>Rp ....</td></tr>
+<tr><td width="5%"></td><td width="40%">&nbsp J u m l a h ......</td>      <td><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></td></tr>
+<tr><td width="5%"></td><td width="40%">&nbsp Selisih ......</td>      <td><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo'],0,'.','.');?></td></tr>
 </table>
 
 <table width="100%">
 <tr><p><u>Penjelasan Perbedaan :</u></p></tr>
 <tr><p>Potongan PFK s/d Hari ini :</p></tr>
-<tr><p><td width="10%"></td><td width="40%">- Potongan Gaji</td> <td>Rp.</td></p><tr>
-<tr><p><td width="10%"></td><td width="40%"> - Potongan PPN & PPh</td> <u><td>Rp.</td></u></p></tr>
-<tr><p><td width="10%"></td><td width="40%"> - Jumlah</td><u><td>Rp.</td></u></p></tr>
+<tr><p><td width="10%"></td><td width="40%">- Potongan Gaji</td> <td>Rp ....</td></p><tr>
+<tr><p><td width="10%"></td><td width="40%"> - Potongan PPN & PPh</td> <td><u>Rp ....</u></td></p></tr>
+<tr><p><td width="10%"></td><td width="40%"> - Jumlah</td><td><u>Rp ....</u></td></p></tr>
 </table>
 
 <footer>
@@ -171,7 +123,7 @@ $tahun = $tahun_indonesia[$tahun];
 <tr>
     <td width="10%"></td>
     <td width="30%">DISETUJUI</td>
-    <td width="30%">Padangsidimpuan, 21 Maret 2021</td>
+    <td width="30%">Padangsidimpuan, <?php echo $tanggalhuruf;?> <?php echo $bulannama;?> <?php echo $tahun;?></td>
 </tr>
 <tr>
 <td width="10%"></td>

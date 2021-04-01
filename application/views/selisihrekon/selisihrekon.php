@@ -43,8 +43,8 @@ $this->load->view('include/header');
                   ?>
                   <td><?= $i ?></td>
                   <td> <?php echo date("d/m/Y", strtotime($data->tanggal_selisih));?></td>
-                  <td><?= $data->kode_keterangan?></td>                  
-                  <td><?= $data->uraian ?></td>
+                  <td><?= $data->uraian_keteranganselisih?></td>                  
+                  <td><?= $data->uraian?></td>
                   <td><?=$data->nominal?></td>
                   <td> 
                     <a href="<?php echo base_url()?>selisihrekon/updatedataselisihrekon/<?php echo $data->id_selisihrekon; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>

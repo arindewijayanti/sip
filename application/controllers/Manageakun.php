@@ -34,9 +34,9 @@ class Manageakun extends CI_Controller {
                             'name'=>$this->input->post('name'),
                             'username'=>$this->input->post('username'),
                             'password'=>$this->input->post('password'),
-                            'role_id'=>$this->input->post('role_id'),
-                            'is_active'=>$this->input->post('is_active')
+                            'role_id'=>$this->input->post('role_id')
 					);
+                    $data['is_active']="1";
 					$this->model_manageakun->menambahdatamanageakun($data);
 					redirect('manageakun','refresh');
 	}
@@ -54,10 +54,9 @@ class Manageakun extends CI_Controller {
             'name'=>$this->input->post('name'),
             'username'=>$this->input->post('username'),
             'password'=>$this->input->post('password'),
-            'role_id'=>$this->input->post('role_id'),
-            'is_active'=>$this->input->post('is_active')
+            'role_id'=>$this->input->post('role_id')
         );
-		
+		$data['is_active']="1";
         $this->model_manageakun->updatedatamanageakun($data, $id);
         redirect('manageakun');
 	}

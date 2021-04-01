@@ -127,7 +127,10 @@ public function bapemeriksaankas()
 }
 public function printbapemeriksaankas()
 {
-	$data['tanggal'] = $this->input->post('tanggal');
+	$tanggal =$this->input->post('tanggal');
+	$data['tanggal'] = $tanggal;
+	$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
+	$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
 	$this->load->view('laporan/printbapemeriksaankas',$data);
 	
 }
@@ -139,7 +142,11 @@ public function register()
 }
 public function printregister()
 {
-	$data['tanggal'] = $this->input->post('tanggal');
+	$tanggal =$this->input->post('tanggal');
+	$data['tanggal'] = $tanggal;
+	$data['harianregister'] = $this->model_transaksi->GetTransaksiHarianRegister($tanggal);
+	$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
+	$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
 	$this->load->view('laporan/printregister',$data);
 	
 }

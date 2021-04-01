@@ -8,6 +8,14 @@ class Model_selisihrekon extends CI_Model {
 		//Do your magic here
 	}
 
+	function GetSelisihRekon() 
+    {
+        $this->db->order_by('id_selisihrekon', 'ASC');
+        return $this->db->from('tbl_selisihrekon')
+          ->join('tbl_keteranganselisih','tbl_keteranganselisih.kode_keterangan=tbl_selisihrekon.kode_keterangan')
+          ->get();
+    }
+
 	public function menambahdataselisihrekon($data)
 	{
 		$this->db->insert('tbl_selisihrekon', $data);

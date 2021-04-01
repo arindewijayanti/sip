@@ -44,10 +44,6 @@ $this->load->view('include/header');
                     <label for="role_id">Role Id</label>
                     <input value="<?= $data->role_id?>"class="form-control" id="role_id" type="text" aria-describedby="nameHelp" name="role_id" required/>
                   </div>
-                  <div class="col-md-6">
-                    <label for="is_active">Is active</label>
-                    <input value="<?= $data->is_active?>"class="form-control" id="is_active" type="text" aria-describedby="nameHelp" name="is_active" required/>
-                  </div>
                   
                 </div>
               </div>
