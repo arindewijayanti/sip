@@ -41,13 +41,29 @@ table{
 <p class="jarak-lh" align="center"><u><b></u></b></p>
 <p class="jarak-lh" align="center"></p>
 
-<table>
-<tr><p><td><b>1. Saldo Kas Umum Daerah menurut Buku</b></td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td> <td><td><b><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran'],0,'.','.'); ?></b></td></p></tr>
-<tr><p><td><b>2. Saldo Kas Umum menurut Bank</b></td>	</td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><u><b><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></b></u></td></p></tr>
-<tr><p><td><i> &nbsp &nbsp  Selisih</td></i><td><td><td> <td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td> <td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><td><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo'],0,'.','.');?></td></p></tr>
-</table>
+
 <br>
-<table>
+<table width ="85%" align="center">
+<tr><p>
+<td width ="55%" align="left"><b>1. Saldo Kas Umum Daerah menurut Buku</b></td>
+<td width ="15%"></td>
+<td width ="15%" align="right"><b><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],0,'.','.'); ?></b></td>
+</p></tr>
+
+<tr><p>
+<td width ="55%"><b>2. Saldo Kas Umum menurut Bank</b></td>
+<td width ="15%"></td>
+<td width ="15%" align="right"><b><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></b></td>
+</p></tr>
+
+
+<tr><p>
+<td width ="55%">&nbsp &nbsp  <i>Selisih</i></td>
+<td width ="15%"></td>
+<td width ="15%" align="right"><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo'],0,'.','.');?></td>
+</p></tr>
+
+<tr height="15"></tr>
 <tr><p><td><b> &nbsp &nbsp Keterangan Selisih</b></td>
 <tr><p><td><b>A. Penerimaan yang telah dicatat oleh buku,</b></td>
 <tr><p><td><b> &nbsp &nbsp belum dicatat oleh Bank</b></td>
@@ -59,25 +75,23 @@ table{
                         $totala += $item->nominal;
                     ?>
                     <tr><p>
-                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td colspan ="30"></td>
-                        <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>                  
+                        <td width ="55%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>
+                        <td width ="15%"></td>                  
                     </p></tr>
                     <?php
                             $no++;
                     }
                     ?>
                     <tr><p>
-                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                        <td colspan ="30"></td>
-                        <td><u><?='Rp'.number_format($totala,0,'.','.'); ?></u></td>
-                        <td colspan ="30"></td>
-                        <td align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo']-$totala,0,'.','.');?></b></td>               
+                        <td width ="55%"></td>
+                        <td width ="15%" align="right"><u><?='Rp'.number_format($totala,0,'.','.'); ?></u></td>
+                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala,0,'.','.');?></b></td>               
                     </p></tr>
 
 </table>
 
-<table>
+<table width ="85%" align="center">
 <tr><p><td><b>B. Pengeluaran yang telah dicatat oleh buku,</b></td>
 <tr><p><td><b> &nbsp &nbsp belum dicatat oleh Bank</b></td>
 <?php
@@ -88,22 +102,20 @@ table{
                         $totalb += $item->nominal;
                     ?>
                     <tr><p>
-                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td colspan ="30"></td>
-                        <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>                  
+                        <td width ="55%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>  
+                        <td width ="15%"></td>                
                     </p></tr>
                     <?php
                             $no++;
                     }
                     ?>
                     <tr><p>
-                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                        <td colspan ="30"></td>
-                        <td><u><?='Rp'.number_format($totalb,0,'.','.'); ?></u></td>
-                        <td colspan ="30"></td>
-                        <td align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo']-$totala-$totalb,0,'.','.');?></b></td>               
+                        <td width ="55%"></td> 
+                        <td width ="15%" align="right"><u><?='Rp'.number_format($totalb,0,'.','.'); ?></u></td>
+                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb,0,'.','.');?></b></td>               
                     </p></tr></table>
-<table>
+<table width ="85%" align="center">
 <tr><p><td><b>C. Penerimaan yang telah dicatat oleh Bank,</b></td>
 <tr><p><td><b> &nbsp &nbsp belum dicatat oleh Buku</b></td>
 <?php
@@ -114,22 +126,20 @@ table{
                         $totalc += $item->nominal;
                     ?>
                     <tr><p>
-                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td colspan ="30"></td>
-                        <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>                  
+                        <td width ="55%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>
+                        <td width ="15%"></td>                  
                     </p></tr>
                     <?php
                             $no++;
                     }
                     ?>
                     <tr><p>
-                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                        <td colspan ="30"></td>
-                        <td><u><?='Rp'.number_format($totalc,0,'.','.'); ?></u></td>
-                        <td colspan ="30"></td>
-                        <td align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo']-$totala-$totalb+$totalc,0,'.','.');?></b></td>               
+                        <td width ="55%"></td> 
+                        <td width ="15%" align="right"><u><?='Rp'.number_format($totalc,0,'.','.'); ?></u></td>
+                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc,0,'.','.');?></b></td>               
                     </p></tr></table>
-<table>
+<table width ="85%" align="center">
 <tr><p><td><b>D. Pengeluaran yang telah dicatat oleh Bank,</b></td>
 <tr><p><td><b> &nbsp &nbsp belum dicatat oleh Buku</b></td>
 <?php
@@ -140,20 +150,18 @@ table{
                         $totald+= $item->nominal;
                     ?>
                     <tr><p>
-                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td colspan ="30"></td>
-                        <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>                  
+                        <td width ="55%" >&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>       
+                        <td width ="15%"></td>           
                     </p></tr>
                     <?php
                             $no++;
                     }
                     ?>
                     <tr><p>
-                        <td>&nbsp &nbsp &nbsp &nbsp &nbsp </td>
-                        <td colspan ="30"></td>
-                        <td><u><?='Rp'.number_format($totald,0,'.','.'); ?></u></td>
-                        <td colspan ="30"></td>
-                        <td align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,0,'.','.');?></b></td>               
+                        <td width ="55%"></td> 
+                        <td width ="15%" align="right"><u><?='Rp'.number_format($totald,0,'.','.'); ?></u></td>
+                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,0,'.','.');?></b></td>               
                     </p></tr></table>
 
                   
