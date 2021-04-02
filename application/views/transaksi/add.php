@@ -33,7 +33,7 @@ $this->load->view('include/header');
                    <div class="col-md-6">
                     <label for="jenis_bukti">Jenis Bukti</label>
                     <select class="form-control form-control-sm" id="jenis_bukti" name="jenis_bukti" required />
-                    <option>Pilih Jenis Bukti</option>
+                    <option value="-">-</option>
                     <option value="SP2D">SP2D</option>
                     <option value="STS">STS</option>
                     <option value="LAIN-LAIN">LAIN-LAIN</option>

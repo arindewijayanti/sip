@@ -40,6 +40,7 @@ $this->load->view('include/header');
                     <option value="SP2D">SP2D</option>
                     <option value="STS">STS</option>
                     <option value="LAIN-LAIN">LAIN-LAIN</option>
+                    <option value="-">-</option>
                        </select> </div>
     
               </div>
