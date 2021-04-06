@@ -5,8 +5,9 @@ class Rekening extends CI_Controller {
 
 	public function __construct()
     {
-        parent::__construct();
-       $this->load->model('model_rekening'); //load model model_rekening
+    	parent::__construct();
+       $this->load->model('model_rekening'); 
+	   $this->load->library('session');
        
 
     }
@@ -30,35 +31,37 @@ class Rekening extends CI_Controller {
 	
 	function action_menambahdatarekening()
     {       
-                    	$data = array(
+					$id_opd = $this->session->userdata('id_opd');
+                    $data = array(
                             'kode_rekening'=>$this->input->post('kode_rekening'),
                             'nama_rekening'=>$this->input->post('nama_rekening')
 					);
+					$data['id_opd']=$id_opd;
 					$this->model_rekening->menambahdatarekening($data);
 					redirect('rekening','refresh');
 	}
 
-	function updatedatarekening($kode_rekening = NULL)
+	function updatedatarekening($id_rekening = NULL)
     {
-            $this->db->where('kode_rekening', $kode_rekening);
+            $this->db->where('id_rekening', $id_rekening);
             $data['content'] = $this->db->get('tbl_rekening');
 			$this->load->view('rekening/update', $data);
 	}
 	
-    function action_updatedatarekening($kode_rekening ='')
+    function action_updatedatarekening($id_rekening ='',$kode_rekening = '')
     {
         $data = array(
             'kode_rekening'=>$this->input->post('kode_rekening'),
             'nama_rekening'=>$this->input->post('nama_rekening')
         );
 		
-        $this->model_rekening->updatedatarekening($data, $kode_rekening);
+        $this->model_rekening->updatedatarekening($data, $id_rekening,$kode_rekening);
         redirect('rekening');
 	}
 
-	public function action_deletedatarekening($kode_rekening = '')
+	public function action_deletedatarekening($id_rekening = '')
 	{
-			$this->model_rekening->deletedatarekening($kode_rekening);
+			$this->model_rekening->deletedatarekening($id_rekening);
 			redirect('rekening','refresh');
 	}
 

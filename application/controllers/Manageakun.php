@@ -7,6 +7,7 @@ class Manageakun extends CI_Controller {
     {
         parent::__construct();
        $this->load->model('model_manageakun'); //load model model_rekening
+       $this->load->library('session');
        
 
     }

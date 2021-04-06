@@ -13,15 +13,15 @@ class Model_rekening extends CI_Model {
 		$this->db->insert('tbl_rekening', $data);
 	}
 	
-	public function updatedatarekening($data, $kode_rekening)
+	public function updatedatarekening($data, $id_rekening)
 	{
-		$this->db->where('kode_rekening', $kode_rekening);
+		$this->db->where('id_rekening', $id_rekening);
 		$this->db->update('tbl_rekening', $data);
 	}
 
-	public function deletedatarekening($kode_rekening)
+	public function deletedatarekening($id_rekening)
 	{
-		$this->db->where('kode_rekening', $kode_rekening);
+		$this->db->where('id_rekening', $id_rekening);
 		$this->db->delete('tbl_rekening');
 	}
 

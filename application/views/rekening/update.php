@@ -22,8 +22,8 @@ $this->load->view('include/header');
           <div class="table-responsive">
              <div class="container">
 
-        <form action="<?php echo config_item('base_url'); ?>/rekening/action_updatedatarekening/<?= $data->kode_rekening?>" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="kode_rekening"  value="<?= $data->kode_rekening?>" />
+        <form action="<?php echo config_item('base_url'); ?>/rekening/action_updatedatarekening/<?= $data->id_rekening?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id_rekening"  value="<?= $data->id_rekening?>" />
              <div class="form-group">
               <div class="form-row">
 
