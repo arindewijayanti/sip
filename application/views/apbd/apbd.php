@@ -40,13 +40,13 @@ $this->load->view('include/header');
                   $i = 1;
                   foreach ($content->result() as $data) : ?>
                   <td><?= $i ?></td>
-                  <td><?= $data->kode_rekening?></td>
+                  <td><?= $data->nama_rekening?></td>
                   <td><?= $data->tahun?></td>
                   <td><?= 'Rp.'.number_format($data->pagu_apbd,0,'.','.');?></td> 
                   <td><?=  'Rp.'.number_format($data->pagu_perubahan_apbd,0,'.','.');?></td>
                   <td> 
-                    <a href="<?php echo base_url()?>apbd/updatedataapbd/<?php echo $data->kode_rekening; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
-                    <a href="<?php echo base_url()?>apbd/action_deletedataapbd/<?php echo $data->kode_rekening; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
+                    <a href="<?php echo base_url()?>apbd/updatedataapbd/<?php echo $data->id_apbd; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
+                    <a href="<?php echo base_url()?>apbd/action_deletedataapbd/<?php echo $data->id_apbd; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
                   </td> 
                 </tr>
                     <?php

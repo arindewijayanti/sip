@@ -22,14 +22,14 @@ $this->load->view('include/header');
           <div class="table-responsive">
              <div class="container">
 
-        <form action="<?php echo config_item('base_url'); ?>/apbd/action_updatedataapbd/<?= $data->kode_rekening?>" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="kode_rekening"  value="<?= $data->kode_rekening?>" />
+        <form action="<?php echo config_item('base_url'); ?>/apbd/action_updatedataapbd/<?= $data->id_apbd?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id_apbd"  value="<?= $data->id_apbd?>" />
              <div class="form-group">
               <div class="form-row">
 
                   <div class="col-md-6">
-                    <label for="kode_rekening">Kode Rekening</label>
-                    <input value="<?= $data->kode_rekening?>"class="form-control" id="kode_rekening" type="text" aria-describedby="nameHelp" name="kode_rekening" required/>
+                    <label for="id_apbd">Kode Rekening</label>
+                    <input value="<?= $data->id_apbd?>"class="form-control" id="id_apbd" type="text" aria-describedby="nameHelp" name="id_apbd" required/>
                   </div>
 
                   <div class="col-md-6">
