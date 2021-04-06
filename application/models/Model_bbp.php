@@ -5,7 +5,7 @@ class Model_bbp extends CI_Model {
     public function __construct()
 	{
 		parent::__construct();
-		//Do your magic here
+        $this->load->library('session');
 	}
 
 	public function menambahdatabbp($data)
@@ -13,17 +13,29 @@ class Model_bbp extends CI_Model {
 		$this->db->insert('tbl_bbp', $data);
 	}
 	
-	public function updatedatabbp($data, $kode_bbp)
+	public function updatedatabbp($data, $id_bbp)
 	{
-		$this->db->where('kode_bbp', $kode_bbp);
+		$this->db->where('id_bbp', $id_bbp);
 		$this->db->update('tbl_bbp', $data);
 	}
 
-	public function deletedatabbp($kode_bbp)
+	public function deletedatabbp($id_bbp)
 	{
-		$this->db->where('kode_bbp', $kode_bbp);
+		$this->db->where('id_bbp', $id_bbp);
 		$this->db->delete('tbl_bbp');
 	}
+
+	function GetTransaksiBBP() 
+    {
+		
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
+        $this->db->order_by('tanggal', 'ASC');
+        return $this->db->from('tbl_bbp')
+         ->join('tbl_buktipajak','tbl_buktipajak.id_buktipajak=tbl_bbp.id_buktipajak')
+          ->get()
+          ->result();
+    }
 
 	function GetBBP($kode_rekening,$tanggalmulai,$tanggalselesai) 
     {
@@ -32,7 +44,7 @@ class Model_bbp extends CI_Model {
 		$this->db->where('tanggal <=', $tanggalselesai);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bbp')
-          ->join('tbl_buktipajak','tbl_buktipajak.kode_buktipajak=tbl_bbp.kode_buktipajak')
+          ->join('tbl_buktipajak','tbl_buktipajak.id_buktipajak=tbl_bbp.id_buktipajak')
 		  ->join('tbl_rekening','tbl_rekening.kode_rekening=tbl_buktipajak.kode_rekening')
           ->get()
           ->result();
@@ -59,7 +71,7 @@ class Model_bbp extends CI_Model {
 		$this->db->where('tanggal =', $tanggal);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bbp')
-         ->join('tbl_buktipajak','tbl_buktipajak.kode_buktipajak=tbl_bbp.kode_buktipajak')
+         ->join('tbl_buktipajak','tbl_buktipajak.id_buktipajak=tbl_bbp.id_buktipajak')
           ->get()
           ->result();
     }

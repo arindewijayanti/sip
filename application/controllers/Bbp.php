@@ -6,18 +6,19 @@ class Bbp extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-       $this->load->model('model_bbp'); //load model model_Bbp
-
+       $this->load->model('model_bbp'); 
+        $this->load->library('session');
     }
 
 	function index()
 	{
-        $data['content'] = $this->db->get('tbl_bbp');
+        
+        $data['content'] = $this->model_bbp->GetTransaksiBBP();
         $this->load->view('bbp/bbp', $data);
 	}
     function bbp()
 	{
-        $data['content'] = $this->db->get('tbl_bbp');
+        $data['content'] = $this->model_bbp->GetTransaksiBBP();
         $this->load->view('bbp/bbp', $data);
 	}
    	function menambahdatabbp()
@@ -29,37 +30,39 @@ class Bbp extends CI_Controller {
     {       
                     	$data = array(
                             'tanggal'=>$this->input->post('tanggal'),
-                            'kode_buktipajak'=>$this->input->post('kode_buktipajak'),
+                            'id_buktipajak'=>$this->input->post('id_buktipajak'),
                             'debet'=>$this->input->post('debet'),
                             'kredit'=>$this->input->post('kredit')
 					);
+                    $data['id_user']=$this->session->userdata('username');
+					$data['id_opd']=$this->session->userdata('id_opd');
 					$this->model_bbp->menambahdatabbp($data);
 					redirect('bbp','refresh');
 	}
 
-	function updatedatabbp($kode_bbp = NULL)
+	function updatedatabbp($id_bbp = NULL)
     {
-            $this->db->where('kode_bbp', $kode_bbp);
-            $data['content'] = $this->db->get('tbl_bbp');
+            $this->db->where('id_bbp', $id_bbp);
+            $data['content'] = $this->model_bbp->GetTransaksiBBP();
 			$this->load->view('bbp/update', $data);
 	}
 	
-    function action_updatedatabbp($kode_bbp ='')
+    function action_updatedatabbp($id_bbp ='')
     {
         $data = array(
             'tanggal'=>$this->input->post('tanggal'),
-            'kode_buktipajak'=>$this->input->post('kode_buktipajak'),
+            'id_buktipajak'=>$this->input->post('id_buktipajak'),
             'debet'=>$this->input->post('debet'),
             'kredit'=>$this->input->post('kredit')
         );
 		
-        $this->model_bbp->updatedatabbp($data, $kode_bbp);
+        $this->model_bbp->updatedatabbp($data, $id_bbp);
         redirect('bbp');
 	}
 
-	public function action_deletedatabbp($kode_bbp = '')
+	public function action_deletedatabbp($id_bbp = '')
 	{
-			$this->model_bbp->deletedatabbp($kode_bbp);
+			$this->model_bbp->deletedatabbp($id_bbp);
 			redirect('bbp','refresh');
 	}
 

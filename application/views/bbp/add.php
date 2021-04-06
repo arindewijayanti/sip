@@ -32,14 +32,14 @@ $this->load->view('include/header');
                     <input class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
                   </div>
                   <div class="col-md-6">
-                    <label for="kode_buktipajak">Nomor Bukti</label>
-                    <select class="form-control form-control-sm" id="nama" name="kode_buktipajak" required />
+                    <label for="id_buktipajak">Nomor Bukti</label>
+                    <select class="form-control form-control-sm" id="nama" name="id_buktipajak" required />
                     <option>Silahkan Pilih Nama Bukti Pajak</option>
-                        <?php $kode_buktipajak = $this->db->query("SELECT * FROM tbl_buktipajak");
+                        <?php $id_buktipajak = $this->db->query("SELECT * FROM tbl_buktipajak");
                 
-                        foreach ($kode_buktipajak->result() as $kode_buktipajak) : ?>
+                        foreach ($id_buktipajak->result() as $id_buktipajak) : ?>
                         
-                        <option value="<?= $kode_buktipajak->kode_buktipajak?>"><?= $kode_buktipajak->nama_buktipajak?></option>
+                        <option value="<?= $id_buktipajak->id_buktipajak?>"><?= $id_buktipajak->nama_buktipajak?></option>
                          <?php endforeach; ?>
                          <option value="-">-</option>
                        </select> </div>

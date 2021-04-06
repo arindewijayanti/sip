@@ -13,7 +13,7 @@ $this->load->view('include/header');
         <li class="breadcrumb-item active">Update Data Buku Besar Pembantu</li>
       </ol>
 <!-- Example DataTables Card-->
-<?php foreach ($content->result() as $data) {
+<?php foreach ($content as $data) {
           # code...
         } ?>
 
@@ -24,8 +24,8 @@ $this->load->view('include/header');
           <div class="table-responsive">
              <div class="container">
 
-        <form action="<?php echo config_item('base_url'); ?>/bbp/action_updatedatabbp/<?= $data->kode_bbp?>" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="kode_bbp"  value="<?= $data->kode_bbp?>" />
+        <form action="<?php echo config_item('base_url'); ?>/bbp/action_updatedatabbp/<?= $data->id_bbp?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id_bbp"  value="<?= $data->id_bbp?>" />
              <div class="form-group">
               <div class="form-row">
 
@@ -35,14 +35,14 @@ $this->load->view('include/header');
                   </div>
 
                   <div class="col-md-6">
-                    <label for="kode_buktipajak">Nomor Bukti</label>
-                    <select class="form-control form-control-sm" id="nama" name="kode_buktipajak" required />
-                    <option value="<?= $data->kode_buktipajak?>"><?= $data->kode_buktipajak?></option>
-                        <?php $kode_buktipajak = $this->db->query("SELECT * FROM tbl_buktipajak");
+                    <label for="id_buktipajak">Nomor Bukti</label>
+                    <select class="form-control form-control-sm" id="nama" name="id_buktipajak" required />
+                    <option value="<?= $data->id_buktipajak?>"><?= $data->nama_buktipajak?></option>
+                        <?php $id_buktipajak = $this->db->query("SELECT * FROM tbl_buktipajak");
                 
-                        foreach ($kode_buktipajak->result() as $kode_buktipajak) : ?>
+                        foreach ($id_buktipajak->result() as $id_buktipajak) : ?>
                         
-                        <option value="<?= $kode_buktipajak->kode_buktipajak?>"><?= $kode_buktipajak->kode_buktipajak?></option>
+                        <option value="<?= $id_buktipajak->id_buktipajak?>"><?= $id_buktipajak->nama_buktipajak?></option>
                          <?php endforeach; ?>
                        </select> </div>
                 </div>
