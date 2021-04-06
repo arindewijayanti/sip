@@ -28,14 +28,14 @@ $this->load->view('include/header');
               
                            
                   <div class="col-md-6">
-                    <label for="role_id">Operator</label>
-                    <select class="form-control form-control-sm" id="role_id" name="role_id" required />
+                    <label for="user_id">Operator</label>
+                    <select class="form-control form-control-sm" id="user_id" name="user_id" required />
                     <option>Silahkan Pilih Nama Operator</option>
-                        <?php $role_id = $this->db->query("SELECT * FROM user /* where role_id != '1'*/");
+                        <?php
                 
-                        foreach ($role_id->result() as $role_id) : ?>
+                        foreach ($content->result() as $data) : ?>
                         
-                        <option value="<?= $role_id->role_id?>"><?= $role_id->name?></option>
+                        <option value="<?= $data->id?>"><?= $data->name?></option>
                          <?php endforeach; ?>
                        </select>
                   </div>
@@ -43,7 +43,7 @@ $this->load->view('include/header');
                     <label for="menu_id">Menu</label>
                     <select class="form-control form-control-sm" id="menu_id" name="menu_id" required />
                     <option>Silahkan Pilih Menu</option>
-                        <?php $id = $this->db->query("SELECT * FROM user_menu where id != '1'");
+                        <?php $id = $this->db->query("SELECT * FROM user_menu where levelmenu = 'T'");
                 
                         foreach ($id->result() as $id) : ?>
                         

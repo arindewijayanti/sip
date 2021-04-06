@@ -20,16 +20,13 @@
                                 FROM `user_menu` JOIN `user_access_menu`
                                 ON `user_menu`.`id` = `user_access_menu`.`menu_id`
                                 WHERE `user_access_menu`.`user_id` = $id
-                                ORDER BY `user_access_menu`.`menu_id` ASC
+                                ORDER BY `user_menu`.`levelmenu` ASC, `user_menu`.`menu` ASC
                                 ";
                 $menu = $this->db->query($queryMenu)->result_array();
                 
             ?>
 
             <?php foreach ($menu as $m) : ?>
-                <div class = "sidebar-heading">
-                    <?= $m['menu']; ?>
-                </div>
 
             <?php 
             $menuId = $m['id'];

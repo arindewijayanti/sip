@@ -7,6 +7,7 @@ class Manageuser extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('model_manageuser');
+        $this->load->library('session');
     }
 
     public function index(){
@@ -21,13 +22,14 @@ class Manageuser extends CI_Controller {
 
     function menambahdatamanageuser()
     {
-        $this->load->view('manageuser/add');   
+        $data['content'] = $this->model_manageuser->PilihanUser();
+        $this->load->view('manageuser/add', $data);   
     }
 
     function action_menambahdatamanageuser()
     {       
-                        $data = array(
-                            'role_id'=>$this->input->post('role_id'),
+                    $data = array(
+                            'user_id'=>$this->input->post('user_id'),
                             'menu_id'=>$this->input->post('menu_id')
                     );
                     $this->model_manageuser->menambahdatamanageuser($data);
