@@ -5,8 +5,18 @@ class Model_saldobank extends CI_Model {
     public function __construct()
 	{
 		parent::__construct();
-		//Do your magic here
+		$this->load->library('session');
 	}
+
+	function GetSaldoBank()
+    {
+
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_saldobank.id_opd', $id_opd);
+        $this->db->order_by('tbl_saldobank.tanggal', 'DESC');
+        return $this->db->from('tbl_saldobank')
+    		->get();
+    }
 
 	public function menambahdatasaldobank($data)
 	{

@@ -29,7 +29,7 @@ $this->load->view('include/header');
 
                   <div class="col-md-6">
                     <label for="saldo">Tanggal</label>
-                    <input value="<?= $data->tanggal?>"class="form-control" id="tanggal" type="text" aria-describedby="nameHelp" name="tanggal" required/>
+                    <input value="<?= $data->tanggal?>"class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
                   
                 </div>
               </div>

@@ -6,20 +6,20 @@ class Saldobank extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
-       $this->load->model('model_saldobank'); //load model model_apbd
-       
+       $this->load->model('model_saldobank');
+	   $this->load->library('session');
 
     }
 
 	function index()
 	{
-        $data['content'] = $this->db->get('tbl_saldobank');
+        $data['content'] = $this->model_saldobank->GetSaldoBank();
         $this->load->view('saldobank/saldobank', $data);
 	}
     
     function saldobank()
 	{
-        $data['content'] = $this->db->get('tbl_saldobank');
+        $data['content'] = $this->model_saldobank->GetSaldoBank();
         $this->load->view('saldobank/saldobank', $data);
 	}
 
@@ -34,6 +34,9 @@ class Saldobank extends CI_Controller {
                             'tanggal'=>$this->input->post('tanggal'),
                             'saldo'=>$this->input->post('saldo'),
 					);
+					
+					$data['id_user']=$this->session->userdata('username');
+					$data['id_opd']=$this->session->userdata('id_opd');
 					$this->model_saldobank->menambahdatasaldobank($data);
 					redirect('saldobank','refresh');
 	}
