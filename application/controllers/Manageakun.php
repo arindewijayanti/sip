@@ -13,13 +13,13 @@ class Manageakun extends CI_Controller {
 
 	function index()
 	{
-        $data['content'] = $this->db->get('user');
+        $data['content'] = $this->model_manageakun->GetManageAkun();
         $this->load->view('manageakun/manageakun', $data);
 	}
     
     function manageakun()
 	{
-        $data['content'] = $this->db->get('user');
+        $data['content'] = $this->model_manageakun->GetManageAkun();
         $this->load->view('manageakun/manageakun', $data);
 	}
 
@@ -30,13 +30,16 @@ class Manageakun extends CI_Controller {
 	
 	function action_menambahdatamanageakun()
     {       
-                    	$data = array(
+                    $id_opd = $this->session->userdata('id_opd');
+                    $data = array(
                             'name'=>$this->input->post('name'),
                             'username'=>$this->input->post('username'),
-                            'password'=>$this->input->post('password'),
-                            'role_id'=>$this->input->post('role_id')
+                            'password'=>$this->input->post('password')
 					);
+                    $data['password']="12345";
+                    $data['status']="member";
                     $data['is_active']="1";
+                    $data['id_opd']=$id_opd;
 					$this->model_manageakun->menambahdatamanageakun($data);
 					redirect('manageakun','refresh');
 	}
@@ -51,12 +54,8 @@ class Manageakun extends CI_Controller {
     function action_updatedatamanageakun($id ='')
     {
         $data = array(
-            'name'=>$this->input->post('name'),
-            'username'=>$this->input->post('username'),
-            'password'=>$this->input->post('password'),
-            'role_id'=>$this->input->post('role_id')
+            'name'=>$this->input->post('name')
         );
-		$data['is_active']="1";
         $this->model_manageakun->updatedatamanageakun($data, $id);
         redirect('manageakun');
 	}

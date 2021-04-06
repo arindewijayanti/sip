@@ -36,14 +36,6 @@ $this->load->view('include/header');
                     <label for="username">Username</label>
                     <input class="form-control" id="username" type="text" aria-describedby="nameHelp" name="username" required/>
                   </div>
-                  <div class="col-md-6">
-                    <label for="password">Password</label>
-                    <input class="form-control" id="password" type="text" aria-describedby="nameHelp" name="password" required/>
-                  </div>
-                  <div class="col-md-6">
-                    <label for="role_id">Role id</label>
-                    <input class="form-control" id="role_id" type="text" aria-describedby="nameHelp" name="role_id" required/>
-                  </div>
                 </div>
               </div>
               
