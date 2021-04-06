@@ -14,13 +14,13 @@ class Rekening extends CI_Controller {
 
 	function index()
 	{
-        $data['content'] = $this->db->get('tbl_rekening');
+        $data['content'] = $this->model_rekening->GetRekening();
         $this->load->view('rekening/rekening', $data);
 	}
     
     function rekening()
 	{
-        $data['content'] = $this->db->get('tbl_rekening');
+        $data['content'] = $this->model_rekening->GetRekening();
         $this->load->view('rekening/rekening', $data);
 	}
 

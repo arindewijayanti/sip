@@ -6,7 +6,18 @@ class Model_rekening extends CI_Model {
 	{
 		parent::__construct();
 		//Do your magic here
+        $this->load->library('session');
 	}
+
+	function GetRekening()
+    {
+
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_rekening.id_opd', $id_opd);
+        $this->db->order_by('tbl_rekening.kode_rekening', 'ASC');
+        return $this->db->from('tbl_rekening')
+    		->get();
+    }
 
 	public function menambahdatarekening($data)
 	{
