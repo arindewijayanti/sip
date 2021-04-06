@@ -42,11 +42,11 @@ $this->load->view('include/header');
                   <td><?= $i ?></td>
                   <td><?= $data->kode_buktipajak?></td>
                   <td><?= $data->nama_buktipajak ?></td>                                    
-                  <td><?= $data->kode_rekening ?></td>                
+                  <td><?= $data->id_rekening ?></td>                
                   <td><?= $data->nama_rekening ?></td>
                   <td> 
-                    <a href="<?php echo base_url()?>buktipajak/updatedatabuktipajak/<?php echo $data->kode_buktipajak; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
-                    <a href="<?php echo base_url()?>buktipajak/action_deletedatabuktipajak/<?php echo $data->kode_buktipajak; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
+                    <a href="<?php echo base_url()?>buktipajak/updatedatabuktipajak/<?php echo $data->id_buktipajak; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
+                    <a href="<?php echo base_url()?>buktipajak/action_deletedatabuktipajak/<?php echo $data->id_buktipajak; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
                   </td> 
                 </tr>
                     <?php

@@ -29,7 +29,7 @@ $this->load->view('include/header');
                            
                   <div class="col-md-6">
                     <label for="kode_buktipajak">Kode Bukti Pajak</label>
-                    <input value="-" class="form-control" id="kode_buktipajak" type="text" aria-describedby="nameHelp" name="kode_buktipajak"/>
+                    <input class="form-control" id="kode_buktipajak" type="text" aria-describedby="nameHelp" name="kode_buktipajak"/>
 
                   </div>
                   <div class="col-md-6">
@@ -44,13 +44,13 @@ $this->load->view('include/header');
               
                            
                   <div class="col-md-6">
-                    <label for="kode_rekening">Nama Rekening</label>
-                    <select class="form-control form-control-sm" id="kode_rekening" name="kode_rekening" required />
-                        <?php $kode_rekening = $this->db->query("SELECT * FROM tbl_rekening");
+                    <label for="id_rekening">Nama Rekening</label>
+                    <select class="form-control form-control-sm" id="id_rekening" name="id_rekening" required />
+                        <?php $id_rekening = $this->db->query("SELECT * FROM tbl_rekening");
                 
-                        foreach ($kode_rekening->result() as $kode_rekening) : ?>
+                        foreach ($id_rekening->result() as $id_rekening) : ?>
                         
-                        <option value="<?= $kode_rekening->kode_rekening?>"><?= $kode_rekening->nama_rekening?></option>
+                        <option value="<?= $id_rekening->id_rekening?>"><?= $id_rekening->nama_rekening?></option>
                          <?php endforeach; ?>
                        </select>
                   </div>

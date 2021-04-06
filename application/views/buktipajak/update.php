@@ -11,7 +11,7 @@ $this->load->view('include/header');
         <li class="breadcrumb-item active">Update Data Bukti Pajak</li>
       </ol>
 <!-- Example DataTables Card-->
-<?php foreach ($content->result() as $data) {
+<?php foreach ($content as $data) {
           # code...
         } ?>
 
@@ -22,8 +22,8 @@ $this->load->view('include/header');
           <div class="table-responsive">
              <div class="container">
 
-        <form action="<?php echo config_item('base_url'); ?>/buktipajak/action_updatedatabuktipajak/<?= $data->kode_buktipajak?>" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="kode_buktipajak"  value="<?= $data->kode_buktipajak?>" />
+        <form action="<?php echo config_item('base_url'); ?>/buktipajak/action_updatedatabuktipajak/<?= $data->id_buktipajak?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id_buktipajak"  value="<?= $data->id_buktipajak?>" />
              <div class="form-group">
               <div class="form-row">
 
@@ -39,9 +39,17 @@ $this->load->view('include/header');
                   
                 </div>
                 <div class="col-md-6">
-                    <label for="kode_rekening">Kode Rekening</label>
-                    <input value="<?= $data->kode_rekening?>"class="form-control" id="kode_rekening" type="text" aria-describedby="nameHelp" name="kode_rekening" required/>
-                  </div>
+                    <label for="id_rekening">Kode Rekening</label>
+                    <select class="form-control form-control-sm" id="id_rekening" name="id_rekening" required />
+                    <option value="<?= $data->id_rekening?>"><?= $data->nama_rekening?></option>
+                
+                     <?php $id_rekening = $this->db->query("SELECT * FROM tbl_rekening");
+                
+                        foreach ($id_rekening->result() as $id_rekening) : ?>
+                        
+                        <option value="<?= $id_rekening->id_rekening?>"><?= $id_rekening->nama_rekening?></option>
+                         <?php endforeach; ?>
+                       </select> </div>
                   
                 </div>
               </div>

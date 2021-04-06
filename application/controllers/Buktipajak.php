@@ -7,6 +7,7 @@ class Buktipajak extends CI_Controller {
     {
         parent::__construct();
        $this->load->model('model_buktipajak'); //load model model_buktipajak
+	   $this->load->library('session');
     }
 
 	function index()
@@ -31,42 +32,42 @@ class Buktipajak extends CI_Controller {
                     $data = array(
                             'kode_buktipajak'=>$this->input->post('kode_buktipajak'),
                             'nama_buktipajak'=>$this->input->post('nama_buktipajak'),
-							'kode_rekening'=>$this->input->post('kode_rekening')
+							'id_rekening'=>$this->input->post('id_rekening')
 					);
 					if($data['kode_buktipajak']==NULL){
-						$data['kode_buktipajak']=$data['nama_buktipajak'];
-					}elseif($data['kode_buktipajak']=='-'){
 						$data['kode_buktipajak']=$data['nama_buktipajak'];
 					}else{
 						$data['kode_buktipajak']=$data['kode_buktipajak'];
 					}
+					$data['id_user']=$this->session->userdata('username');
+					$data['id_opd']=$this->session->userdata('id_opd');
 					$this->model_buktipajak->menambahdatabuktipajak($data);
 					redirect('buktipajak','refresh');
 	}
 
-	function updatedatabuktipajak($kode_buktipajak = NULL)
+	function updatedatabuktipajak($id_buktipajak = NULL)
     {
-            $this->db->where('kode_buktipajak', $kode_buktipajak);
-            $data['content'] = $this->db->get('tbl_buktipajak');
+            $this->db->where('id_buktipajak', $id_buktipajak);
+            $data['content'] = $this->model_buktipajak->GetBuktiPajak();
 			$this->load->view('buktipajak/update', $data);
 	}
 	
-    function action_updatedatabuktipajak($kode_buktipajak ='')
+    function action_updatedatabuktipajak($id_buktipajak ='')
     {
         $data = array(
-            'kode_buktipajak'=>$this->input->post('kode_buktipajak'),
+            'id_buktipajak'=>$this->input->post('id_buktipajak'),
             'nama_buktipajak'=>$this->input->post('nama_buktipajak'),
-			'kode_rekening'=>$this->input->post('kode_rekening')
+			'id_rekening'=>$this->input->post('id_rekening')
         );
 		
-        $this->model_buktipajak->updatedatabuktipajak($data, $kode_buktipajak);
+        $this->model_buktipajak->updatedatabuktipajak($data, $id_buktipajak);
         redirect('buktipajak');
 	}
 
 
-	public function action_deletedatabuktipajak($kode_buktipajak = '')
+	public function action_deletedatabuktipajak($id_buktipajak = '')
 	{
-			$this->model_buktipajak->deletedatabuktipajak($kode_buktipajak);
+			$this->model_buktipajak->deletedatabuktipajak($id_buktipajak);
 			redirect('buktipajak','refresh');
 	}
 
