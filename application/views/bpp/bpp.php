@@ -41,20 +41,20 @@ $this->load->view('include/header');
                 <?php 
                   $i = 1;
                   $saldo = 0;
-                  foreach ($content->result() as $data)
+                  foreach ($content as $data)
                   {
                     $saldo += $data->penerimaan-$data->pengeluaran;
                   ?>
                   <td><?= $i ?></td>
                   <td> <?php echo date("d/m/Y", strtotime($data->tanggal));?></td>
-                  <td><?= $data->kode_buktipajak ?></td>                  
+                  <td><?= $data->id_buktipajak ?></td>                  
                   <td><?= $data->uraian ?></td>
                   <td><?= 'Rp'.number_format($data->penerimaan,0,'.','.')?></td>
                   <td><?= 'Rp'.number_format($data->pengeluaran,0,'.','.')?></td>
                   <td><?= 'Rp'.number_format($saldo,0,'.','.')?></td>
                   <td> 
-                    <a href="<?php echo base_url()?>bpp/updatedatabpp/<?php echo $data->kode_bpp; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
-                    <a href="<?php echo base_url()?>bpp/action_deletedatabpp/<?php echo $data->kode_bpp; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
+                    <a href="<?php echo base_url()?>bpp/updatedatabpp/<?php echo $data->id_bpp; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
+                    <a href="<?php echo base_url()?>bpp/action_deletedatabpp/<?php echo $data->id_bpp; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
                   </td> 
                 </tr>
                     <?php

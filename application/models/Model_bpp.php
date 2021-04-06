@@ -5,7 +5,7 @@ class Model_bpp extends CI_Model {
     public function __construct()
 	{
 		parent::__construct();
-		//Do your magic here
+        $this->load->library('session');
 	}
 
 	public function menambahdatabpp($data)
@@ -13,17 +13,27 @@ class Model_bpp extends CI_Model {
 		$this->db->insert('tbl_bpp', $data);
 	}
 	
-	public function updatedatabpp($data, $kode_bpp)
+	public function updatedatabpp($data, $id_bpp)
 	{
-		$this->db->where('kode_bpp', $kode_bpp);
+		$this->db->where('id_bpp', $id_bpp);
 		$this->db->update('tbl_bpp', $data);
 	}
 
-	public function deletedatabpp($kode_bpp)
+	public function deletedatabpp($id_bpp)
 	{
-		$this->db->where('kode_bpp', $kode_bpp);
+		$this->db->where('id_bpp', $id_bpp);
 		$this->db->delete('tbl_bpp');
 	}
+
+	function GetTransaksiBPP() 
+    {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_bpp.id_opd', $id_opd);
+        $this->db->order_by('tanggal', 'ASC');
+        return $this->db->from('tbl_bpp')
+          ->get()
+          ->result();
+    }
 
 	function GetTransaksiHarianBPP($tanggal) 
     {

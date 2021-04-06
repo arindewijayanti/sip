@@ -33,7 +33,7 @@ $this->load->view('include/header');
                   </div>
                   <div class="col-md-6">
                     <label for="id_buktipajak">Nomor Bukti</label>
-                    <select class="form-control form-control-sm" id="nama" name="id_buktipajak" required />
+                    <select class="form-control form-control-sm" id="id_buktipajak" name="id_buktipajak" required />
                     <option>Silahkan Pilih Nama Bukti Pajak</option>
                         <?php $id_buktipajak = $this->db->query("SELECT * FROM tbl_buktipajak");
                 

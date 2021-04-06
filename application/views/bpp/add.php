@@ -27,8 +27,8 @@ $this->load->view('include/header');
               <div class="form-row">                     
                   
                   <div class="col-md-6">
-                    <label for="kode_buktipajak">Nomor Bukti</label>
-                    <input class="form-control" id="kode_buktipajak" type="text" aria-describedby="nameHelp" name="kode_buktipajak" required/>
+                    <label for="id_buktipajak">Nomor Bukti</label>
+                    <input class="form-control" id="id_buktipajak" type="text" aria-describedby="nameHelp" name="id_buktipajak"/>
                 </div>
                 <div class="col-md-6">
                     <label for="uraian">Uraian</label>

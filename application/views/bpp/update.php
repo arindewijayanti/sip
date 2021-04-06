@@ -24,14 +24,14 @@ $this->load->view('include/header');
           <div class="table-responsive">
              <div class="container">
 
-        <form action="<?php echo config_item('base_url'); ?>/bpp/action_updatedatabpp/<?= $data->kode_bpp?>" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="kode_bpp"  value="<?= $data->kode_bpp?>" />
+        <form action="<?php echo config_item('base_url'); ?>/bpp/action_updatedatabpp/<?= $data->id_bpp?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id_bpp"  value="<?= $data->id_bpp?>" />
         <div class="form-group">
               <div class="form-row">                     
                   
                   <div class="col-md-6">
-                    <label for="kode_buktipajak">Nomor Bukti</label>
-                    <input value="<?= $data->kode_buktipajak?>" class="form-control" id="kode_buktipajak" type="text" aria-describedby="nameHelp" name="kode_buktipajak" required/>
+                    <label for="id_buktipajak">Nomor Bukti</label>
+                    <input value="<?= $data->id_buktipajak?>" class="form-control" id="id_buktipajak" type="text" aria-describedby="nameHelp" name="id_buktipajak" required/>
                 </div>
                 <div class="col-md-6">
                     <label for="uraian">Uraian</label>
