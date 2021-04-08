@@ -41,7 +41,6 @@ $this->load->view('include/header');
                         
                         <option value="<?= $id_buktipajak->id_buktipajak?>"><?= $id_buktipajak->nama_buktipajak?></option>
                          <?php endforeach; ?>
-                         <option value="-">-</option>
                        </select> </div>
                 </div>
               </div>

@@ -42,7 +42,7 @@ $this->load->view('include/header');
                   <td><?= $i ?></td>
                   <td><?= $data->kode_buktipajak?></td>
                   <td><?= $data->nama_buktipajak ?></td>                                    
-                  <td><?= $data->id_rekening ?></td>                
+                  <td><?= $data->kode_rekening ?></td>                
                   <td><?= $data->nama_rekening ?></td>
                   <td> 
                     <a href="<?php echo base_url()?>buktipajak/updatedatabuktipajak/<?php echo $data->id_buktipajak; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
