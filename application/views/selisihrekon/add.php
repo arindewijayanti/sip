@@ -40,7 +40,7 @@ $this->load->view('include/header');
                 
                         foreach ($kode_keterangan->result() as $kode_keterangan) : ?>
                         
-                        <option value="<?= $kode_keterangan->kode_keterangan?>"><?= $kode_keterangan->uraian_keteranganselisih?></option>
+                        <option value="<?= $kode_keterangan->kode_keterangan?>"<?= $kode_keterangan->kode_keterangan.$kode_keterangan->uraian_keteranganselisih?>.><?= $kode_keterangan->uraian_keteranganselisih?></option>
                          <?php endforeach; ?>
                        </select> </div>
                 </div>
