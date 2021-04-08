@@ -1,0 +1,203 @@
+<html>
+<head>
+<style>
+@media print 
+{
+   @page 
+
+   {
+    size: 8.27in 12.99in;
+  }
+}
+.jarak-lh{
+  line-height:10px;
+}
+p {
+    font-size: 12spt;
+}
+h1{
+    text-transform: uppercase;
+}
+table{
+    font-size: 12pt;
+    border-collapse: collapse;
+}
+.hurufkapital{
+    text-transform: uppercase;
+}
+</style>
+<table align="center" width="100%">
+<tr>
+<td>
+<img src="<?php echo base_url('assets2/logopadsim.jpg')?>" width="100px">
+<td>
+<td>
+<h2 class="jarak-lh" >PEMERINTAH KOTA PADANGSIDIMPUAN</h2>
+<h2 class="jarak-lh" >LAPORAN POSISI KAS HARIAN</h2>
+<h2 class="jarak-lh" >Tahun Anggaran <?php echo date('Y') ?> </h2>
+<td>
+</tr>
+<tr>
+<td colspan=3>
+<hr  color="black" size="2px"/>
+</td>
+</tr>
+<table>
+</head>
+
+<body>
+<p class="jarak-lh" align="center"><u><b></u></b></p>
+<p class="jarak-lh" align="center"></p>
+
+<table>
+<tr><p><td>Hari</td>	<td>:</td> <td> <?php echo $hari;?></td></p></tr>
+<tr><p><td>Tanggal</td>	    <td>:</td> <td><?= date($tanggal) ?></td></p></tr>
+<tr><p><td>Periode</td>	    <td>:</td> <td><?php 
+$tgl_pertama = date('01-m-Y', strtotime('first day of January'));
+$tgl_terakhir = date('t-m-Y', strtotime('last day of December'));
+echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
+</table>
+
+
+
+<br><br>
+<table border="1" align="center" width="100%">
+                    <tr>
+                        <th rowspan="2">No</th>
+                        
+                        <th colspan="2">No. Bukti Transaksi</th>        
+                        <th rowspan="2">Uraian</th> 
+                        <th rowspan="2">Penerimaan</th> 
+                        <th rowspan="2">Pengeluaran</th> 
+                    </tr>
+                    <tr>
+                        <th>Jenis Transaksi</th>                        
+                        <th>No Transaksi</th>
+                        
+                    </tr> 
+                </thead>
+                <?php
+                    $no = 1 ;
+                    $totalpenerimaan = 0;
+                    $totalpengeluaran = 0;
+                    foreach ($hasil as $item)
+                    {
+                        $totalpenerimaan += $item->penerimaan;
+                        $totalpengeluaran += $item->pengeluaran;
+                    ?>
+                    <tr>
+                        <td align="center"><?= $no;?></td>
+                        <td><?= $item->jenis_bukti;?></td>
+                        <td><?= $item->no_bukti;?></td>
+                        <td><?= $item->uraian;?></td>
+                        <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($item->pengeluaran,0,'.','.'); ?></td>                     
+                    </tr>
+                   
+                    <?php
+                    $no +=1;
+                    }
+                    ?>
+                
+                    <?php
+                    $totalpenerimaanbbp = 0;
+                    $totalpengeluaranbbp = 0;
+                    foreach ($hasilBBP as $item)
+                    {
+                        
+                        $totalpenerimaanbbp += $item->kredit;
+                        $totalpengeluaranbbp += $item->debet;
+                    ?>
+                    <tr>
+                         <td></td><td></td><td></td>
+                        <td><?= $item->nama_buktipajak;?></td>
+                        <td align="center"><?='Rp'.number_format($item->kredit,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($item->debet,0,'.','.'); ?></td>                     
+                    </tr>
+                    <?php
+                    }
+                    ?>
+
+                    <?php
+                     $totalpenerimaanbpp = 0;
+                     $totalpengeluaranbpp = 0;
+                    foreach ($hasilBPP as $item)
+                    {
+                        $totalpenerimaanbpp += $item->penerimaan;
+                        $totalpengeluaranbpp += $item->pengeluaran;
+                    ?>
+                    <tr>
+                        <td></td><td></td><td></td>
+                        <td><?= $item->uraian;?></td>
+                        <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($item->pengeluaran,0,'.','.'); ?></td>                     
+                    </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+                <tr>
+                        <td align="right" colspan="4">Jumlah</td> 
+                        <td align="center"><?='Rp'.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($totalpengeluaran+$totalpengeluaranbbp+$totalpengeluaranbpp,0,'.','.'); ?></td>
+                </tr>
+                <tr>
+                        <td align="right" colspan="4">Perubahan Posisi Kas hari ini</td> 
+                        <td align="center"><?='Rp'.number_format($h['totalpenerimaan']+$hbbp['totalpenerimaanbbp']+$hbpp['totalpenerimaanbpp'],0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],0,'.','.'); ?></td>
+                </tr>
+                <tr>
+                        <td align="right" colspan="4">Posisi Kas (H-1)</td> 
+                        <td colspan="2" align="center"><?='Rp'.number_format($hmin1['totalpenerimaan']-$hmin1['totalpengeluaran']+$hmin1bbp['totalpenerimaanbbp']-$hmin1bbp['totalpengeluaranbbp']+$hmin1bpp['totalpenerimaanbpp']-$hmin1bpp['totalpengeluaranbpp'],0,'.','.'); ?></td>
+                </tr>
+                <tr>
+                        <td align="right" colspan="4">Posisi Kas (H)</td> 
+                        <td colspan="2" align="center"><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],0,'.','.'); ?></td>
+                </tr>
+    
+            </table>
+
+</body>
+
+<footer>
+<br><br><br>
+<table align="center" style="width:100%">
+
+<tr>
+    <td width="5%"></td>
+    <td width="30%">Disetujui oleh,</td>
+    <td width="30%">Disiapkan oleh,</td>
+</tr>
+<tr>
+<td width="5%"></td>
+    <td width="30%">Bendahara Umum Daerah</td>
+    <td width="30%">Kuasa Bendahara Umum Daerah</td>
+</tr>
+<tr height="75px"></tr>
+<tr>
+<td width="5%"></td>
+    <td width="30%">Sulaiman Lubis, S.E.</td>
+    <td width="30%">Asir Aryadi, S.E.</td>
+</tr>
+
+<tr>
+<td width="5%"></td>
+    <td width="30%">NIP. 196905011993031004  </td>
+    <td width="30%">NIP. 197602072005021002</td>
+</tr>
+
+</table>
+</footer>
+
+</html>
+
+
+
+
+
+
+
+
+
+   
+                    
