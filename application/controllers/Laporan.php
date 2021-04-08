@@ -117,7 +117,15 @@ class Laporan extends CI_Controller {
 		$data['uraianb'] = $this->model_transaksi->GetUraianB($tanggal);
 		$data['uraianc'] = $this->model_transaksi->GetUraianC($tanggal);
 		$data['uraiand'] = $this->model_transaksi->GetUraianD($tanggal);
-        $this->load->view('laporan/printrekonsiliasibank',$data);
+
+		$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
+		$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
+
+		if (isset($_POST['P77'])){
+			$this->load->view('laporan/printrekonsiliasibank',$data);
+		}else{
+			$this->load->view('laporan/printrekonsiliasibank13',$data);
+		}
 	}
 	////////////////////////////
 
@@ -203,8 +211,13 @@ public function printregister()
 
 	$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
 	$data['uraian'] = $this->model_transaksi->GetUraian($tanggal);
-	$this->load->view('laporan/printregister',$data);
 	
+	
+	if (isset($_POST['P77'])){
+		$this->load->view('laporan/printregister',$data);
+	}else{
+		$this->load->view('laporan/printregister13',$data);
+	}
 }
 
 }

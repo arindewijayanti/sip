@@ -29,13 +29,9 @@ table{
 <table align="center" width="100%">
 <tr>
 <td>
-<img src="<?php echo base_url('assets2/logopadsim.jpg')?>" width="100px">
-<p> Periode : <?php echo date("d/m/Y", strtotime($tanggal));?></p> 
-<td>
-<td>
-<h2 class="jarak-lh"  align="left">PEMERINTAH KOTA PADANGSIDIMPUAN</h2>
-<h2 class="jarak-lh" align="left">REKONSILIASI BANK</h2>
-<h3 class="jarak-lh"  align="lft">Tahun Anggaran <?php echo date('Y') ?></h3>
+<h2 class="jarak-lh"  align="center">PEMERINTAH KOTA PADANGSIDIMPUAN</h2>
+<h2 class="jarak-lh" align="center">REKONSILIASI BANK</h2>
+<h3 class="jarak-lh"  align="center">Periode : <?php echo date("d/m/Y", strtotime($tanggal));?></h3>
 <td>
 </tr>
 <tr>
@@ -180,14 +176,9 @@ table{
 <table align="center" style="width:100%">
 
 <tr>
-    <td width="5%"></td>
-    <td width="30%">Disetujui oleh,</td>
-    <td width="30%">Disiapkan oleh,</td>
-</tr>
-<tr>
 <td width="5%"></td>
-    <td width="30%">Bendahara Umum Daerah</td>
-    <td width="30%">Kuasa Bendahara Umum Daerah</td>
+    <td width="30%">PPKD SELAKU BUD</td>
+    <td width="30%">KUASA BENDAHARA UMUM DAERAH</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
