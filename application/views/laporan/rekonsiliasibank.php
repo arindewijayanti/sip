@@ -34,13 +34,20 @@ $this->load->view('include/header');
                 </div>
               </div>
               
-            
-             <div class="form-group">
+              <div class="form-group">
             <div class="form-row">
               <div class="col-md-2">
               <br>
-                <input class="form-control btn btn-primary" type="submit" value="Print" name="btnSimpan" >
-              </div>
+                <input class="form-control btn btn-primary" type="submit" value="Print F13" name="P13" >
+             </div>
+            </div>
+
+            <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-2">
+              <br>
+                <input class="form-control btn btn-success" type="submit" value="Print F77" name="P77" >
+             </div>
             </div>
           </div>
           </form>
