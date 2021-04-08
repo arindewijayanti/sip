@@ -146,19 +146,19 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr height="75px"></tr>
 <tr>
 <td width="5%"></td>
-    <td width="30%">Asir Aryadi, S.E.</td>
-    <td width="30%">Sulaiman Lubis, S.E.</td>
+    <td width="30%"><?= $hasilSK1->nama ?></td>
+    <td width="30%"><?= $hasilSK2->nama ?></td>
 </tr>
 <tr>
 <td width="5%"></td>
-    <td width="30%">Penata Tingkat I</td>
-    <td width="30%">Pembina Utama Muda</td>
+    <td width="30%"><?= $hasilSK1->jabatan ?></td>
+    <td width="30%"><?= $hasilSK2->jabatan  ?></td>
 </tr>
 
 <tr>
 <td width="5%"></td>
-    <td width="30%">NIP. 197602072005021002</td>
-    <td width="30%">NIP. 196905011993031004</td>
+    <td width="30%"><?= $hasilSK1->nip ?> </td>
+    <td width="30%"><?= $hasilSK2->nip ?></td>
 </tr>
 
 </table>

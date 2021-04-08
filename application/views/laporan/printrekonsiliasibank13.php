@@ -36,7 +36,6 @@ table{
 </tr>
 <tr>
 <td colspan=3>
-<hr  color="black" size="2px"/>
 </td>
 </tr>
 <table>
@@ -172,7 +171,7 @@ table{
                   
             
 <footer>
-<br><br><br>
+<br><br><br><br><br><br><br>
 <table align="center" style="width:100%">
 
 <tr>
