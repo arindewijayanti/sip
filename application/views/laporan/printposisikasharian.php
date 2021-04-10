@@ -90,8 +90,8 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                         <td><?= $item->jenis_bukti;?></td>
                         <td><?= $item->no_bukti;?></td>
                         <td><?= $item->uraian;?></td>
-                        <td align="center"><?='Rp'.number_format($item->penerimaan,2,',','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->pengeluaran,2,',','.'); ?></td>                     
+                        <td align="center"><?='Rp '.number_format($item->penerimaan,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($item->pengeluaran,2,',','.'); ?></td>                     
                     </tr>
                    
                     <?php
@@ -111,8 +111,8 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                     <tr>
                          <td></td><td></td><td></td>
                         <td><?= $item->nama_buktipajak;?></td>
-                        <td align="center"><?='Rp'.number_format($item->kredit,2,',','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->debet,2,',','.'); ?></td>                     
+                        <td align="center"><?='Rp '.number_format($item->kredit,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($item->debet,2,',','.'); ?></td>                     
                     </tr>
                     <?php
                     }
@@ -129,8 +129,8 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                     <tr>
                         <td></td><td></td><td></td>
                         <td><?= $item->uraian;?></td>
-                        <td align="center"><?='Rp'.number_format($item->penerimaan,2,',','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->pengeluaran,2,',','.'); ?></td>                     
+                        <td align="center"><?='Rp '.number_format($item->penerimaan,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($item->pengeluaran,2,',','.'); ?></td>                     
                     </tr>
                     <?php
                     }
@@ -138,21 +138,21 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                 </tbody>
                 <tr>
                         <td align="right" colspan="4">Jumlah</td> 
-                        <td align="center"><?='Rp'.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,2,',','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($totalpengeluaran+$totalpengeluaranbbp+$totalpengeluaranbpp,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($totalpengeluaran+$totalpengeluaranbbp+$totalpengeluaranbpp,2,',','.'); ?></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Perubahan Posisi Kas hari ini</td> 
-                        <td align="center"><?='Rp'.number_format($h['totalpenerimaan']+$hbbp['totalpenerimaanbbp']+$hbpp['totalpenerimaanbpp'],2,',','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($h['totalpenerimaan']+$hbbp['totalpenerimaanbbp']+$hbpp['totalpenerimaanbpp'],2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],2,',','.'); ?></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Posisi Kas (H-1)</td> 
-                        <td colspan="2" align="center"><?='Rp'.number_format($hmin1['totalpenerimaan']-$hmin1['totalpengeluaran']+$hmin1bbp['totalpenerimaanbbp']-$hmin1bbp['totalpengeluaranbbp']+$hmin1bpp['totalpenerimaanbpp']-$hmin1bpp['totalpengeluaranbpp'],2,',','.'); ?></td>
+                        <td colspan="2" align="center"><?='Rp '.number_format($hmin1['totalpenerimaan']-$hmin1['totalpengeluaran']+$hmin1bbp['totalpenerimaanbbp']-$hmin1bbp['totalpengeluaranbbp']+$hmin1bpp['totalpenerimaanbpp']-$hmin1bpp['totalpengeluaranbpp'],2,',','.'); ?></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Posisi Kas (H)</td> 
-                        <td colspan="2" align="center"><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></td>
+                        <td colspan="2" align="center"><?='Rp '.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></td>
                 </tr>
     
             </table>

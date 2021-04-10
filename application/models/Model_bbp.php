@@ -86,16 +86,29 @@ class Model_bbp extends CI_Model {
 
 	function GetTransaksiH($tanggal)
     {
+        $batasawal = date('Y-01-01', strtotime($tanggal)); 
         $this->db->select('SUM(kredit) as totalpenerimaanbbp,SUM(debet) as totalpengeluaranbbp');
 		$this->db->where('tanggal <=', $tanggal);
+		$this->db->where('tanggal >=', $batasawal);
         $this->db->from('tbl_bbp');
         return $this->db->get()->row_array();	  
     }
 
 	function GetTransaksiHmin1($tanggal)
     {
+		$batasawal = date('Y-01-01', strtotime($tanggal)); 
+        $batasakhir = date('Y-m-d', strtotime('-1 days', strtotime($tanggal))); 
+        $this->db->select('SUM(kredit) as totalpenerimaanbbp,SUM(debet) as totalpengeluaranbbp');   
+		$this->db->where('tanggal >=', $batasawal);
+		$this->db->where('tanggal <=', $batasakhir);
+        $this->db->from('tbl_bbp');
+        return $this->db->get()->row_array();	  
+    }
+
+    function GetTransaksisemua($tanggal)
+    {
         $this->db->select('SUM(kredit) as totalpenerimaanbbp,SUM(debet) as totalpengeluaranbbp');
-		$this->db->where('tanggal <', $tanggal);
+		$this->db->where('tanggal <=', $tanggal);
         $this->db->from('tbl_bbp');
         return $this->db->get()->row_array();	  
     }

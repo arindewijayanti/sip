@@ -20,10 +20,12 @@ class Model_saldobank extends CI_Model {
 
 	function Getsaldobanktahunlalu($tanggal)
     {
+
+		$tanggal = date('Y-12-31', strtotime('-1 year', strtotime($tanggal))); 
         $this->db->select('saldo as saldobanktahunlalu');
 		$id_opd = $this->session->userdata('id_opd');
         $this->db->where('tbl_saldobank.id_opd', $id_opd);
-		$this->db->where('tanggal <', $tanggal);
+		$this->db->where('tanggal', $tanggal);
         $this->db->from('tbl_saldobank');
         $this->db->limit('1');
         return $this->db->get()->row_array();	  

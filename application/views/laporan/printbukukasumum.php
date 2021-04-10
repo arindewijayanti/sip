@@ -79,9 +79,9 @@ table{
                         <td><?= date("d/m/Y", strtotime($item->tanggal));?></td>
                         <td><?= $item->no_bukti;?></td>
                         <td><?= $item->uraian;?></td>
-                        <td align="center"><?='Rp'.number_format($item->penerimaan,2,',','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->pengeluaran,2,',','.'); ?></td>                     
-                        <td align="center"><?='Rp'.number_format($saldo,2,',','.'); ?></td> 
+                        <td align="center"><?='Rp '.number_format($item->penerimaan,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($item->pengeluaran,2,',','.'); ?></td>                     
+                        <td align="center"><?='Rp '.number_format($saldo,2,',','.'); ?></td> 
                     </tr>
                     <?php
                             $no++;

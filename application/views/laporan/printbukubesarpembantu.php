@@ -52,8 +52,8 @@ table{
 <table>
 <tr><p><td>Kode Rekening Buku Besar Pembantu</td>	<td>:</td> <td><?= $hasilatas['kode_rekening'];?></td></p></tr>
 <tr><p><td>Nama Rekening Buku Besar Pembantu</td>	    <td>:</td> <td><?= $hasilatas['nama_rekening'];?></td></p></tr>
-<tr><p><td>Pagu APBD</td>	    <td>:</td> <td><?= 'Rp'.number_format($pagu['pagu_apbd'],0,'.','.')?></td></p></tr>
-<tr><p><td>Pagu Perubahan APBD</td>	    <td>:</td> <td><?= 'Rp'.number_format($pagu['pagu_perubahan_apbd'],0,'.','.')?></td></p></tr>
+<tr><p><td>Pagu APBD</td>	    <td>:</td> <td><?= 'Rp '.number_format($pagu['pagu_apbd'],0,'.','.')?></td></p></tr>
+<tr><p><td>Pagu Perubahan APBD</td>	    <td>:</td> <td><?= 'Rp '.number_format($pagu['pagu_perubahan_apbd'],0,'.','.')?></td></p></tr>
 </table>
 <br><br>
 <table border="1" align="center" width="100%">
@@ -86,9 +86,9 @@ table{
                         <td><?= date("d/m/Y", strtotime($item->tanggal));?></td>
                         <td><?= $item->kode_buktipajak;?></td>
                         <td><?= $item->nama_buktipajak;?></td>
-                        <td align="center"><?='Rp'.number_format($item->debet,2,',','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->kredit,2,',','.'); ?></td>     
-                        <td align="center"><?='Rp'.number_format($saldo,2,',','.'); ?></td>                    
+                        <td align="center"><?='Rp '.number_format($item->debet,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($item->kredit,2,',','.'); ?></td>     
+                        <td align="center"><?='Rp '.number_format($saldo,2,',','.'); ?></td>                    
                     </tr>
                     <?php
                             $no++;
@@ -97,9 +97,9 @@ table{
                 </tbody>
                 <tr>
                         <td align="right" colspan="4">Jumlah</td> 
-                        <td align="center"><?='Rp'.number_format($totaldebet,2,',','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($totalkredit,2,',','.'); ?></td>                        
-                        <td align="center"><?='Rp'.number_format($saldo,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($totaldebet,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($totalkredit,2,',','.'); ?></td>                        
+                        <td align="center"><?='Rp '.number_format($saldo,2,',','.'); ?></td>
                 </tr>
     
             </table>

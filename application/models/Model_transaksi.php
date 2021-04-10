@@ -47,20 +47,33 @@ class Model_transaksi extends CI_Model {
 
 	function GetTransaksiHmin1($tanggal)
     {
+		$batasawal = date('Y-01-01', strtotime($tanggal)); 
+        $batasakhir = date('Y-m-d', strtotime('-1 days', strtotime($tanggal))); 
         $this->db->select('SUM(penerimaan) as totalpenerimaan,SUM(pengeluaran) as totalpengeluaran');
-		$this->db->where('tanggal <', $tanggal);
+		$this->db->where('tanggal <=', $batasakhir);
+		$this->db->where('tanggal >=', $batasawal);
         $this->db->from('tbl_transaksi');
         return $this->db->get()->row_array();	  
     }
 
 	function GetTransaksiH($tanggal)
     {
+		$batasawal = date('Y-01-01', strtotime($tanggal)); 
+        $this->db->select('SUM(penerimaan) as totalpenerimaan,SUM(pengeluaran) as totalpengeluaran');
+		$this->db->where('tanggal <=', $tanggal);
+		$this->db->where('tanggal >=', $batasawal);
+        $this->db->from('tbl_transaksi');
+        return $this->db->get()->row_array();	  
+    }
+
+	function GetTransaksisemua($tanggal)
+    {
         $this->db->select('SUM(penerimaan) as totalpenerimaan,SUM(pengeluaran) as totalpengeluaran');
 		$this->db->where('tanggal <=', $tanggal);
         $this->db->from('tbl_transaksi');
         return $this->db->get()->row_array();	  
     }
-
+	
 	function GetTransaksiBulanan($tanggalmulai, $tanggalselesai)
     {
         $this->db->select('*');
