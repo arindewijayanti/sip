@@ -44,8 +44,8 @@ $this->load->view('include/header');
                   foreach ($content->result() as $data) : ?>
                   <td><?= $i ?></td>
                   <td><?= $data->no_sk?></td>
-                  <td><?= $data->tanggal_sk ?></td>
-                  <td><?= $data->tanggal_skberakhir ?></td>
+                  <td><?php echo date("d/m/Y", strtotime($data->tanggal_sk));?></td>
+                  <td><?php echo date("d/m/Y", strtotime($data->tanggal_skberakhir));?></td>
                   <td><?= $data->nama ?></td>
                   <td><?= $data->nip ?></td>
                   <td><?= $data->jabatan ?></td>
