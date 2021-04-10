@@ -56,7 +56,10 @@ $tahun2 = date("Y", strtotime($tanggal2));
 </tr>
 <tr>
 <td colspan=3>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 55afe240ea26877e16160557bbf8a73be43918ed
 </td>
 </tr>
 <table>
@@ -208,7 +211,7 @@ $tahun2 = date("Y", strtotime($tanggal2));
                   
             
 <footer>
-<br><br><br>
+<br><br><br><br><br><br><br>
 <table align="center" style="width:100%">
 
 <tr>

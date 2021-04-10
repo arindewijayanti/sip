@@ -53,9 +53,17 @@ class Laporan extends CI_Controller {
 		
 		$data['hasilBBP'] = $this->model_bbp->GetTransaksiHarianBBP($tanggal);
 		$data['hasilBPP'] = $this->model_bpp->GetTransaksiHarianBPP($tanggal);
-        $this->load->view('laporan/printposisikasharian',$data);
+       
+		$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
+		$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
+	
+	
+	if (isset($_POST['P77'])){
+		$this->load->view('laporan/printposisikasharian',$data);
+	}else{
+		$this->load->view('laporan/printposisikasharian13',$data);
 	}
-
+}
 /////////////////////
 
 
@@ -213,7 +221,11 @@ public function printregister()
 	$data['uraian'] = $this->model_transaksi->GetUraian($tanggal);
 
 	$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
+<<<<<<< HEAD
 	$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
+=======
+		$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
+>>>>>>> 55afe240ea26877e16160557bbf8a73be43918ed
 	
 	
 	if (isset($_POST['P77'])){
