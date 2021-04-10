@@ -101,8 +101,14 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr><td width="5%"></td><td width="70%">&nbsp Selisih ......</td>      <td><?= 'Rp'.number_format(($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'])-$saldobank['saldo'],2,',','.');?></td></tr>
 </table>
 
-<table width="80%">
+<table width="50%">
 <tr><p><u>Penjelasan Perbedaan :</u></p></tr>
+<tr><td width="5%">- </td><td width="45%">Potongan Gaji</td>	 <td>Rp    -</td></tr>
+<tr><td width="5%">- </td><td width="45%">Potongan PPN dan PPh</td>	 <td>Rp    -</td></tr>
+<tr><td width="5%"></td><td width="45%"></td>	 <td><hr  color="black" size="2px"/></td></tr>
+<tr><td width="5%"></td><td width="45%">Jumlah</td>	 <td>Rp    -</td></tr>
+<tr><td width="5%"></td><td width="45%"></td>	 <td><hr  color="black" size="2px"/></td></tr>
+
 
                     <?php
                     $no = 1 ;
