@@ -92,13 +92,13 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <table style="width:100%">
 <br>
 <tr><p>Kertas berharga dan bagian Kas yang diizinkan Ordonansi :</p></tr>
-<tr><td width="5%">a. </td><td width="70%">SP2D ......</td>	 <td>Rp ....</td></tr>
-<tr><td width="5%">b. </td><td width="70%">Wessel</td>    	<td>Rp ....</td></tr>
-<tr><td width="5%">c. </td><td width="70%">Saldo bank Sumut AC 2511 ......</td>   	<td><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
-<tr><td width="5%">d. </td><td width="70%">M e t e r a i ......</td>     	<td>Rp ....</td></tr>
-<tr><td width="5%">e. </td><td width="70%">Dan Lain-lain ......</td>     	<td>Rp ....</td></tr>
-<tr><td width="5%"></td><td width="70%">&nbsp J u m l a h ......</td>      <td><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
-<tr><td width="5%"></td><td width="70%">&nbsp Selisih ......</td>      <td><?= 'Rp'.number_format(($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'])-$saldobank['saldo'],2,',','.');?></td></tr>
+<tr><td width="5%">a. </td><td width="60%">SP2D ......</td>	 <td>Rp ....</td></tr>
+<tr><td width="5%">b. </td><td width="60%">Wessel</td>    	<td>Rp ....</td></tr>
+<tr><td width="5%">c. </td><td width="60%">Saldo bank Sumut AC 2511 ......</td>   	<td><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
+<tr><td width="5%">d. </td><td width="60%">M e t e r a i ......</td>     	<td>Rp ....</td></tr>
+<tr><td width="5%">e. </td><td width="60%">Dan Lain-lain ......</td>     	<td>Rp ....</td></tr>
+<tr><td width="5%"></td><td width="60%">&nbsp J u m l a h ......</td>      <td><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
+<tr><td width="5%"></td><td width="60%">&nbsp Selisih ......</td>      <td><?= 'Rp'.number_format(($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'])-$saldobank['saldo'],2,',','.');?></td></tr>
 </table>
 
 <table width="50%">
