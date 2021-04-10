@@ -118,7 +118,7 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
                         $total += $item->nominal;
                     ?>
                     <tr>
-                    <td width="5%"><?= $no;?>.</td><td width="40%"><?= $item->uraian;?></td>	 <td><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>
+                    <td width="5%"><?= $no;?>.</td><td width="40%"><?= $item->uraian;?></td>	 <td><?='Rp'.number_format($item->nominal,2,',','.'); ?></td>
                     </tr>
                     <?php
                             $no++;

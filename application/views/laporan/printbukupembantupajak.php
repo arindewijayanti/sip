@@ -81,9 +81,9 @@ echo date("d/m/Y", strtotime($tanggalmulai)); echo " s.d "; echo date("d/m/Y", s
                         <td><?= date("d/m/Y", strtotime($item->tanggal));?></td>
                         <td><?= $item->kode_buktipajak;?></td>
                         <td><?= $item->uraian;?></td>
-                        <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->pengeluaran,0,'.','.'); ?></td>     
-                        <td align="center"><?='Rp'.number_format($saldo,0,'.','.'); ?></td>                    
+                        <td align="center"><?='Rp'.number_format($item->penerimaan,2,',','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($item->pengeluaran,2,',','.'); ?></td>     
+                        <td align="center"><?='Rp'.number_format($saldo,2,',','.'); ?></td>                    
                     </tr>
                     <?php
                             $no++;

@@ -6,7 +6,7 @@
    @page 
 
    {
-    size: 8.27in 12.99in;
+    size: 12.99in 8.27in;
   }
 }
 .jarak-lh{
@@ -26,6 +26,39 @@ table{
     text-transform: uppercase;
 }
 </style>
+<?php
+
+$tgl = date("d-m-Y", strtotime($tanggal));
+
+$hari = date("l", strtotime($tanggal)); 
+$hari_indonesia = array('Monday'  => 'Senin',
+'Tuesday'  => 'Selasa',
+'Wednesday' => 'Rabu',
+'Thursday' => 'Kamis',
+'Friday' => 'Jumat',
+'Saturday' => 'Sabtu',
+'Sunday' => 'Minggu');
+$hari = $hari_indonesia[$hari];
+
+
+$bulanhuruf = date("m", strtotime($tanggal)); 
+$bulannama_indonesia = array(
+    '01'  => 'Januari',
+    '02'  => 'Februari',
+    '03' => 'Maret',
+    '04' => 'April',
+    '05' => 'Mei',
+    '06' => 'Juni',
+    '07' => 'Juli',
+    '08' => 'Agustus',
+    '09' => 'September',
+    '10' => 'Oktober',
+    '11' => 'November',
+    '12' => 'Desember');
+$bulannama = $bulannama_indonesia[$bulanhuruf];
+$tanggalsurat = date("d", strtotime($tanggal)); 
+$tahun = date("Y", strtotime($tanggal));
+?>
 <table align="center" width="100%">
 <tr>
 <td>
@@ -44,7 +77,7 @@ table{
 <p class="jarak-lh" align="center"></p>
 
 <table>
-<tr><p><td width="50%"></td><td> <?php echo $hari;?>,<?= date($tanggal) ?></td></p></tr>
+<tr><p><td width="50%">Hari/Tanggal</td><td>: <?= $hari;?> <?= $tanggalsurat;?> <?=$bulannama;?> <?=$tahun?></td></p></tr>
 </table>
 
 
@@ -53,7 +86,6 @@ table{
 <table border="1" align="center" width="100%">
                     <tr>
                         <th rowspan="2">No</th>
-                        
                         <th colspan="3">Transaksi</th>        
                         <th rowspan="2">Uraian</th> 
                         <th rowspan="2">Penerimaan</th> 
@@ -77,12 +109,10 @@ table{
                     ?>
                     <tr>
                         <td align="center"><?= $no;?></td>
-                        <td><?= $item->jenis_bukti;?></td>
-                        <td><?= $item->no_bukti;?></td>
-                        <td><?= $item->no_bukti;?></td>
+                        <td></td><td></td><td></td>
                         <td><?= $item->uraian;?></td>
-                        <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->pengeluaran,0,'.','.'); ?></td>                     
+                        <td align="right"><?='Rp'.number_format($item->penerimaan,2,',','.'); ?></td>
+                        <td align="right"><?='Rp'.number_format($item->pengeluaran,2,',','.'); ?></td>                     
                     </tr>
                    
                     <?php
@@ -100,13 +130,14 @@ table{
                         $totalpengeluaranbbp += $item->debet;
                     ?>
                     <tr>
-                         <td></td><td></td><td></td>
+                         <td align="center"><?=$no?></td><td></td><td></td><td></td>
                         <td><?= $item->nama_buktipajak;?></td>
-                        <td align="center"><?='Rp'.number_format($item->kredit,0,'.','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->debet,0,'.','.'); ?></td>                     
+                        <td align="right"><?='Rp'.number_format($item->kredit,2,',','.'); ?></td>
+                        <td align="right"><?='Rp'.number_format($item->debet,2,',','.'); ?></td>                     
                     </tr>
                     <?php
-                    }
+                    $no +=1;
+                }
                     ?>
 
                     <?php
@@ -118,35 +149,108 @@ table{
                         $totalpengeluaranbpp += $item->pengeluaran;
                     ?>
                     <tr>
-                        <td></td><td></td><td></td>
+                        <td align="center"><?=$no?></td><td></td><td></td><td></td>
                         <td><?= $item->uraian;?></td>
-                        <td align="center"><?='Rp'.number_format($item->penerimaan,0,'.','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->pengeluaran,0,'.','.'); ?></td>                     
+                        <td align="right"><?='Rp'.number_format($item->penerimaan,2,',','.'); ?></td>
+                        <td align="right"><?='Rp'.number_format($item->pengeluaran,2,',','.'); ?></td>                     
                     </tr>
                     <?php
-                    }
+                    $no +=1;
+                }
                     ?>
                 </tbody>
                 <tr>
-                        <td align="right" colspan="5">Jumlah</td> 
-                        <td align="center"><?='Rp'.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,0,'.','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($totalpengeluaran+$totalpengeluaranbbp+$totalpengeluaranbpp,0,'.','.'); ?></td>
+                    <td></td><td></td><td></td><td></td>
+                        <td align="left" ><b>Jumlah</b></td> 
+                        <td align="right"><b><?='Rp'.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,2,',','.'); ?></b></td>
+                        <td align="right"><b><?='Rp'.number_format($totalpengeluaran+$totalpengeluaranbbp+$totalpengeluaranbpp,2,',','.'); ?></b></td>
                 </tr>   
                 <tr>
+
+                <tr>
+                    <td></td><td></td><td></td><td></td>
+                        <td align="left" ><b>Pembayaran PPN & PPh</b></td> 
+                        <td align="right"><?='Rp'.number_format(0,2,',','.'); ?></td>
+                        <td align="right"><?='Rp'.number_format(0,2,',','.'); ?></td>
+                </tr>   
+                <tr>
+
+                <tr>
+                    <td></td><td></td><td></td><td></td>
+                        <td align="left" ><b>Jumlah</b></td> 
+                        <td align="right"><b><?='Rp'.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,2,',','.'); ?></b></td>
+                        <td align="right"><b><?='Rp'.number_format($totalpengeluaran+$totalpengeluaranbbp+$totalpengeluaranbpp,2,',','.'); ?></b></td>
+                </tr>   
+                <tr>    
                         <td align="right" colspan="5">Perubahan Posisi Kas hari ini</td> 
-                        <td align="center"><?='Rp'.number_format($h['totalpenerimaan']+$hbbp['totalpenerimaanbbp']+$hbpp['totalpenerimaanbpp'],2,',','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],2,',','.'); ?></td>
+                        <td align="right"><b><?='Rp'.number_format(0,2,',','.'); ?></b></td>
+                        <td align="right"><b><?='Rp'.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,2,',','.'); ?></b></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="5">Posisi Kas (H-1)</td> 
-                        <td colspan="2" align="center"><?='Rp'.number_format($hmin1['totalpenerimaan']-$hmin1['totalpengeluaran']+$hmin1bbp['totalpenerimaanbbp']-$hmin1bbp['totalpengeluaranbbp']+$hmin1bpp['totalpenerimaanbpp']-$hmin1bpp['totalpengeluaranbpp'],2,',','.'); ?></td>
+                        <td colspan="1" align="right"><b><?='Rp'.number_format(0,2,',','.'); ?></b></td>
+                        <td colspan="1" align="right"><b><?='Rp'.number_format(0,2,',','.'); ?></b></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="5">Posisi Kas (H)</td> 
-                        <td colspan="2" align="center"><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></td>
+                        <td colspan="1" align="right"><b><?='Rp'.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,2,',','.'); ?></b></td>
+                        
+                        <td colspan="1" align="right"><b><?='Rp'.number_format(0,2,',','.'); ?></b></td>
+                </tr>
+                
+                <tr>
+                        <td align="right" colspan="5">Saldo Bank Tahun Lalu</td> 
+                        <td colspan="1" align="right"><b><?='Rp'.number_format($saldobanktahunlalu['saldobanktahunlalu'],2,',','.'); ?></b></td>
+                        
+                        <td colspan="1" align="right"><b><?='Rp'.number_format(0,2,',','.'); ?></b></td>
+                </tr>
+                
+                <tr>
+                        <td align="right" colspan="5">Saldo s/d hari</td> 
+                        <td colspan="1" align="right"><b><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></b></td>
+                        
+                        <td colspan="1" align="right"><b><?='Rp'.number_format(0,2,',','.'); ?></b></td>
                 </tr>
     
             </table>
+
+<br>
+<table width="50%">
+Rekapitulasi Posisi Kas di BUD
+
+<tr>
+    <td width="35%">Saldo di Bank AC 2511</td>
+    <td width="15%" align="right"><u><?='Rp'.number_format($saldobankhariini['saldobankhariini'],2,',','.'); ?></u></td>   
+</tr>
+
+<tr>
+    <td width="35%">Selisih</td>
+    <td width="15%" align="right"><u><b><?='Rp'.number_format($saldobankhariini['saldobankhariini']-($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']),2,',','.'); ?></b></u></td>   
+</tr>
+
+</table>
+<br>
+<table  width="50%">
+<tr>
+    <td width="35%">Potongan PFK s/d Hari ini :</td>
+    <td width="15%" align="right"></td>   
+</tr>
+
+<tr>
+    <td width="35%">Potongan Gaji</td>
+    <td width="15%" align="right"><?='Rp'.number_format(0,2,',','.'); ?></td>
+</tr>
+
+<tr>
+    <td width="35%">Potongan PPN dan PPh</td>
+    <td width="15%" align="right"><u><?='Rp'.number_format(0,2,',','.'); ?></u></td>
+</tr>
+
+<tr>
+    <td width="35%"></td>
+    <td width="15%" align="right"><b><u><?='Rp'.number_format(0,2,',','.'); ?></u></b></td>  
+</tr>
+</table>
 
 </body>
 
@@ -155,14 +259,15 @@ table{
 <table align="center" style="width:100%">
 
 <tr>
-    <td width="5%"></td>
-    <td width="30%">Disetujui oleh,</td>
-    <td width="30%">Disiapkan oleh,</td>
+<td width="5%"></td>
+    <td width="30%"></td>
+    <td width="30%">Padangsidimpuan, <?= $tanggalsurat;?> <?=$bulannama;?> <?=$tahun?></td>
 </tr>
+
 <tr>
 <td width="5%"></td>
-    <td width="30%">Bendahara Umum Daerah</td>
-    <td width="30%">Kuasa Bendahara Umum Daerah</td>
+    <td width="30%">PPKD SELAKU BUD</td>
+    <td width="30%">KUASA BENDAHARA UMUM DAERAH</td>
 </tr>
 <tr height="75px"></tr>
 <tr>
@@ -173,8 +278,14 @@ table{
 
 <tr>
 <td width="5%"></td>
-    <td width="30%"><?= $hasilSK1->nip ?> </td>
-    <td width="30%"><?= $hasilSK2->nip ?></td>
+    <td width="30%"><?= $hasilSK1->jabatan ?></td>
+    <td width="30%"><?= $hasilSK2->jabatan ?></td>
+</tr>
+
+<tr>
+<td width="5%"></td>
+    <td width="30%">NIP. <?= $hasilSK1->nip ?> </td>
+    <td width="30%">NIP. <?= $hasilSK2->nip ?></td>
 </tr>
 
 

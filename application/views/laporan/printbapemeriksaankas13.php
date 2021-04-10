@@ -168,7 +168,7 @@ $tahun = $tahun_indonesia[$tahun];
 <tr><td width="5%"></td>     <td width="65%">Jumlah</td>	<td width="25%">= <?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
 <tr><td width="5%"></td>     <td width="65%">Saldo Uang menurut Buku Kas, Register Buku Kas</td>	<td width="25%">= <?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></td></tr>
 <tr><td width="5%"></td><td width="65%"></td><td width="5%"><hr  color="black" size="2px"/></td></tr>
-<tr><td width="5%"></td>     <td width="65%">Selisih antara Saldo Kas dan Saldo Buku</td>	<td width="25%">= <?= 'Rp'.number_format($saldobank['saldo']-($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']),0,'.','.');?></td></tr>
+<tr><td width="5%"></td>     <td width="65%">Selisih antara Saldo Kas dan Saldo Buku</td>	<td width="25%">= <?= 'Rp'.number_format($saldobank['saldo']-($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']),2,',','.');?></td></tr>
 </table>
 
 

@@ -56,10 +56,6 @@ $tahun2 = date("Y", strtotime($tanggal2));
 </tr>
 <tr>
 <td colspan=3>
-<<<<<<< HEAD
-
-=======
->>>>>>> 55afe240ea26877e16160557bbf8a73be43918ed
 </td>
 </tr>
 <table>
@@ -110,7 +106,7 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     ?>
                     <tr><p>
                         <td width ="55%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>
+                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,2,',','.'); ?></td>
                         <td width ="15%"></td>                  
                     </p></tr>
                     <?php
@@ -119,8 +115,8 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     ?>
                     <tr><p>
                         <td width ="55%"></td>
-                        <td width ="15%" align="right"><u><?='Rp'.number_format($totala,0,'.','.'); ?></u></td>
-                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala,0,'.','.');?></b></td>               
+                        <td width ="15%" align="right"><u><?='Rp'.number_format($totala,2,',','.'); ?></u></td>
+                        <td width ="15%" align="right"><b><u><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala,2,',','.');?></u></b></td>               
                     </p></tr>
 
 </table>
@@ -137,7 +133,7 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     ?>
                     <tr><p>
                         <td width ="55%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>  
+                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,2,',','.'); ?></td>  
                         <td width ="15%"></td>                
                     </p></tr>
                     <?php
@@ -146,8 +142,8 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     ?>
                     <tr><p>
                         <td width ="55%"></td> 
-                        <td width ="15%" align="right"><u><?='Rp'.number_format($totalb,0,'.','.'); ?></u></td>
-                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb,0,'.','.');?></b></td>               
+                        <td width ="15%" align="right"><u><?='Rp'.number_format($totalb,2,',','.'); ?></u></td>
+                        <td width ="15%" align="right"><b><u><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb,2,',','.');?></u></b></td>               
                     </p></tr></table>
 <table width ="85%" align="center">
 <tr><p><td>C. Penerimaan yang telah dicatat oleh Bank,</td>
@@ -161,7 +157,7 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     ?>
                     <tr><p>
                         <td width ="55%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>
+                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,2,',','.'); ?></td>
                         <td width ="15%"></td>                  
                     </p></tr>
                     <?php
@@ -170,8 +166,8 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     ?>
                     <tr><p>
                         <td width ="55%"></td> 
-                        <td width ="15%" align="right"><u><?='Rp'.number_format($totalc,0,'.','.'); ?></u></td>
-                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc,0,'.','.');?></b></td>               
+                        <td width ="15%" align="right"><u><?='Rp'.number_format($totalc,2,',','.'); ?></u></td>
+                        <td width ="15%" align="right"><b><u><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc,2,',','.');?></u></b></td>               
                     </p></tr></table>
 <table width ="85%" align="center">
 <tr><p><td>D. Pengeluaran yang telah dicatat oleh Bank,</td>
@@ -185,7 +181,7 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     ?>
                     <tr><p>
                         <td width ="55%" >&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,0,'.','.'); ?></td>       
+                        <td width ="15%" align="right"><?='Rp'.number_format($item->nominal,2,',','.'); ?></td>       
                         <td width ="15%"></td>           
                     </p></tr>
                     <?php
@@ -194,8 +190,8 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     ?>
                     <tr><p>
                         <td width ="55%"></td> 
-                        <td width ="15%" align="right"><u><?='Rp'.number_format($totald,0,'.','.'); ?></u></td>
-                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,0,'.','.');?></b></td>               
+                        <td width ="15%" align="right"><u><?='Rp'.number_format($totald,2,',','.'); ?></u></td>
+                        <td width ="15%" align="right"><b><u><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,2,',','.');?></u></b></td>               
                     </p></tr></table>
 
                     <table width ="85%" align="center">
@@ -205,7 +201,7 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     <tr><p>
                         <td width ="55%"><b>Jumlah.....</b></td> 
                         <td width ="15%" align="right"></td>
-                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,0,'.','.');?></b></td>               
+                        <td width ="15%" align="right"><b><u><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,2,',','.');?></u></b></td>               
                     </p></tr></table>
 
                   

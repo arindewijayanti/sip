@@ -10,6 +10,7 @@ class Laporan extends CI_Controller {
 		$this->load->model('model_bbp'); 
 		$this->load->model('model_bpp'); 
 		$this->load->model('model_sk'); 
+		$this->load->model('model_saldobank'); 
 
     }
 
@@ -56,6 +57,9 @@ class Laporan extends CI_Controller {
        
 		$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
 		$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
+
+		$data['saldobanktahunlalu'] = $this->model_saldobank->Getsaldobanktahunlalu($tanggal);
+		$data['saldobankhariini'] = $this->model_saldobank->Getsaldobankhariini($tanggal);
 	
 	
 	if (isset($_POST['P77'])){

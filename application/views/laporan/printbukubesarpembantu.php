@@ -86,9 +86,9 @@ table{
                         <td><?= date("d/m/Y", strtotime($item->tanggal));?></td>
                         <td><?= $item->kode_buktipajak;?></td>
                         <td><?= $item->nama_buktipajak;?></td>
-                        <td align="center"><?='Rp'.number_format($item->debet,0,'.','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($item->kredit,0,'.','.'); ?></td>     
-                        <td align="center"><?='Rp'.number_format($saldo,0,'.','.'); ?></td>                    
+                        <td align="center"><?='Rp'.number_format($item->debet,2,',','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($item->kredit,2,',','.'); ?></td>     
+                        <td align="center"><?='Rp'.number_format($saldo,2,',','.'); ?></td>                    
                     </tr>
                     <?php
                             $no++;
@@ -97,9 +97,9 @@ table{
                 </tbody>
                 <tr>
                         <td align="right" colspan="4">Jumlah</td> 
-                        <td align="center"><?='Rp'.number_format($totaldebet,0,'.','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($totalkredit,0,'.','.'); ?></td>                        
-                        <td align="center"><?='Rp'.number_format($saldo,0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($totaldebet,2,',','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($totalkredit,2,',','.'); ?></td>                        
+                        <td align="center"><?='Rp'.number_format($saldo,2,',','.'); ?></td>
                 </tr>
     
             </table>

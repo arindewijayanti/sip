@@ -18,6 +18,28 @@ class Model_saldobank extends CI_Model {
     		->get();
     }
 
+	function Getsaldobanktahunlalu($tanggal)
+    {
+        $this->db->select('saldo as saldobanktahunlalu');
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_saldobank.id_opd', $id_opd);
+		$this->db->where('tanggal <', $tanggal);
+        $this->db->from('tbl_saldobank');
+        $this->db->limit('1');
+        return $this->db->get()->row_array();	  
+    }
+
+	function Getsaldobankhariini($tanggal)
+    {
+        $this->db->select('saldo as saldobankhariini');
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_saldobank.id_opd', $id_opd);
+		$this->db->where('tanggal', $tanggal);
+        $this->db->from('tbl_saldobank');
+        $this->db->limit('1');
+        return $this->db->get()->row_array();  
+    }
+
 	public function menambahdatasaldobank($data)
 	{
 		$this->db->insert('tbl_saldobank', $data);
