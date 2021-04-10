@@ -221,11 +221,7 @@ public function printregister()
 	$data['uraian'] = $this->model_transaksi->GetUraian($tanggal);
 
 	$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
-<<<<<<< HEAD
 	$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
-=======
-		$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
->>>>>>> 55afe240ea26877e16160557bbf8a73be43918ed
 	
 	
 	if (isset($_POST['P77'])){
