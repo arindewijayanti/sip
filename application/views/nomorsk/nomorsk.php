@@ -33,7 +33,8 @@ $this->load->view('include/header');
                   <th>Nama</th>
                   <th>Nip</th>
                   <th>Jabatan</th>
-                  <th>Gol</th>
+                  <th>Golongan Jabatan</th>
+                  <th>Golongan Tingkat</th>
                   <th>Opsi</th>
                 </tr>
               </thead>
@@ -49,6 +50,7 @@ $this->load->view('include/header');
                   <td><?= $data->nama ?></td>
                   <td><?= $data->nip ?></td>
                   <td><?= $data->jabatan ?></td>
+                  <td><?= $data->gol_jabatan?></td>
                   <td><?= $data->gol ?></td>
                   <td> 
                     <a href="<?php echo base_url()?>nomorsk/updatedatanomorsk/<?php echo $data->id; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>

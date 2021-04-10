@@ -53,6 +53,10 @@ $this->load->view('include/header');
                     <input value="<?= $data->jabatan?>"class="form-control" id="jabatan" type="text" aria-describedby="nameHelp" name="jabatan" required/>
                   </div>
                   <div class="col-md-6">
+                    <label for="gol_jabatan">Golongan Jabatan</label>
+                    <input value="<?= $data->jabatan?>"class="form-control" id="gol_jabatan" type="text" aria-describedby="nameHelp" name="gol_jabatan" required/>
+                  </div>
+                  <div class="col-md-6">
                     <label for="gol">Golongan</label>
                     <input value="<?= $data->gol?>"class="form-control" id="gol" type="text" aria-describedby="nameHelp" name="gol" required/>
                   </div>

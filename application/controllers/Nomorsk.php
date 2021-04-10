@@ -39,6 +39,7 @@ class Nomorsk extends CI_Controller {
                             'nama'=>$this->input->post('nama'),
                             'nip'=>$this->input->post('nip'),
                             'jabatan'=>$this->input->post('jabatan'),
+                            'gol_jabatan'=>$this->input->post('gol_jabatan'),
                             'gol'=>$this->input->post('gol')
 					);
 					$data['id_opd']=$id_opd;
@@ -62,6 +63,7 @@ class Nomorsk extends CI_Controller {
             'nama'=>$this->input->post('nama'),
             'nip'=>$this->input->post('nip'),
             'jabatan'=>$this->input->post('jabatan'),
+            'gol_jabatan'=>$this->input->post('gol_jabatan'),
             'gol'=>$this->input->post('gol')
         );
 		
