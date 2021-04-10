@@ -84,6 +84,7 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr><td>Tanggal Penutupan Kas yang lalu ......</td>     <td>:</td>	<td><?php echo $tanggalhurufsebelumnya;?> <?php echo $bulannamasebelumnya;?> <?php echo $tahunsebelumnya?></td></tr>
 <tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp'.number_format($harianregister['totalpenerimaanharian']+$hasilBBP['totalpenerimaanbbp']+$hasilBPP['totalpenerimaanbpp'],2,',','.'); ?></td></tr>
 <tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],2,',','.'); ?></td></tr>
+<tr><td></td>     <td></td>	<td><hr  color="black" size="2px"/></td></tr>
 <br>
 <tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></td></tr>
 <tr><td>Saldo Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
