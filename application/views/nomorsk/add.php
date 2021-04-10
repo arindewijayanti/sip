@@ -56,9 +56,7 @@ $this->load->view('include/header');
                     <label for="gol">Golongan</label>
                     <input class="form-control" id="gol" type="text" aria-describedby="nameHelp" name="gol" required/>
                   </div>
-               
-              
-            
+                  <br>
              <div class="form-group">
             <div class="form-row">
               <div class="col-md-2">
