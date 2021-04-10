@@ -26,17 +26,37 @@ table{
     text-transform: uppercase;
 }
 </style>
+<?php
+$tanggal2 = $tanggal;
+$tgl2 = date("d", strtotime($tanggal2));
+$bulanhuruf2 = date("m", strtotime($tanggal2)); 
+$bulannama_indonesia2 = array(
+    '01'  => 'Januari',
+    '02'  => 'Februari',
+    '03' => 'Maret',
+    '04' => 'April',
+    '05' => 'Mei',
+    '06' => 'Juni',
+    '07' => 'Juli',
+    '08' => 'Agustus',
+    '09' => 'September',
+    '10' => 'Oktober',
+    '11' => 'November',
+    '12' => 'Desember');
+$bulannama2 = $bulannama_indonesia2[$bulanhuruf2];
+$tahun2 = date("Y", strtotime($tanggal2)); 
+?>
 <table align="center" width="100%">
 <tr>
 <td>
 <h2 class="jarak-lh"  align="center">PEMERINTAH KOTA PADANGSIDIMPUAN</h2>
 <h2 class="jarak-lh" align="center">REKONSILIASI BANK</h2>
-<h3 class="jarak-lh"  align="center">Periode : <?php echo date("d/m/Y", strtotime($tanggal));?></h3>
+<h3 class="jarak-lh"  align="center">PERIODE : <?= $tgl2 ?> <?= $bulannama2 ?> <?= $tahun2 ?></h3>
 <td>
 </tr>
 <tr>
 <td colspan=3>
-<hr  color="black" size="2px"/>
+
 </td>
 </tr>
 <table>
@@ -50,28 +70,34 @@ table{
 <br>
 <table width ="85%" align="center">
 <tr><p>
-<td width ="55%" align="left"><b>1. Saldo Kas Umum Daerah menurut Buku</b></td>
+<td width ="55%">1. Saldo Kas Umum Daerah menurut Buku</td>
 <td width ="15%"></td>
 <td width ="15%" align="right"><b><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],0,'.','.'); ?></b></td>
 </p></tr>
 
 <tr><p>
-<td width ="55%"><b>2. Saldo Kas Umum menurut Bank</b></td>
+<td width ="55%">2. Saldo Kas Umum menurut Bank</td>
 <td width ="15%"></td>
 <td width ="15%" align="right"><b><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></b></td>
 </p></tr>
 
+<tr><p>
+<td width ="55%"></td>
+<td width ="15%"></td>
+<td width ="15%" align="right"><hr  color="black" size="2px"/></td>
+</p></tr>
+
 
 <tr><p>
-<td width ="55%">&nbsp &nbsp  <i>Selisih</i></td>
+<td width ="55%">&nbsp &nbsp  <b>Selisih</b></td>
 <td width ="15%"></td>
 <td width ="15%" align="right"><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo'],0,'.','.');?></td>
 </p></tr>
 
 <tr height="15"></tr>
-<tr><p><td><b> &nbsp &nbsp Keterangan Selisih</b></td>
-<tr><p><td><b>A. Penerimaan yang telah dicatat oleh buku,</b></td>
-<tr><p><td><b> &nbsp &nbsp belum dicatat oleh Bank</b></td>
+<tr><p><td><b>&nbsp &nbsp Keterangan Selisih</b></td>
+<tr><p><td>A. Penerimaan yang telah dicatat oleh buku,</td>
+<tr><p><td> &nbsp &nbsp belum dicatat oleh Bank</td>
                     <?php
                     $no = 1 ;
                     $totala = 0;
@@ -97,8 +123,8 @@ table{
 </table>
 
 <table width ="85%" align="center">
-<tr><p><td><b>B. Pengeluaran yang telah dicatat oleh buku,</b></td>
-<tr><p><td><b> &nbsp &nbsp belum dicatat oleh Bank</b></td>
+<tr><p><td>B. Pengeluaran yang telah dicatat oleh buku,</td>
+<tr><p><td> &nbsp &nbsp belum dicatat oleh Bank</td>
 <?php
                     $no = 1 ;
                     $totalb = 0;
@@ -121,8 +147,8 @@ table{
                         <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb,0,'.','.');?></b></td>               
                     </p></tr></table>
 <table width ="85%" align="center">
-<tr><p><td><b>C. Penerimaan yang telah dicatat oleh Bank,</b></td>
-<tr><p><td><b> &nbsp &nbsp belum dicatat oleh Buku</b></td>
+<tr><p><td>C. Penerimaan yang telah dicatat oleh Bank,</td>
+<tr><p><td> &nbsp &nbsp belum dicatat oleh Buku</td>
 <?php
                     $no = 1 ;
                     $totalc = 0;
@@ -145,8 +171,8 @@ table{
                         <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc,0,'.','.');?></b></td>               
                     </p></tr></table>
 <table width ="85%" align="center">
-<tr><p><td><b>D. Pengeluaran yang telah dicatat oleh Bank,</b></td>
-<tr><p><td><b> &nbsp &nbsp belum dicatat oleh Buku</b></td>
+<tr><p><td>D. Pengeluaran yang telah dicatat oleh Bank,</td>
+<tr><p><td> &nbsp &nbsp belum dicatat oleh Buku</td>
 <?php
                     $no = 1 ;
                     $totald = 0;
@@ -166,6 +192,16 @@ table{
                     <tr><p>
                         <td width ="55%"></td> 
                         <td width ="15%" align="right"><u><?='Rp'.number_format($totald,0,'.','.'); ?></u></td>
+                        <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,0,'.','.');?></b></td>               
+                    </p></tr></table>
+
+                    <table width ="85%" align="center">
+
+<tr><p><td></td>
+<tr><p><td>   </td>  
+                    <tr><p>
+                        <td width ="55%"><b>Jumlah.....</b></td> 
+                        <td width ="15%" align="right"></td>
                         <td width ="15%" align="right"><b><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,0,'.','.');?></b></td>               
                     </p></tr></table>
 
@@ -194,8 +230,8 @@ table{
 
 <tr>
 <td width="5%"></td>
-    <td width="30%"><?= $hasilSK1->nip ?> </td>
-    <td width="30%"><?= $hasilSK2->nip ?></td>
+    <td width="30%">NIP. <?= $hasilSK1->nip ?> </td>
+    <td width="30%">NIP. <?= $hasilSK2->nip ?></td>
 </tr>
 
 </table>

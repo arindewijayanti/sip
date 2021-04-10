@@ -68,12 +68,20 @@ class Model_bbp extends CI_Model {
 
 	function GetTransaksiHarianBBP($tanggal) 
     {
-		$this->db->where('tanggal =', $tanggal);
+		$this->db->where('tanggal', $tanggal);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bbp')
          ->join('tbl_buktipajak','tbl_buktipajak.id_buktipajak=tbl_bbp.id_buktipajak')
           ->get()
           ->result();
+    }
+
+	function GetTransaksiHarian($tanggal)
+    {
+        $this->db->select('SUM(kredit) as totalpenerimaanbbp,SUM(debet) as totalpengeluaranbbp');
+		$this->db->where('tanggal', $tanggal);
+        $this->db->from('tbl_bbp');
+        return $this->db->get()->row_array();	  
     }
 
 	function GetTransaksiH($tanggal)

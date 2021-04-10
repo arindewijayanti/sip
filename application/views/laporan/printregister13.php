@@ -80,9 +80,9 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
  
 <table style="width:80%">
 <tr><td>Tanggal Penutupan Kas ......</td>	 <td>:</td> <td> <?php echo $tanggalhuruf;?> <?php echo $bulannama;?> <?php echo $tahun;?></td></tr>
-<tr><td>Nama Penutup Kas/Kuasa BUS</td>     <td>:</td>	<td>Asir Aryadi, SE</td></tr>
+<tr><td>Nama Penutup Kas/Kuasa BUS</td>     <td>:</td>	<td><?= $hasilSK2->nama ?></td></tr>
 <tr><td>Tanggal Penutupan Kas yang lalu ......</td>     <td>:</td>	<td><?php echo $tanggalhurufsebelumnya;?> <?php echo $bulannamasebelumnya;?> <?php echo $tahunsebelumnya?></td></tr>
-<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpenerimaan']+$hbbp['totalpenerimaanbbp']+$hbpp['totalpenerimaanbpp'],0,'.','.'); ?></td></tr>
+<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp'.number_format($harianregister['totalpenerimaanharian']+$hasilBBP['totalpenerimaanbbp']+$hasilBPP['totalpenerimaanbpp'],0,'.','.'); ?></td></tr>
 <tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],0,'.','.'); ?></td></tr>
 <br>
 <tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],0,'.','.'); ?></td></tr>
@@ -146,19 +146,19 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr height="75px"></tr>
 <tr>
 <td width="5%"></td>
-    <td width="30%">Asir Aryadi, S.E.</td>
-    <td width="30%">Sulaiman Lubis, S.E.</td>
+    <td width="30%"><?= $hasilSK2->nama ?></td>
+    <td width="30%"><?= $hasilSK1->nama ?></td>
 </tr>
 <tr>
 <td width="5%"></td>
-    <td width="30%">Penata Tingkat I</td>
-    <td width="30%">Pembina Utama Muda</td>
+    <td width="30%"><?= $hasilSK2->jabatan ?></td>
+    <td width="30%"><?= $hasilSK1->jabatan ?></td>
 </tr>
 
 <tr>
 <td width="5%"></td>
-    <td width="30%">NIP. 197602072005021002</td>
-    <td width="30%">NIP. 196905011993031004</td>
+    <td width="30%">NIP. <?= $hasilSK2->nip ?></td>
+    <td width="30%">NIP. <?= $hasilSK1->nip ?></td>
 </tr>
 
 </table>

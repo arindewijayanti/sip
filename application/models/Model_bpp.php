@@ -37,11 +37,19 @@ class Model_bpp extends CI_Model {
 
 	function GetTransaksiHarianBPP($tanggal) 
     {
-		$this->db->where('tanggal =', $tanggal);
+		$this->db->where('tanggal', $tanggal);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bpp')
           ->get()
           ->result();
+    }
+
+    function GetTransaksiHarian($tanggal)
+    {
+        $this->db->select('SUM(penerimaan) as totalpenerimaanbpp,SUM(pengeluaran) as totalpengeluaranbpp');
+		$this->db->where('tanggal', $tanggal);
+        $this->db->from('tbl_bpp');
+        return $this->db->get()->row_array();	  
     }
 
 	function GetTransaksiH($tanggal)

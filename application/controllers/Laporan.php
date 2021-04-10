@@ -206,11 +206,14 @@ public function printregister()
 	$data['hmin1bpp'] = $this->model_bpp->GetTransaksiH($tanggal);
 	$data['hmin1bbp'] = $this->model_bbp->GetTransaksiH($tanggal);
 	
-	$data['hasilBBP'] = $this->model_bbp->GetTransaksiHarianBBP($tanggal);
-	$data['hasilBPP'] = $this->model_bpp->GetTransaksiHarianBPP($tanggal);
+	$data['hasilBBP'] = $this->model_bbp->GetTransaksiHarian($tanggal);
+	$data['hasilBPP'] = $this->model_bpp->GetTransaksiHarian($tanggal);
 
 	$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
 	$data['uraian'] = $this->model_transaksi->GetUraian($tanggal);
+
+	$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
+	$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
 	
 	
 	if (isset($_POST['P77'])){
