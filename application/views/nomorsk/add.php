@@ -53,7 +53,11 @@ $this->load->view('include/header');
                     <input class="form-control" id="jabatan" type="text" aria-describedby="nameHelp" name="jabatan" required/>
                   </div>
                   <div class="col-md-6">
-                    <label for="gol">Golongan</label>
+                    <label for="gol_jabatan">Golongan Jabatan</label>
+                    <input class="form-control" id="gol_jabatan" type="text" aria-describedby="nameHelp" name="gol_jabatan" required/>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="gol">Golongan Tingkat</label>
                     <input class="form-control" id="gol" type="text" aria-describedby="nameHelp" name="gol" required/>
                   </div>
                   <br>
