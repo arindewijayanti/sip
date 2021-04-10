@@ -143,16 +143,16 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Perubahan Posisi Kas hari ini</td> 
-                        <td align="center"><?='Rp'.number_format($h['totalpenerimaan']+$hbbp['totalpenerimaanbbp']+$hbpp['totalpenerimaanbpp'],0,'.','.'); ?></td>
-                        <td align="center"><?='Rp'.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],0,'.','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($h['totalpenerimaan']+$hbbp['totalpenerimaanbbp']+$hbpp['totalpenerimaanbpp'],2,',','.'); ?></td>
+                        <td align="center"><?='Rp'.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],2,',','.'); ?></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Posisi Kas (H-1)</td> 
-                        <td colspan="2" align="center"><?='Rp'.number_format($hmin1['totalpenerimaan']-$hmin1['totalpengeluaran']+$hmin1bbp['totalpenerimaanbbp']-$hmin1bbp['totalpengeluaranbbp']+$hmin1bpp['totalpenerimaanbpp']-$hmin1bpp['totalpengeluaranbpp'],0,'.','.'); ?></td>
+                        <td colspan="2" align="center"><?='Rp'.number_format($hmin1['totalpenerimaan']-$hmin1['totalpengeluaran']+$hmin1bbp['totalpenerimaanbbp']-$hmin1bbp['totalpengeluaranbbp']+$hmin1bpp['totalpenerimaanbpp']-$hmin1bpp['totalpengeluaranbpp'],2,',','.'); ?></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Posisi Kas (H)</td> 
-                        <td colspan="2" align="center"><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],0,'.','.'); ?></td>
+                        <td colspan="2" align="center"><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></td>
                 </tr>
     
             </table>
