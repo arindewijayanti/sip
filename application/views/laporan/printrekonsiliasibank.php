@@ -56,13 +56,13 @@ table{
 <tr><p>
 <td width ="55%" align="left"><b>1. Saldo Kas Umum Daerah menurut Buku</b></td>
 <td width ="15%"></td>
-<td width ="15%" align="right"><b><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],0,'.','.'); ?></b></td>
+<td width ="15%" align="right"><b><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></b></td>
 </p></tr>
 
 <tr><p>
 <td width ="55%"><b>2. Saldo Kas Umum menurut Bank</b></td>
 <td width ="15%"></td>
-<td width ="15%" align="right"><b><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></b></td>
+<td width ="15%" align="right"><b><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></b></td>
 </p></tr>
 
 

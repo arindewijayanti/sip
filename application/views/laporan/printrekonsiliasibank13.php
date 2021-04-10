@@ -75,13 +75,13 @@ $tahun2 = date("Y", strtotime($tanggal2));
 <tr><p>
 <td width ="55%">1. Saldo Kas Umum Daerah menurut Buku</td>
 <td width ="15%"></td>
-<td width ="15%" align="right"><b><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],0,'.','.'); ?></b></td>
+<td width ="15%" align="right"><b><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></b></td>
 </p></tr>
 
 <tr><p>
 <td width ="55%">2. Saldo Kas Umum menurut Bank</td>
 <td width ="15%"></td>
-<td width ="15%" align="right"><b><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></b></td>
+<td width ="15%" align="right"><b><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></b></td>
 </p></tr>
 
 <tr><p>
@@ -94,7 +94,7 @@ $tahun2 = date("Y", strtotime($tanggal2));
 <tr><p>
 <td width ="55%">&nbsp &nbsp  <b>Selisih</b></td>
 <td width ="15%"></td>
-<td width ="15%" align="right"><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo'],0,'.','.');?></td>
+<td width ="15%" align="right"><?= 'Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']-$saldobank['saldo'],2,',','.');?></td>
 </p></tr>
 
 <tr height="15"></tr>

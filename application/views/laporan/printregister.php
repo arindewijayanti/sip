@@ -82,22 +82,22 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr><td>Tanggal Penutupan Kas ......</td>	 <td>:</td> <td> <?php echo $tanggalhuruf;?> <?php echo $bulannama;?> <?php echo $tahun;?></td></tr>
 <tr><td>Nama Penutup Kas/Kuasa BUS</td>     <td>:</td>	<td>Asir Aryadi, SE</td></tr>
 <tr><td>Tanggal Penutupan Kas yang lalu ......</td>     <td>:</td>	<td><?php echo $tanggalhurufsebelumnya;?> <?php echo $bulannamasebelumnya;?> <?php echo $tahunsebelumnya?></td></tr>
-<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp'.number_format($harianregister['totalpenerimaanharian']+$hasilBBP['totalpenerimaanbbp']+$hasilBPP['totalpenerimaanbpp'],0,'.','.'); ?></td></tr>
-<tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],0,'.','.'); ?></td></tr>
+<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp'.number_format($harianregister['totalpenerimaanharian']+$hasilBBP['totalpenerimaanbbp']+$hasilBPP['totalpenerimaanbpp'],2,',','.'); ?></td></tr>
+<tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],2,',','.'); ?></td></tr>
 <br>
-<tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],0,'.','.'); ?></td></tr>
-<tr><td>Saldo Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></td></tr>
+<tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></td></tr>
+<tr><td>Saldo Kas ......</td>     <td>:</td>	<td><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
 </table>
 <table style="width:100%">
 <br>
 <tr><p>Kertas berharga dan bagian Kas yang diizinkan Ordonansi :</p></tr>
 <tr><td width="5%">a. </td><td width="70%">SP2D ......</td>	 <td>Rp ....</td></tr>
 <tr><td width="5%">b. </td><td width="70%">Wessel</td>    	<td>Rp ....</td></tr>
-<tr><td width="5%">c. </td><td width="70%">Saldo bank Sumut AC 2511 ......</td>   	<td><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></td></tr>
+<tr><td width="5%">c. </td><td width="70%">Saldo bank Sumut AC 2511 ......</td>   	<td><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
 <tr><td width="5%">d. </td><td width="70%">M e t e r a i ......</td>     	<td>Rp ....</td></tr>
 <tr><td width="5%">e. </td><td width="70%">Dan Lain-lain ......</td>     	<td>Rp ....</td></tr>
-<tr><td width="5%"></td><td width="70%">&nbsp J u m l a h ......</td>      <td><?='Rp'.number_format($saldobank['saldo'],0,'.','.'); ?></td></tr>
-<tr><td width="5%"></td><td width="70%">&nbsp Selisih ......</td>      <td><?= 'Rp'.number_format(($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'])-$saldobank['saldo'],0,'.','.');?></td></tr>
+<tr><td width="5%"></td><td width="70%">&nbsp J u m l a h ......</td>      <td><?='Rp'.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
+<tr><td width="5%"></td><td width="70%">&nbsp Selisih ......</td>      <td><?= 'Rp'.number_format(($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'])-$saldobank['saldo'],2,',','.');?></td></tr>
 </table>
 
 <table width="80%">
