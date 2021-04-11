@@ -183,10 +183,6 @@ public function printbukubesarpembantu()
 ///////////////////////////
 public function bapemeriksaankas()
 {
-	if(empty($roleid))
-        {
-            redirect('auth');
-        }
 	$this->load->view('laporan/bapemeriksaankas');
 }
 public function printbapemeriksaankas()

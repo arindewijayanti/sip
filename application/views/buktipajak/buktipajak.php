@@ -1,9 +1,5 @@
 <?php 
 $this->load->view('include/header'); 
-function __contruct()
-{
-  $this->table = 'user';
-}
 ?>
 </head>
 

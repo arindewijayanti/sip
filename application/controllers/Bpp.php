@@ -12,11 +12,6 @@ class Bpp extends CI_Controller {
 
 	function index()
 	{
-        $roleid=$this->session->userdata('role_id');
-        if(empty($roleid))
-        {
-            redirect('auth');
-        }
         $data['content'] = $this->model_bpp->GetTransaksiBPP();
         $this->load->view('bpp/bpp', $data);
 	}
