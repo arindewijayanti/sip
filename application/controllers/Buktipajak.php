@@ -12,6 +12,11 @@ class Buktipajak extends CI_Controller {
 
 	function index()
 	{
+		$roleid=$this->session->userdata('role_id');
+        if(empty($roleid))
+        {
+            redirect('auth');
+        }
         $data['content'] = $this->model_buktipajak->GetBuktiPajak();
         $this->load->view('buktipajak/buktipajak', $data);
 	}

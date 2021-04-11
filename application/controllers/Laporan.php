@@ -16,6 +16,11 @@ class Laporan extends CI_Controller {
 
 	public function index()
 	{
+		$roleid=$this->session->userdata('role_id');
+        if(empty($roleid))
+        {
+            redirect('auth');
+        }	
 		$this->load->view('laporan/laporan');
 	}
 
@@ -153,6 +158,11 @@ class Laporan extends CI_Controller {
 
 public function bukubesarpembantu()
 {
+	$roleid=$this->session->userdata('role_id');
+        if(empty($roleid))
+        {
+            redirect('auth');
+        }	
 	$this->load->view('laporan/bukubesarpembantu');
 }
 public function printbukubesarpembantu()
@@ -173,6 +183,10 @@ public function printbukubesarpembantu()
 ///////////////////////////
 public function bapemeriksaankas()
 {
+	if(empty($roleid))
+        {
+            redirect('auth');
+        }
 	$this->load->view('laporan/bapemeriksaankas');
 }
 public function printbapemeriksaankas()

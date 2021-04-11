@@ -1,5 +1,9 @@
 <?php 
 $this->load->view('include/header'); 
+function __contruct()
+{
+  $this->table = 'user';
+}
 ?>
 </head>
 
@@ -41,11 +45,7 @@ $this->load->view('include/header');
                   foreach ($content->result() as $data) : ?>
                   <td><?= $i ?></td>
                   <td><?= $data->nama_rekening?></td>
-<<<<<<< HEAD
                   <td><?= $data->tahun?></td>
-=======
-                  <td><?= $data->tahun?></td> 
->>>>>>> db38030e592cc7ac20c90b2c53b6e631cc98942a
                   <td><?= 'Rp.'.number_format($data->pagu_apbd,2,',','.');?></td> 
                   <td><?=  'Rp.'.number_format($data->pagu_perubahan_apbd,2,',','.');?></td>
                   <td> 
