@@ -30,7 +30,7 @@ class Model_bbp extends CI_Model {
 		
 		$id_opd = $this->session->userdata('id_opd');
         $this->db->where('tbl_bbp.id_opd', $id_opd);
-        $this->db->order_by('tanggal', 'ASC');
+        $this->db->order_by('id_bbp', 'DESC');
         return $this->db->from('tbl_bbp')
          ->join('tbl_buktipajak','tbl_buktipajak.id_buktipajak=tbl_bbp.id_buktipajak')
           ->get()
