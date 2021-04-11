@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2021 at 10:04 AM
+-- Generation Time: Apr 11, 2021 at 10:46 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.30
 
@@ -162,7 +162,16 @@ INSERT INTO `tbl_bbp` (`id_bbp`, `tanggal`, `id_buktipajak`, `debet`, `kredit`, 
 (118, '2021-01-29', '78', 0, 1050000, 'admin', '35'),
 (119, '2021-01-29', '79', 0, 350000, 'admin', '35'),
 (120, '2021-01-29', '80', 0, 6500000, 'admin', '35'),
-(121, '2021-01-31', '81', 0, 269730799, 'admin', '35');
+(121, '2021-01-31', '81', 0, 269730799, 'admin', '35'),
+(122, '2021-02-01', '32', 0, 1240000, 'admin', '35'),
+(123, '2021-02-01', '23', 0, 2077640, 'admin', '35'),
+(124, '2021-02-01', '36', 0, 786250, 'admin', '35'),
+(125, '2021-02-01', '40', 0, 9050000, 'admin', '35'),
+(126, '2021-02-01', '75', 0, 810000, 'admin', '35'),
+(127, '2021-02-01', '58', 0, 4320000, 'admin', '35'),
+(128, '2021-02-01', '46', 0, 3232000, 'admin', '35'),
+(129, '2021-02-01', '82', 0, 60000, 'admin', '35'),
+(130, '2021-02-01', '26', 0, 5000000, 'admin', '35');
 
 -- --------------------------------------------------------
 
@@ -317,7 +326,8 @@ INSERT INTO `tbl_buktipajak` (`id_buktipajak`, `kode_buktipajak`, `nama_buktipaj
 (78, '-', 'PAD Pertanian Retribusi Pemeriksaan Kesehatan (RPH)', '11', 'admin', '35'),
 (79, '-', 'PAD Pertanian Retribusi Penjualan Produksi Usaha Daerah', '11', 'admin', '35'),
 (80, '-', 'Penerimaan Kontribusi dari PDAM Tirtanadi', '11', 'admin', '35'),
-(81, '-', 'PAD Baekuda Penerimaan Jasa Giro Januari 2021', '11', 'admin', '35');
+(81, '-', 'PAD Baekuda Penerimaan Jasa Giro Januari 2021', '11', 'admin', '35'),
+(82, '-', 'PAD Perhubungan Retribusi Izin Trayek', '11', 'admin', '35');
 
 -- --------------------------------------------------------
 
@@ -330,6 +340,16 @@ CREATE TABLE `tbl_keteranganselisih` (
   `kode_keterangan` enum('A','B','C','D') NOT NULL,
   `uraian_keteranganselisih` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_keteranganselisih`
+--
+
+INSERT INTO `tbl_keteranganselisih` (`id`, `kode_keterangan`, `uraian_keteranganselisih`) VALUES
+(5, 'A', 'A. Penerimaan yang telah dicatat oleh buku,\r\n    belum dicatat oleh Bank\r\n'),
+(6, 'B', '\r\nB. Pengeluaran yang telah dicatat oleh buku,\r\n    belum dicatat oleh Bank'),
+(7, 'C', '\r\nC. Penerimaan yang telah dicatat oleh Bank,\r\n    belum dicatat oleh Buku'),
+(8, 'D', '\r\nD. Pengeluaran yang telah dicatat oleh Bank,\r\n    belum dicatat oleh Buku');
 
 -- --------------------------------------------------------
 
@@ -414,7 +434,8 @@ INSERT INTO `tbl_saldobank` (`id`, `tanggal`, `saldo`, `id_user`, `id_opd`) VALU
 (28, '2021-01-27', 129546249013.89, 'admin', '35'),
 (29, '2021-01-28', 129550340265.89, 'admin', '35'),
 (30, '2021-01-29', 127372779537.89, 'admin', '35'),
-(31, '2021-01-31', 127589353236.89, 'admin', '35');
+(31, '2021-01-31', 127589353236.89, 'admin', '35'),
+(32, '2021-02-01', 127615929126.89, 'admin', '35');
 
 -- --------------------------------------------------------
 
@@ -431,6 +452,13 @@ CREATE TABLE `tbl_selisihrekon` (
   `id_user` int(11) NOT NULL,
   `id_opd` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_selisihrekon`
+--
+
+INSERT INTO `tbl_selisihrekon` (`id_selisihrekon`, `tanggal_selisih`, `kode_keterangan`, `uraian`, `nominal`, `id_user`, `id_opd`) VALUES
+(17, '2021-01-31', 'D', 'Pajak Jasa Giro Yang Dipotong Bank', 53157100, 0, '');
 
 -- --------------------------------------------------------
 
@@ -734,7 +762,7 @@ ALTER TABLE `tbl_apbd`
 -- AUTO_INCREMENT for table `tbl_bbp`
 --
 ALTER TABLE `tbl_bbp`
-  MODIFY `id_bbp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id_bbp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT for table `tbl_bpp`
@@ -746,13 +774,13 @@ ALTER TABLE `tbl_bpp`
 -- AUTO_INCREMENT for table `tbl_buktipajak`
 --
 ALTER TABLE `tbl_buktipajak`
-  MODIFY `id_buktipajak` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id_buktipajak` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `tbl_keteranganselisih`
 --
 ALTER TABLE `tbl_keteranganselisih`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_rekening`
@@ -764,13 +792,13 @@ ALTER TABLE `tbl_rekening`
 -- AUTO_INCREMENT for table `tbl_saldobank`
 --
 ALTER TABLE `tbl_saldobank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tbl_selisihrekon`
 --
 ALTER TABLE `tbl_selisihrekon`
-  MODIFY `id_selisihrekon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_selisihrekon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_sk`
