@@ -29,7 +29,9 @@ $this->load->view('include/header');
                 <tr class="text-center">
                   <th>No</th>
                   <th>Tanggal</th>
-                  <th>No Bukti</th>                  
+                  <th>SP2D</th>   
+                  <th>STS</th>   
+                  <th>Lain</th>                  
                   <th>Uraian</th>
                   <th>Penerimaan</th>
                   <th>Pengeluaran</th>
@@ -48,7 +50,9 @@ $this->load->view('include/header');
                   ?>
                   <td><?= $i ?></td>
                   <td> <?php echo date("d/m/Y", strtotime($data->tanggal));?></td>
-                  <td><?= $data->id_buktipajak ?></td>                  
+                  <td><?= $data->no_sp2d ?></td>     
+                  <td><?= $data->no_sts ?></td>    
+                  <td><?= $data->no_lainlain ?></td>                 
                   <td><?= $data->uraian ?></td>
                   <td><?= 'Rp '.number_format($data->penerimaan,2,',','.');?></td>
                   <td><?= 'Rp '.number_format($data->pengeluaran,2,',','.');?></td>
