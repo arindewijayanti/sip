@@ -5,7 +5,7 @@ class Model_sk extends CI_Model {
     public function __construct()
 	{
 		parent::__construct();
-		//Do your magic here
+		$this->load->library('session');
 	}
 
 	public function menambahdatask($data)
@@ -27,6 +27,8 @@ class Model_sk extends CI_Model {
 
 	function GetSK1($tanggal) 
     {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_sk.id_opd', $id_opd);
 		$this->db->where('tanggal_sk <=', $tanggal);
 		$this->db->where('tanggal_skberakhir >=', $tanggal);
 		$this->db->where('gol', '1');
@@ -37,6 +39,8 @@ class Model_sk extends CI_Model {
 
 	function GetSK2($tanggal) 
     {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_sk.id_opd', $id_opd);
 		$this->db->where('tanggal_sk <=', $tanggal);
 		$this->db->where('tanggal_skberakhir >=', $tanggal);
 		$this->db->where('gol', '2');

@@ -12,7 +12,6 @@ class Model_manageuser extends CI_Model {
 		
 	function GetManageUser()
     {
-
 		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('*,user_access_menu.id AS iduam');
         $this->db->where('user.status', 'member');

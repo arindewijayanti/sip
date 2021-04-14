@@ -48,6 +48,8 @@ class Model_bpp extends CI_Model {
 
 	function GetTransaksiHarianBPP($tanggal) 
     {
+        $id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_bpp.id_opd', $id_opd);
 		$this->db->where('tanggal', $tanggal);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bpp')
@@ -57,8 +59,9 @@ class Model_bpp extends CI_Model {
 
     function GetTransaksiHarian($tanggal)
     {
+        $id_opd = $this->session->userdata('id_opd');
         $this->db->select('SUM(penerimaan) as totalpenerimaanbpp,SUM(pengeluaran) as totalpengeluaranbpp');
-		$this->db->where('tanggal', $tanggal);
+        $this->db->where('tbl_bpp.id_opd', $id_opd);
         $this->db->from('tbl_bpp');
         return $this->db->get()->row_array();	  
     }
@@ -66,7 +69,9 @@ class Model_bpp extends CI_Model {
 	function GetTransaksiH($tanggal)
     {
         $batasawal = date('Y-01-01', strtotime($tanggal)); 
+        $id_opd = $this->session->userdata('id_opd');
         $this->db->select('SUM(penerimaan) as totalpenerimaanbpp,SUM(pengeluaran) as totalpengeluaranbpp');
+        $this->db->where('tbl_bpp.id_opd', $id_opd);
 		$this->db->where('tanggal <=', $tanggal);
 		$this->db->where('tanggal >=', $batasawal);
         $this->db->from('tbl_bpp');
@@ -75,7 +80,9 @@ class Model_bpp extends CI_Model {
 
     function GetTransaksisemua($tanggal)
     {
+        $id_opd = $this->session->userdata('id_opd');
         $this->db->select('SUM(penerimaan) as totalpenerimaanbpp,SUM(pengeluaran) as totalpengeluaranbpp');
+        $this->db->where('tbl_bpp.id_opd', $id_opd);
 		$this->db->where('tanggal <=', $tanggal);
         $this->db->from('tbl_bpp');
         return $this->db->get()->row_array();	  
@@ -83,10 +90,11 @@ class Model_bpp extends CI_Model {
 
 	function GetTransaksiHmin1($tanggal)
     {
-        
+        $id_opd = $this->session->userdata('id_opd');
 		$batasawal = date('Y-01-01', strtotime($tanggal)); 
         $batasakhir = date('Y-m-d', strtotime('-1 days', strtotime($tanggal))); 
         $this->db->select('SUM(penerimaan) as totalpenerimaanbpp,SUM(pengeluaran) as totalpengeluaranbpp');
+        $this->db->where('tbl_bpp.id_opd', $id_opd);
 		$this->db->where('tanggal <=', $batasakhir);
 		$this->db->where('tanggal >=', $batasawal);
         $this->db->from('tbl_bpp');

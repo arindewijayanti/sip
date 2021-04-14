@@ -5,11 +5,13 @@ class Model_selisihrekon extends CI_Model {
     public function __construct()
 	{
 		parent::__construct();
-		//Do your magic here
+		$this->load->library('session');
 	}
 
 	function GetSelisihRekon() 
     {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
         $this->db->order_by('id_selisihrekon', 'ASC');
         return $this->db->from('tbl_selisihrekon')
           ->join('tbl_keteranganselisih','tbl_keteranganselisih.kode_keterangan=tbl_selisihrekon.kode_keterangan')

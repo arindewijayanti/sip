@@ -5,7 +5,7 @@ class Model_transaksi extends CI_Model {
     public function __construct()
 	{
 		parent::__construct();
-		//Do your magic here
+		$this->load->library('session');
 	}
 
 	public function menambahdatatransaksi($data)
@@ -28,6 +28,8 @@ class Model_transaksi extends CI_Model {
 	
 	function GetTransaksiHarian($tanggal)
     {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_transaksi.id_opd', $id_opd);
         $this->db->select('*');
         $this->db->order_by('kode_transaksi', 'ASC');
 		$this->db->where('tanggal', $tanggal);
@@ -37,7 +39,9 @@ class Model_transaksi extends CI_Model {
     }
 
 	function GetTransaksiHarianRegister($tanggal)
-    {
+    {	
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_transaksi.id_opd', $id_opd);
         $this->db->select('SUM(penerimaan) as totalpenerimaanharian,SUM(pengeluaran) as totalpengeluaranharian');
         $this->db->order_by('kode_transaksi', 'ASC');
 		$this->db->where('tanggal', $tanggal);
@@ -49,7 +53,9 @@ class Model_transaksi extends CI_Model {
     {
 		$batasawal = date('Y-01-01', strtotime($tanggal)); 
         $batasakhir = date('Y-m-d', strtotime('-1 days', strtotime($tanggal))); 
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('SUM(penerimaan) as totalpenerimaan,SUM(pengeluaran) as totalpengeluaran');
+        $this->db->where('tbl_transaksi.id_opd', $id_opd);
 		$this->db->where('tanggal <=', $batasakhir);
 		$this->db->where('tanggal >=', $batasawal);
         $this->db->from('tbl_transaksi');
@@ -59,7 +65,9 @@ class Model_transaksi extends CI_Model {
 	function GetTransaksiH($tanggal)
     {
 		$batasawal = date('Y-01-01', strtotime($tanggal)); 
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('SUM(penerimaan) as totalpenerimaan,SUM(pengeluaran) as totalpengeluaran');
+        $this->db->where('tbl_transaksi.id_opd', $id_opd);
 		$this->db->where('tanggal <=', $tanggal);
 		$this->db->where('tanggal >=', $batasawal);
         $this->db->from('tbl_transaksi');
@@ -68,7 +76,9 @@ class Model_transaksi extends CI_Model {
 
 	function GetTransaksisemua($tanggal)
     {
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('SUM(penerimaan) as totalpenerimaan,SUM(pengeluaran) as totalpengeluaran');
+        $this->db->where('tbl_transaksi.id_opd', $id_opd);
 		$this->db->where('tanggal <=', $tanggal);
         $this->db->from('tbl_transaksi');
         return $this->db->get()->row_array();	  
@@ -76,12 +86,12 @@ class Model_transaksi extends CI_Model {
 	
 	function GetTransaksiBulanan($tanggalmulai, $tanggalselesai)
     {
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('*');
         $this->db->order_by('kode_transaksi', 'ASC');
+        $this->db->where('tbl_transaksi.id_opd', $id_opd);
 		$this->db->where('tanggal >=', $tanggalmulai);
 		$this->db->where('tanggal <=', $tanggalselesai);
-		//$this->db->where('DATE_FORMAT(tanggal,"%m")', $bulan);
-		//$this->db->where('DATE_FORMAT(tanggal,"%Y")', $tahun);
         return $this->db->from('tbl_transaksi')
     		->get()
           	->result();
@@ -89,7 +99,9 @@ class Model_transaksi extends CI_Model {
 
 	function GetSaldoBank($tanggal)
     {
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('saldo');
+        $this->db->where('tbl_saldobank.id_opd', $id_opd);
 		$this->db->where('tanggal =', $tanggal);
 		$this->db->from('tbl_saldobank');
 		$this->db->limit('1');
@@ -100,8 +112,10 @@ class Model_transaksi extends CI_Model {
 
 	function GetUraianA($tanggal)
     {
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('*');
         $this->db->order_by('id_selisihrekon', 'ASC');
+        $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
 		$this->db->where('kode_keterangan', 'A');
 		$this->db->where('tanggal_selisih', $tanggal);
         return $this->db->from('tbl_selisihrekon')
@@ -111,8 +125,10 @@ class Model_transaksi extends CI_Model {
 
 	function GetUraianB($tanggal)
     {
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('*');
         $this->db->order_by('id_selisihrekon', 'ASC');
+        $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
 		$this->db->where('kode_keterangan', 'B');
 		$this->db->where('tanggal_selisih', $tanggal);
         return $this->db->from('tbl_selisihrekon')
@@ -122,8 +138,10 @@ class Model_transaksi extends CI_Model {
 
 	function GetUraianC($tanggal)
     {
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('*');
         $this->db->order_by('id_selisihrekon', 'ASC');
+        $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
 		$this->db->where('kode_keterangan', 'C');
 		$this->db->where('tanggal_selisih', $tanggal);
         return $this->db->from('tbl_selisihrekon')
@@ -133,8 +151,10 @@ class Model_transaksi extends CI_Model {
 
 	function GetUraianD($tanggal)
     {
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('*');
         $this->db->order_by('id_selisihrekon', 'ASC');
+        $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
 		$this->db->where('kode_keterangan', 'D');
 		$this->db->where('tanggal_selisih', $tanggal);
         return $this->db->from('tbl_selisihrekon')
@@ -144,8 +164,10 @@ class Model_transaksi extends CI_Model {
 
 	function GetUraian($tanggal)
     {
+		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('*');
         $this->db->order_by('id_selisihrekon', 'ASC');
+        $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
 		$this->db->where('tanggal_selisih', $tanggal);
         return $this->db->from('tbl_selisihrekon')
     		->get()

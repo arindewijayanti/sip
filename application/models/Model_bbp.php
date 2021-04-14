@@ -39,6 +39,8 @@ class Model_bbp extends CI_Model {
 
 	function GetBBP($id_rekening,$tanggalmulai,$tanggalselesai) 
     {
+        $id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
 		$this->db->where('tbl_buktipajak.id_rekening', $id_rekening);
 		$this->db->where('tanggal >=', $tanggalmulai);
 		$this->db->where('tanggal <=', $tanggalselesai);
@@ -52,6 +54,8 @@ class Model_bbp extends CI_Model {
 
 	function Gethasilatas($id_rekening,$tahun) 
     {
+        $id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
 		$this->db->where('id_rekening', $id_rekening);		
 		$this->db->from('tbl_rekening');
 		return $this->db->get()
@@ -59,6 +63,8 @@ class Model_bbp extends CI_Model {
     }
 	function Getpagu($id_rekening,$tahun) 
     {
+        $id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
 		$this->db->where('tahun', $tahun);
 		$this->db->where('id_rekening', $id_rekening);		
 		$this->db->from('tbl_apbd');
@@ -68,6 +74,8 @@ class Model_bbp extends CI_Model {
 
 	function GetTransaksiHarianBBP($tanggal) 
     {
+        $id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
 		$this->db->where('tanggal', $tanggal);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bbp')
@@ -78,7 +86,9 @@ class Model_bbp extends CI_Model {
 
 	function GetTransaksiHarian($tanggal)
     {
+        $id_opd = $this->session->userdata('id_opd');
         $this->db->select('SUM(kredit) as totalpenerimaanbbp,SUM(debet) as totalpengeluaranbbp');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
 		$this->db->where('tanggal', $tanggal);
         $this->db->from('tbl_bbp');
         return $this->db->get()->row_array();	  
@@ -86,8 +96,10 @@ class Model_bbp extends CI_Model {
 
 	function GetTransaksiH($tanggal)
     {
+        $id_opd = $this->session->userdata('id_opd');
         $batasawal = date('Y-01-01', strtotime($tanggal)); 
         $this->db->select('SUM(kredit) as totalpenerimaanbbp,SUM(debet) as totalpengeluaranbbp');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
 		$this->db->where('tanggal <=', $tanggal);
 		$this->db->where('tanggal >=', $batasawal);
         $this->db->from('tbl_bbp');
@@ -96,9 +108,11 @@ class Model_bbp extends CI_Model {
 
 	function GetTransaksiHmin1($tanggal)
     {
+        $id_opd = $this->session->userdata('id_opd');
 		$batasawal = date('Y-01-01', strtotime($tanggal)); 
         $batasakhir = date('Y-m-d', strtotime('-1 days', strtotime($tanggal))); 
         $this->db->select('SUM(kredit) as totalpenerimaanbbp,SUM(debet) as totalpengeluaranbbp');   
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
 		$this->db->where('tanggal >=', $batasawal);
 		$this->db->where('tanggal <=', $batasakhir);
         $this->db->from('tbl_bbp');
@@ -107,7 +121,9 @@ class Model_bbp extends CI_Model {
 
     function GetTransaksisemua($tanggal)
     {
+        $id_opd = $this->session->userdata('id_opd');
         $this->db->select('SUM(kredit) as totalpenerimaanbbp,SUM(debet) as totalpengeluaranbbp');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
 		$this->db->where('tanggal <=', $tanggal);
         $this->db->from('tbl_bbp');
         return $this->db->get()->row_array();	  
