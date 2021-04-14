@@ -96,15 +96,7 @@ class Model_transaksi extends CI_Model {
 		return $this->db->get()->row_array();	
 	}
 
-	function GetBPP($tanggalmulai,$tanggalselesai)
-    {
-        $this->db->select('*');
-		$this->db->where('tanggal >=', $tanggalmulai);
-		$this->db->where('tanggal <=', $tanggalselesai);
-		return $this->db->from('tbl_bpp')
-			->get()
-          	->result();
-	}
+	
 
 	function GetUraianA($tanggal)
     {

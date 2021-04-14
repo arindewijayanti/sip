@@ -25,6 +25,17 @@ class Model_bpp extends CI_Model {
 		$this->db->delete('tbl_bpp');
 	}
 
+    function GetBPP($tanggalmulai,$tanggalselesai)
+    {
+        $id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_bpp.id_opd', $id_opd);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
+		return $this->db->from('tbl_bpp')
+			->get()
+          	->result();
+	}
+
 	function GetTransaksiBPP() 
     {
 		$id_opd = $this->session->userdata('id_opd');

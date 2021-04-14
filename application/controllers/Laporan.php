@@ -16,11 +16,6 @@ class Laporan extends CI_Controller {
 
 	public function index()
 	{
-		$roleid=$this->session->userdata('role_id');
-        if(empty($roleid))
-        {
-            redirect('auth');
-        }	
 		$this->load->view('laporan/laporan');
 	}
 
@@ -105,7 +100,7 @@ class Laporan extends CI_Controller {
 		$tanggalselesai = $this->input->post('tanggalselesai');
 		$data['tanggalmulai'] = $this->input->post('tanggalmulai');
 		$data['tanggalselesai'] = $this->input->post('tanggalselesai');
-		$data['hasil'] = $this->model_transaksi->GetBPP($tanggalmulai, $tanggalselesai);
+		$data['hasil'] = $this->model_bpp->GetBPP($tanggalmulai, $tanggalselesai);
         $this->load->view('laporan/printbukupembantupajak',$data);
 		
 	}
@@ -158,23 +153,18 @@ class Laporan extends CI_Controller {
 
 public function bukubesarpembantu()
 {
-	$roleid=$this->session->userdata('role_id');
-        if(empty($roleid))
-        {
-            redirect('auth');
-        }	
 	$this->load->view('laporan/bukubesarpembantu');
 }
 public function printbukubesarpembantu()
 {
 	$tanggalmulai = $this->input->post('tanggalmulai');
 	$tanggalselesai = $this->input->post('tanggalselesai');
-	$tahun = 2021;
-	$kode_rekening = $this->input->post('kode_rekening');
-	$data['kode_rekening'] = $kode_rekening;
-	$data['hasilatas'] = $this->model_bbp->Gethasilatas($kode_rekening,$tahun);
-	$data['pagu'] = $this->model_bbp->Getpagu($kode_rekening,$tahun);
-	$data['hasil'] = $this->model_bbp->GetBBP($kode_rekening,$tanggalmulai,$tanggalselesai);
+	$tahun = date("Y", strtotime($tanggalmulai));;
+	$id_rekening = $this->input->post('id_rekening');
+	$data['id_rekening'] = $id_rekening;
+	$data['hasilatas'] = $this->model_bbp->Gethasilatas($id_rekening,$tahun);
+	$data['pagu'] = $this->model_bbp->Getpagu($id_rekening,$tahun);
+	$data['hasil'] = $this->model_bbp->GetBBP($id_rekening,$tanggalmulai,$tanggalselesai);
 	
 	$data['tanggalmulai'] = $this->input->post('tanggalmulai');
 	$data['tanggalselesai'] = $this->input->post('tanggalselesai');

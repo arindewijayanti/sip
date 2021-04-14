@@ -37,30 +37,30 @@ class Model_bbp extends CI_Model {
           ->result();
     }
 
-	function GetBBP($kode_rekening,$tanggalmulai,$tanggalselesai) 
+	function GetBBP($id_rekening,$tanggalmulai,$tanggalselesai) 
     {
-		$this->db->where('tbl_buktipajak.kode_rekening', $kode_rekening);
+		$this->db->where('tbl_buktipajak.id_rekening', $id_rekening);
 		$this->db->where('tanggal >=', $tanggalmulai);
 		$this->db->where('tanggal <=', $tanggalselesai);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bbp')
           ->join('tbl_buktipajak','tbl_buktipajak.id_buktipajak=tbl_bbp.id_buktipajak')
-		  ->join('tbl_rekening','tbl_rekening.kode_rekening=tbl_buktipajak.kode_rekening')
+		  ->join('tbl_rekening','tbl_rekening.id_rekening=tbl_buktipajak.id_rekening')
           ->get()
           ->result();
     }
 
-	function Gethasilatas($kode_rekening,$tahun) 
+	function Gethasilatas($id_rekening,$tahun) 
     {
-		$this->db->where('kode_rekening', $kode_rekening);		
+		$this->db->where('id_rekening', $id_rekening);		
 		$this->db->from('tbl_rekening');
 		return $this->db->get()
 		->row_array();
     }
-	function Getpagu($kode_rekening,$tahun) 
+	function Getpagu($id_rekening,$tahun) 
     {
 		$this->db->where('tahun', $tahun);
-		$this->db->where('kode_rekening', $kode_rekening);		
+		$this->db->where('id_rekening', $id_rekening);		
 		$this->db->from('tbl_apbd');
 		return $this->db->get()
 		->row_array();
