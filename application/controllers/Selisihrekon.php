@@ -9,6 +9,11 @@ class Selisihrekon extends CI_Controller {
        $this->load->model('model_selisihrekon'); 
 	   $this->load->library('session');
        
+$roleid=$this->session->userdata('username');
+if(empty($roleid))
+{
+	redirect('auth');
+}
 
     }
 

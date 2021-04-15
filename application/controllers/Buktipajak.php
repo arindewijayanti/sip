@@ -8,6 +8,12 @@ class Buktipajak extends CI_Controller {
         parent::__construct();
        $this->load->model('model_buktipajak'); //load model model_buktipajak
 	   $this->load->library('session');
+	   
+$roleid=$this->session->userdata('username');
+if(empty($roleid))
+{
+	redirect('auth');
+}
     }
 
 	function index()

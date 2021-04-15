@@ -9,6 +9,12 @@ class Nomorsk extends CI_Controller {
        $this->load->model('model_nomorsk'); 
 	   $this->load->library('session');
        
+$roleid=$this->session->userdata('username');
+if(empty($roleid))
+{
+    redirect('auth');
+}
+       
 
     }
 

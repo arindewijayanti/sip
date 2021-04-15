@@ -9,6 +9,12 @@ class Manageakun extends CI_Controller {
        $this->load->model('model_manageakun'); //load model model_rekening
        $this->load->library('session');
        
+$roleid=$this->session->userdata('username');
+if(empty($roleid))
+{
+    redirect('auth');
+}
+       
 
     }
 
