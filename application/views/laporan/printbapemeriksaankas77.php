@@ -171,9 +171,9 @@ $tahun2 = date("Y", strtotime($tanggal2));
 <td>
 <td>
 <h3 class="jarak-lh" align="center">PEMERINTAH KOTA PADANGSIDIMPUAN</h3>
-<h1 class="jarak-lh" align="center">BADAN KEUANGAN DAERAH</h1>
-<p class="jarak-lh" align="center">Jln. Jen. Dr. Abd.Haris Nasution Pal - IV Pijorkoling Telp (0634)27075 Fax. (0634) 27075</p>
-<p class="jarak-lh" align="center">Kec. Padangsidimpuan Tenggara</p>
+<h1 class="jarak-lh" align="center"><?= $hasilopd['nama_opd'] ?></h1>
+<p class="jarak-lh" align="center"><?= $hasilopd['alamat_opd'] ?></p>
+<p class="jarak-lh" align="center"><?= $hasilopd['kecamatan_opd'] ?></p>
 <td>
 </tr>
 <tr>
@@ -211,9 +211,9 @@ $tahun2 = date("Y", strtotime($tanggal2));
 <tr><td width="5%">c. </td>     <td width="65%">Surat/Barang berharga lainnya</td>	<td width="25%">= </td></tr>
 <tr><td width="5%"></td><td width="65%"></td><td width="5%"><hr  color="black" size="2px"/></td></tr>
 <tr><td width="5%"></td>     <td width="65%">Jumlah</td>	<td width="25%">= <?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
-<tr><td width="5%"></td>     <td width="65%">Saldo Uang menurut Buku Kas, Register Buku Kas</td>	<td width="25%">= <?='Rp '.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></td></tr>
+<tr><td width="5%"></td>     <td width="65%">Saldo Uang menurut Buku Kas, Register Buku Kas</td>	<td width="25%">= <?='Rp '.number_format($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'],2,',','.'); ?></td></tr>
 <tr><td width="5%"></td><td width="65%"></td><td width="5%"><hr  color="black" size="2px"/></td></tr>
-<tr><td width="5%"></td>     <td width="65%">Selisih antara Saldo Kas dan Saldo Buku</td>	<td width="25%">= <?= 'Rp '.number_format($saldobank['saldo']-($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']),2,',','.');?></td></tr>
+<tr><td width="5%"></td>     <td width="65%">Selisih antara Saldo Kas dan Saldo Buku</td>	<td width="25%">= <?= 'Rp '.number_format($saldobank['saldo']-($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp']),2,',','.');?></td></tr>
 </table>
 
 

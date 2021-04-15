@@ -11,6 +11,7 @@ class Laporan extends CI_Controller {
 		$this->load->model('model_bpp'); 
 		$this->load->model('model_sk'); 
 		$this->load->model('model_saldobank'); 
+		$this->load->model('model_opd'); 
 
     }
 
@@ -210,11 +211,13 @@ public function printbapemeriksaankas()
 	$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
 
 	$data['semuah'] = $this->model_transaksi->GetTransaksisemua($tanggal);
-		$data['semuahbpp'] = $this->model_bpp->GetTransaksisemua($tanggal);
-		$data['semuahbbp'] = $this->model_bbp->GetTransaksisemua($tanggal);
+	$data['semuahbpp'] = $this->model_bpp->GetTransaksisemua($tanggal);
+	$data['semuahbbp'] = $this->model_bbp->GetTransaksisemua($tanggal);
 
 	$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
 	$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
+
+	$data['hasilopd'] = $this->model_opd->GetOPD();
 
 	if (isset($_POST['P77'])){
 		$this->load->view('laporan/printbapemeriksaankas77',$data);

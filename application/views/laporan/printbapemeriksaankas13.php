@@ -118,6 +118,48 @@ $tahun_indonesia = array(
 '25' => 'dua ribu dua puluh lima',
 '26' => 'dua ribu dia puluh enam');
 $tahun = $tahun_indonesia[$tahun];
+
+//------------------------
+$tanggal1 = $hasilSK1->tanggal_sk;
+$tgl1 = date("d", strtotime($tanggal1));
+$bulanhuruf1 = date("m", strtotime($tanggal1)); 
+$bulannama_indonesia1 = array(
+    '01'  => 'Januari',
+    '02'  => 'Februari',
+    '03' => 'Maret',
+    '04' => 'April',
+    '05' => 'Mei',
+    '06' => 'Juni',
+    '07' => 'Juli',
+    '08' => 'Agustus',
+    '09' => 'September',
+    '10' => 'Oktober',
+    '11' => 'November',
+    '12' => 'Desember');
+$bulannama1 = $bulannama_indonesia1[$bulanhuruf1];
+$tahun1 = date("Y", strtotime($tanggal1)); 
+
+//------------------------
+$tanggal2 = $hasilSK2->tanggal_sk;
+$tgl2 = date("d", strtotime($tanggal2));
+$bulanhuruf2 = date("m", strtotime($tanggal2)); 
+$bulannama_indonesia2 = array(
+    '01'  => 'Januari',
+    '02'  => 'Februari',
+    '03' => 'Maret',
+    '04' => 'April',
+    '05' => 'Mei',
+    '06' => 'Juni',
+    '07' => 'Juli',
+    '08' => 'Agustus',
+    '09' => 'September',
+    '10' => 'Oktober',
+    '11' => 'November',
+    '12' => 'Desember');
+$bulannama2 = $bulannama_indonesia2[$bulanhuruf2];
+$tahun2 = date("Y", strtotime($tanggal2)); 
+
+//------------------------
 ?>
 <table align="center" width="100%">
 <tr>
@@ -126,9 +168,9 @@ $tahun = $tahun_indonesia[$tahun];
 <td>
 <td>
 <h3 class="jarak-lh" align="center">PEMERINTAH KOTA PADANGSIDIMPUAN</h3>
-<h1 class="jarak-lh" align="center">BADAN KEUANGAN DAERAH</h1>
-<p class="jarak-lh" align="center">Jln. Jen. Dr. Abd.Haris Nasution Pal - IV Pijorkoling Telp (0634)27075 Fax. (0634) 27075</p>
-<p class="jarak-lh" align="center">Kec. Padangsidimpuan Tenggara</p>
+<h1 class="jarak-lh" align="center"><?= $hasilopd['nama_opd'] ?></h1>
+<p class="jarak-lh" align="center"><?= $hasilopd['alamat_opd'] ?></p>
+<p class="jarak-lh" align="center"><?= $hasilopd['kecamatan_opd'] ?></p>
 <td>
 </tr>
 <tr>
@@ -150,14 +192,14 @@ $tahun = $tahun_indonesia[$tahun];
 <tr><td>Pangkat/Jabatan/Gol</td>     <td>:</td>	<td><?= $hasilSK1->jabatan ?>/ <?= $hasilSK1->gol_jabatan  ?></td></tr>
 <tr><td></td>     <td></td>	<td>Pejabat Pengelola Keuangan Daerah Selaku Bendahara Umum Daerah Kota Padangsidimpuan.</td></tr>
 </table>
-<p>Sesuai dengan Surat Keputusan Walikota Padangsidimpuan Nomor : 2/KPTS/2021 tanggal 04 Januari 2021 dan setelah memperlihatkan surat bukti, dilakukan pemeriksaan pengawasan melekat pada :</p>
+<p>Sesuai dengan Surat Keputusan Walikota Padangsidimpuan Nomor : 2<?= $hasilSK1->no_sk  ?> tanggal <?php echo $tgl1;?> <?php echo $bulannama1;?> <?php echo $tahun1;?> dan setelah memperlihatkan surat bukti, dilakukan pemeriksaan pengawasan melekat pada :</p>
 <table>
 <tr><td>Nama</td>	 <td>:</td> <td><?= $hasilSK2->nama ?></td></tr>
 <tr><td>NIP</td>     <td>:</td>	<td><?= $hasilSK2->nip ?></td></tr>
 <tr><td>Pangkat/Jabatan/Gol</td>     <td>:</td>	<td><?= $hasilSK2->jabatan  ?>/ <?= $hasilSK2->gol_jabatan  ?></td></tr>
 <tr><td></td>     <td></td>	<td>Kuasa Bendahara Umum Daerah Kota Padangsidimpuan.</td></tr>
 </table>
-<p>Yang ditunjuk dengan Surat Keputusan Walikota Nomor : 91/KPTS/2021 tanggal 24 Februari 2021 ditugaskan sebagai Kuasa Bendahara Umum Daerah Pemerintah Kota Padangsidimpuan Tahun Anggaran 2021 berdasakan hasil pemeriksaan atas penutupan kas pada Buku Kas Umum Kuasa Bendahara Daerah dijumpai kenyataan sebagai berikut :</p>
+<p>Yang ditunjuk dengan Surat Keputusan Walikota Nomor : <?= $hasilSK2->no_sk  ?> tanggal <?php echo $tgl2;?> <?php echo $bulannama2;?> <?php echo $tahun2;?> ditugaskan sebagai Kuasa Bendahara Umum Daerah Pemerintah Kota Padangsidimpuan Tahun Anggaran 2021 berdasakan hasil pemeriksaan atas penutupan kas pada Buku Kas Umum Kuasa Bendahara Daerah dijumpai kenyataan sebagai berikut :</p>
 
 <p>Jumlah uang yang kami hitung dihadapan Pejabat tersebut adalah :</p>
 <table width="100%">

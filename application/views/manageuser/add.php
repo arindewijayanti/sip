@@ -11,12 +11,12 @@ $this->load->view('include/header');
           <a href="<?php echo base_url('manageuser/manageuser')?>">Manajemen User</a>
         </li>
   
-        <li class="breadcrumb-item active">Tambah Data Manajemen User</li>
+        <li class="breadcrumb-item active">Tambah Data Manajemen Menu</li>
       </ol>
 <!-- Example DataTables Card-->
 <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-plus"></i> Menambah Data Manajemen User</div>
+          <i class="fa fa-plus"></i> Menambah Data Manajemen Menu</div>
         <div class="card-body">
           <div class="table-responsive">
              <div class="container">

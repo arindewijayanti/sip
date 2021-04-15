@@ -57,7 +57,7 @@ $this->load->view('include/header');
                     <input class="form-control" id="gol_jabatan" type="text" aria-describedby="nameHelp" name="gol_jabatan" required/>
                   </div>
                   <div class="col-md-6">
-                    <label for="gol">Golongan Tingkat</label>
+                    <label for="gol">Golongan Nomor</label>
                     <input class="form-control" id="gol" type="text" aria-describedby="nameHelp" name="gol" required/>
                   </div>
                   <br>

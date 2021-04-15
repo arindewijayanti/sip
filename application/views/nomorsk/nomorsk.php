@@ -34,7 +34,7 @@ $this->load->view('include/header');
                   <th>Nip</th>
                   <th>Jabatan</th>
                   <th>Golongan Jabatan</th>
-                  <th>Golongan Tingkat</th>
+                  <th>Golongan Nomor</th>
                   <th>Opsi</th>
                 </tr>
               </thead>

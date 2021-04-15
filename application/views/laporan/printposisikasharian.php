@@ -64,7 +64,6 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
 <table border="1" align="center" width="100%">
                     <tr>
                         <th rowspan="2">No</th>
-                        
                         <th colspan="2">No. Bukti Transaksi</th>        
                         <th rowspan="2">Uraian</th> 
                         <th rowspan="2">Penerimaan</th> 
@@ -76,8 +75,48 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                         
                     </tr> 
                 </thead>
-                <?php
+               
+                
+                    <?php
                     $no = 1 ;
+                    $totalpenerimaanbbp = 0;
+                    $totalpengeluaranbbp = 0;
+                    foreach ($hasilBBP as $item)
+                    {
+                        
+                        $totalpenerimaanbbp += $item->kredit;
+                        $totalpengeluaranbbp += $item->debet;
+                    ?>
+                    <tr>
+                         <td align="center"><?= $no?></td><td></td><td></td>
+                        <td><?= $item->uraian;?></td>
+                        <td align="center"><?='Rp '.number_format($item->kredit,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($item->debet,2,',','.'); ?></td>                     
+                    </tr>
+                    <?php
+                    $no +=1;}
+                    ?>
+
+                    <?php
+                     $totalpenerimaanbpp = 0;
+                     $totalpengeluaranbpp = 0;
+                    foreach ($hasilBPP as $item)
+                    {
+                        $totalpenerimaanbpp += $item->penerimaan;
+                        $totalpengeluaranbpp += $item->pengeluaran;
+                    ?>
+                    <tr>
+                    <td align="center"><?= $no?></td><td></td><td></td>
+                        <td><?= $item->uraian;?></td>
+                        <td align="center"><?='Rp '.number_format($item->penerimaan,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format($item->pengeluaran,2,',','.'); ?></td>                     
+                    </tr>
+                    <?php
+                    $no +=1;}
+                    ?>
+
+<?php
+                    
                     $totalpenerimaan = 0;
                     $totalpengeluaran = 0;
                     foreach ($hasil as $item)
@@ -98,43 +137,6 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                     $no +=1;
                     }
                     ?>
-                
-                    <?php
-                    $totalpenerimaanbbp = 0;
-                    $totalpengeluaranbbp = 0;
-                    foreach ($hasilBBP as $item)
-                    {
-                        
-                        $totalpenerimaanbbp += $item->kredit;
-                        $totalpengeluaranbbp += $item->debet;
-                    ?>
-                    <tr>
-                         <td></td><td></td><td></td>
-                        <td><?= $item->nama_buktipajak;?></td>
-                        <td align="center"><?='Rp '.number_format($item->kredit,2,',','.'); ?></td>
-                        <td align="center"><?='Rp '.number_format($item->debet,2,',','.'); ?></td>                     
-                    </tr>
-                    <?php
-                    }
-                    ?>
-
-                    <?php
-                     $totalpenerimaanbpp = 0;
-                     $totalpengeluaranbpp = 0;
-                    foreach ($hasilBPP as $item)
-                    {
-                        $totalpenerimaanbpp += $item->penerimaan;
-                        $totalpengeluaranbpp += $item->pengeluaran;
-                    ?>
-                    <tr>
-                        <td></td><td></td><td></td>
-                        <td><?= $item->uraian;?></td>
-                        <td align="center"><?='Rp '.number_format($item->penerimaan,2,',','.'); ?></td>
-                        <td align="center"><?='Rp '.number_format($item->pengeluaran,2,',','.'); ?></td>                     
-                    </tr>
-                    <?php
-                    }
-                    ?>
                 </tbody>
                 <tr>
                         <td align="right" colspan="4">Jumlah</td> 
@@ -143,8 +145,8 @@ echo $tgl_pertama; echo " s.d "; echo $tgl_terakhir;?></td></p></tr>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Perubahan Posisi Kas hari ini</td> 
-                        <td align="center"><?='Rp '.number_format($h['totalpenerimaan']+$hbbp['totalpenerimaanbbp']+$hbpp['totalpenerimaanbpp'],2,',','.'); ?></td>
-                        <td align="center"><?='Rp '.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format(0,2,',','.'); ?></td>
+                        <td align="center"><?='Rp '.number_format(($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp)-($totalpengeluaran+$totalpengeluaranbbp+$totalpengeluaranbpp),2,',','.'); ?></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="4">Posisi Kas (H-1)</td> 

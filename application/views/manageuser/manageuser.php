@@ -10,7 +10,7 @@ $this->load->view('include/header');
           <a href="<?php echo base_url('user/index')?>">Halaman Utama</a>
         </li>
   
-        <li class="breadcrumb-item active">Manajemen User</li>
+        <li class="breadcrumb-item active">Manajemen Menu</li>
       </ol>
 
       <div class="container">
@@ -19,7 +19,7 @@ $this->load->view('include/header');
   <!-- Example DataTables Card-->
   <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Manajemen User</div>
+          <i class="fa fa-table"></i>Manajemen Menu</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
