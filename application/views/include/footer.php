@@ -33,4 +33,15 @@
 
 </body>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#tabel').DataTable({
+                "language":{
+                    "url":"//cdn.datatables.net/plug-ins/1.10.9/i18n/Indonesian.json",
+                    "sEmptyTable":"Tidads"  
+                }
+        });
+    });
+</script>
+
 </html>
