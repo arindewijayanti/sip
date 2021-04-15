@@ -35,19 +35,10 @@ $this->load->view('include/header');
                   </div>
 
                   <div class="col-md-6">
-                    <label for="id_buktipajak">Nomor Bukti</label>
-                    <select class="form-control form-control-sm" id="nama" name="id_buktipajak" required />
-                    <option value="<?= $data->id_buktipajak?>"><?= $data->nama_buktipajak?></option>
-                        <?php $id_buktipajak = $this->db->query("SELECT * FROM tbl_buktipajak");
-                
-                        foreach ($id_buktipajak->result() as $id_buktipajak) : ?>
-                        
-                        <option value="<?= $id_buktipajak->id_buktipajak?>"><?= $id_buktipajak->nama_buktipajak?></option>
-                         <?php endforeach; ?>
-                       </select> </div>
-                </div>
-                
-                  
+                    <label for="uraian">Uraian</label>
+                    <input value="<?= $data->uraian?>"class="form-control" id="uraian" type="text" aria-describedby="nameHelp" name="uraian" required/>
+                 
+                 </div>
                 </div>
               </div>
 

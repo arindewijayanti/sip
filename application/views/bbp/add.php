@@ -32,16 +32,10 @@ $this->load->view('include/header');
                     <input class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
                   </div>
                   <div class="col-md-6">
-                    <label for="id_buktipajak">Nomor Bukti</label>
-                    <select class="form-control form-control-sm" id="id_buktipajak" name="id_buktipajak" required />
-                    <option>Silahkan Pilih Nama Bukti Pajak</option>
-                        <?php $id_buktipajak = $this->db->query("SELECT * FROM tbl_buktipajak");
-                
-                        foreach ($id_buktipajak->result() as $id_buktipajak) : ?>
-                        
-                        <option value="<?= $id_buktipajak->id_buktipajak?>"><?= $id_buktipajak->nama_buktipajak?></option>
-                         <?php endforeach; ?>
-                       </select> </div>
+                    <label for="uraian">Uraian</label>
+                    <input class="form-control" id="uraian" type="text" aria-describedby="nameHelp" name="uraian" required/>
+                  
+                       </div>
                 </div>
               </div>
               
@@ -50,7 +44,7 @@ $this->load->view('include/header');
                  
                   <div class="col-md-6">
                     <label for="debet">Debet</label>
-                    <input class="form-control" id="debet" type="text" value="0" aria-describedby="nameHelp" name="debet" required/>
+                    <input class="form-control" id="debet" type="text" aria-describedby="nameHelp" name="debet" required/>
                   </div>
                   <div class="col-md-6">
                     <label for="kredit">Kredit</label>

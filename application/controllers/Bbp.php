@@ -29,7 +29,7 @@ class Bbp extends CI_Controller {
     {       
                     	$data = array(
                             'tanggal'=>$this->input->post('tanggal'),
-                            'id_buktipajak'=>$this->input->post('id_buktipajak'),
+                            'uraian'=>$this->input->post('uraian'),
                             'debet'=>$this->input->post('debet'),
                             'kredit'=>$this->input->post('kredit')
 					);
@@ -50,7 +50,7 @@ class Bbp extends CI_Controller {
     {
         $data = array(
             'tanggal'=>$this->input->post('tanggal'),
-            'id_buktipajak'=>$this->input->post('id_buktipajak'),
+            'uraian'=>$this->input->post('uraian'),
             'debet'=>$this->input->post('debet'),
             'kredit'=>$this->input->post('kredit')
         );
