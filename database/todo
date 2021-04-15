@@ -1,14 +1,5 @@
-- Session
 - Data Tabel
 - Buat halaman untuk master(untuk kita) untuk akses (crud OPD, crud USER)
-- Selesaikan Laporan F13 dan F77 ditarik berdasarkan session id opd
-    A. Laporan Posisi Kas Harian
-    B. Laporan Buku Kas Umum 
-    C. Laporan Rekonsiliasi Bank
-    D. Laporan Buku Pembantu Pajak
-    E. Laporan Buku Besar Pembantu
-    F. Berita Acara Pemeriksaan Kas
-    G. Register Penutupan Kas
 - Buat dokumentasi flowchart
 - Buat dokumentasi buku panduan
 
