@@ -80,44 +80,50 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
  
 <table style="width:80%">
 <tr><td>Tanggal Penutupan Kas ......</td>	 <td>:</td> <td> <?php echo $tanggalhuruf;?> <?php echo $bulannama;?> <?php echo $tahun;?></td></tr>
-<tr><td>Nama Penutup Kas/Kuasa BUS</td>     <td>:</td>	<td>Asir Aryadi, SE</td></tr>
+<tr><td>Nama Penutup Kas/Kuasa BUS</td>     <td>:</td>	<td><?= $hasilSK2->nama ?></td></tr>
 <tr><td>Tanggal Penutupan Kas yang lalu ......</td>     <td>:</td>	<td><?php echo $tanggalhurufsebelumnya;?> <?php echo $bulannamasebelumnya;?> <?php echo $tahunsebelumnya?></td></tr>
-<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp '.number_format($harianregister['totalpenerimaanharian']+$hasilBBP['totalpenerimaanbbp']+$hasilBPP['totalpenerimaanbpp'],2,',','.'); ?></td></tr>
+<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp '.number_format($h['totalpenerimaan']+$hbpp['totalpenerimaanbpp']+$hbbp['totalpenerimaanbbp'],2,',','.'); ?></td></tr>
 <tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp '.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],2,',','.'); ?></td></tr>
+<tr><td></td>     <td></td>	<td><hr  color="black" size="2px"/></td></tr>
 <br>
-<tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp '.number_format($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'],2,',','.'); ?></td></tr>
+<tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp']),2,',','.'); ?></td></tr>
 <tr><td>Saldo Kas ......</td>     <td>:</td>	<td><?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
 </table>
 <table style="width:100%">
 <br>
 <tr><p>Kertas berharga dan bagian Kas yang diizinkan Ordonansi :</p></tr>
-<tr><td width="5%">a. </td><td width="70%">SP2D ......</td>	 <td>Rp ....</td></tr>
-<tr><td width="5%">b. </td><td width="70%">Wessel</td>    	<td>Rp ....</td></tr>
-<tr><td width="5%">c. </td><td width="70%">Saldo bank Sumut AC 2511 ......</td>   	<td><?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
-<tr><td width="5%">d. </td><td width="70%">M e t e r a i ......</td>     	<td>Rp ....</td></tr>
-<tr><td width="5%">e. </td><td width="70%">Dan Lain-lain ......</td>     	<td>Rp ....</td></tr>
-<tr><td width="5%"></td><td width="70%">&nbsp J u m l a h ......</td>      <td><?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
-<tr><td width="5%"></td><td width="70%">&nbsp Selisih ......</td>      <td><?= 'Rp '.number_format(($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'])-$saldobank['saldo'],2,',','.');?></td></tr>
+<tr><td width="5%">a. </td><td width="60%">SP2D ......</td>	 <td>Rp ....</td></tr>
+<tr><td width="5%">b. </td><td width="60%">Wessel</td>    	<td>Rp ....</td></tr>
+<tr><td width="5%">c. </td><td width="60%">Saldo bank Sumut AC 2511 ......</td>   	<td><?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
+<tr><td width="5%">d. </td><td width="60%">M e t e r a i ......</td>     	<td>Rp ....</td></tr>
+<tr><td width="5%">e. </td><td width="60%">Dan Lain-lain ......</td>     	<td>Rp ....</td></tr>
+<tr><td width="5%"></td><td width="60%">&nbsp J u m l a h ......</td>      <td><?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
+<tr><td width="5%"></td><td width="60%">&nbsp Selisih ......</td>      <td><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'])-$saldobank['saldo'],2,',','.');?></td></tr>
 </table>
 
-<table width="80%">
+<table width="50%">
 <tr><p><u>Penjelasan Perbedaan :</u></p></tr>
+<tr><td colspan="2">Potongan PFK s/d Hari ini</td></tr>
+<tr><td width="5%">- </td><td width="45%">Potongan Gaji</td>	 <td>Rp    -</td></tr>
+<tr><td width="5%">- </td><td width="45%">Potongan PPN dan PPh</td>	 <td>Rp    -</td></tr>
+
 
                     <?php
-                    $no = 1 ;
                     $total = 0;
                     foreach ($uraian as $item)
                     {
                         $total += $item->nominal;
                     ?>
                     <tr>
-                    <td width="5%"><?= $no;?>.</td><td width="40%"><?= $item->uraian;?></td>	 <td><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>
+                    <td width="5%">-</td><td width="40%"><?= $item->uraian;?></td>	 <td><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>
                     </tr>
                     <?php
-                            $no++;
                     }
                     ?>
                     
+<tr><td width="5%"></td><td width="45%"></td>	 <td><hr  color="black" size="2px"/></td></tr>
+<tr><td width="5%"></td><td width="45%">Jumlah</td>	 <td><?='Rp '.number_format($total,2,',','.');?></td></tr>
+<tr><td width="5%"></td><td width="45%"></td>	 <td><hr  color="black" size="2px"/></td></tr>
 
 
 
@@ -146,19 +152,19 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr height="75px"></tr>
 <tr>
 <td width="5%"></td>
-    <td width="30%"><?= $hasilSK1->nama ?></td>
     <td width="30%"><?= $hasilSK2->nama ?></td>
+    <td width="30%"><?= $hasilSK1->nama ?></td>
 </tr>
 <tr>
 <td width="5%"></td>
+    <td width="30%"><?= $hasilSK2->jabatan ?></td>
     <td width="30%"><?= $hasilSK1->jabatan ?></td>
-    <td width="30%"><?= $hasilSK2->jabatan  ?></td>
 </tr>
 
 <tr>
 <td width="5%"></td>
-    <td width="30%"><?= $hasilSK1->nip ?> </td>
-    <td width="30%"><?= $hasilSK2->nip ?></td>
+    <td width="30%">NIP. <?= $hasilSK2->nip ?></td>
+    <td width="30%">NIP. <?= $hasilSK1->nip ?></td>
 </tr>
 
 </table>
