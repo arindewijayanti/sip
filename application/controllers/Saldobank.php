@@ -54,7 +54,8 @@ class Saldobank extends CI_Controller {
             'tanggal'=>$this->input->post('tanggal'),
             'saldo'=>$this->input->post('saldo')
         );
-		
+		$data['id_user']=$this->session->userdata('username');
+		$data['id_opd']=$this->session->userdata('id_opd');
         $this->model_saldobank->updatedatasaldobank($data, $id);
         redirect('saldobank');
 	}

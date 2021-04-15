@@ -54,7 +54,8 @@ class Rekening extends CI_Controller {
             'kode_rekening'=>$this->input->post('kode_rekening'),
             'nama_rekening'=>$this->input->post('nama_rekening')
         );
-		
+		$data['id_user']=$this->session->userdata('username');
+		$data['id_opd']=$this->session->userdata('id_opd');
         $this->model_rekening->updatedatarekening($data, $id_rekening,$kode_rekening);
         redirect('rekening');
 	}

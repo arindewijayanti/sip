@@ -30,23 +30,24 @@ $this->load->view('include/header');
                     <label for="tanggal">Tanggal</label>
                     <input class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
                   </div>
-                   <div class="col-md-6">
-                    <label for="jenis_bukti">Jenis Bukti</label>
-                    <select class="form-control form-control-sm" id="jenis_bukti" name="jenis_bukti" required />
-                    <option value="-">-</option>
-                    <option value="SP2D">SP2D</option>
-                    <option value="STS">STS</option>
-                    <option value="LAIN-LAIN">LAIN-LAIN</option>
-                       </select> </div>
-    
+                  <div class="col-md-6">
+                    <label for="no_sp2d"> No SP2D</label>
+                    <input class="form-control" id="no_sp2d" type="text" aria-describedby="nameHelp" name="no_sp2d"/>
+                  </div>
               </div>
 
               <div class="form-group">
               <div class="form-row">                     
               <div class="col-md-6">
-                    <label for="no_bukti">Nomor Bukti</label>
-                    <input class="form-control" id="no_bukti" type="text" aria-describedby="nameHelp" name="no_bukti" required/>
+                    <label for="no_sts">No STS</label>
+                    <input class="form-control" id="no_sts" type="text" aria-describedby="nameHelp" name="no_sts"/>
                 </div>
+
+                <div class="col-md-6">
+                    <label for="no_lainlain">No Lain</label>
+                    <input class="form-control" id="no_lainlain" type="text" aria-describedby="nameHelp" name="no_lainlain"/>
+                </div>
+              </div>
                 <div class="col-md-6">
                     <label for="uraian">Uraian</label>
                     <input class="form-control" id="uraian" type="text" aria-describedby="nameHelp" name="uraian" required/>

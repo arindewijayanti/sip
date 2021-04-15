@@ -59,7 +59,8 @@ class Apbd extends CI_Controller {
             'pagu_apbd'=>$this->input->post('pagu_apbd'),
             'pagu_perubahan_apbd'=>$this->input->post('pagu_perubahan_apbd')
         );
-		
+		$data['id_user']=$this->session->userdata('username');
+		$data['id_opd']=$this->session->userdata('id_opd');
         $this->model_apbd->updatedataapbd($data, $id_apbd);
         redirect('apbd');
 	}

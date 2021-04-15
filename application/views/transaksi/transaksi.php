@@ -28,8 +28,9 @@ $this->load->view('include/header');
                 <tr class="text-center">
                   <th>No</th>
                   <th>Tanggal</th>
-                  <th>Jenis Bukti</th>    
-                  <th>No Bukti</th>                  
+                  <th>No SP2D</th>    
+                  <th>No STS</th>     
+                  <th>No Lain Lain</th>                   
                   <th>Uraian</th>
                   <th>Penerimaan</th>
                   <th>Pengeluaran</th>
@@ -48,15 +49,16 @@ $this->load->view('include/header');
                   ?>
                   <td><?= $i ?></td>
                   <td><?php echo date("d/m/Y", strtotime($data->tanggal));?></td>   
-                  <td><?= $data->jenis_bukti?></td>     
-                  <td><?= $data->no_bukti?></td>                  
+                  <td><?= $data->no_sp2d?></td>     
+                  <td><?= $data->no_sts?></td>      
+                  <td><?= $data->no_lainlain?></td>                  
                   <td><?= $data->uraian ?></td>
                   <td><?= 'Rp '.number_format($data->penerimaan,2,',','.');?></td>
                   <td><?= 'Rp '.number_format($data->pengeluaran,2,',','.');?></td>
                   <td><?= 'Rp '.number_format($saldo,2,',','.');?></td>
                   <td> 
-                    <a href="<?php echo base_url()?>transaksi/updatedatatransaksi/<?php echo $data->kode_transaksi; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
-                    <a href="<?php echo base_url()?>transaksi/action_deletedatatransaksi/<?php echo $data->kode_transaksi; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
+                    <a href="<?php echo base_url()?>transaksi/updatedatatransaksi/<?php echo $data->id_transaksi; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
+                    <a href="<?php echo base_url()?>transaksi/action_deletedatatransaksi/<?php echo $data->id_transaksi; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>
                   </td> 
                 </tr>
                     <?php

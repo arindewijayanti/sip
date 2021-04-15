@@ -31,7 +31,6 @@ class Nomorsk extends CI_Controller {
 	
 	function action_menambahdatanomorsk()
     {       
-					$id_opd = $this->session->userdata('id_opd');
                     $data = array(
                             'no_sk'=>$this->input->post('no_sk'),
                             'tanggal_sk'=>$this->input->post('tanggal_sk'),
@@ -42,7 +41,8 @@ class Nomorsk extends CI_Controller {
                             'gol_jabatan'=>$this->input->post('gol_jabatan'),
                             'gol'=>$this->input->post('gol')
 					);
-					$data['id_opd']=$id_opd;
+					$data['id_user']=$this->session->userdata('username');
+		            $data['id_opd']=$this->session->userdata('id_opd');
 					$this->model_nomorsk->menambahdatanomorsk($data);
 					redirect('nomorsk','refresh');
 	}
@@ -66,7 +66,8 @@ class Nomorsk extends CI_Controller {
             'gol_jabatan'=>$this->input->post('gol_jabatan'),
             'gol'=>$this->input->post('gol')
         );
-		
+		$data['id_user']=$this->session->userdata('username');
+		$data['id_opd']=$this->session->userdata('id_opd');
         $this->model_nomorsk->updatedatanomorsk($data, $id,$no_sk);
         redirect('nomorsk');
 	}

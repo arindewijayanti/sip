@@ -32,6 +32,8 @@ class Manageuser extends CI_Controller {
                             'user_id'=>$this->input->post('user_id'),
                             'menu_id'=>$this->input->post('menu_id')
                     );
+                    $data['id_user']=$this->session->userdata('username');
+		            $data['id_opd']=$this->session->userdata('id_opd');
                     $this->model_manageuser->menambahdatamanageuser($data);
                     redirect('manageuser','refresh');
     }

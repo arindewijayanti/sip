@@ -8,20 +8,29 @@ class Model_transaksi extends CI_Model {
 		$this->load->library('session');
 	}
 
+	function GetTransaksi() 
+    {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_transaksi.id_opd', $id_opd);
+        $this->db->order_by('id_transaksi', 'ASC');
+        return $this->db->from('tbl_transaksi')
+           ->get();
+    }
+
 	public function menambahdatatransaksi($data)
 	{
 		$this->db->insert('tbl_transaksi', $data);
 	}
 	
-	public function updatedatatransaksi($data, $kode_transaksi)
+	public function updatedatatransaksi($data, $id_transaksi)
 	{
-		$this->db->where('kode_transaksi', $kode_transaksi);
+		$this->db->where('id_transaksi', $id_transaksi);
 		$this->db->update('tbl_transaksi', $data);
 	}
 
-	public function deletedatatransaksi($kode_transaksi)
+	public function deletedatatransaksi($id_transaksi)
 	{
-		$this->db->where('kode_transaksi', $kode_transaksi);
+		$this->db->where('id_transaksi', $id_transaksi);
 		$this->db->delete('tbl_transaksi');
 	}
 
@@ -31,7 +40,7 @@ class Model_transaksi extends CI_Model {
 		$id_opd = $this->session->userdata('id_opd');
         $this->db->where('tbl_transaksi.id_opd', $id_opd);
         $this->db->select('*');
-        $this->db->order_by('kode_transaksi', 'ASC');
+        $this->db->order_by('id_transaksi', 'ASC');
 		$this->db->where('tanggal', $tanggal);
         return $this->db->from('tbl_transaksi')
     		->get()
@@ -43,7 +52,7 @@ class Model_transaksi extends CI_Model {
 		$id_opd = $this->session->userdata('id_opd');
         $this->db->where('tbl_transaksi.id_opd', $id_opd);
         $this->db->select('SUM(penerimaan) as totalpenerimaanharian,SUM(pengeluaran) as totalpengeluaranharian');
-        $this->db->order_by('kode_transaksi', 'ASC');
+        $this->db->order_by('id_transaksi', 'ASC');
 		$this->db->where('tanggal', $tanggal);
         $this->db->from('tbl_transaksi');
     	return $this->db->get()->row_array();
@@ -88,7 +97,7 @@ class Model_transaksi extends CI_Model {
     {
 		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('*');
-        $this->db->order_by('kode_transaksi', 'ASC');
+        $this->db->order_by('id_transaksi', 'ASC');
         $this->db->where('tbl_transaksi.id_opd', $id_opd);
 		$this->db->where('tanggal >=', $tanggalmulai);
 		$this->db->where('tanggal <=', $tanggalselesai);

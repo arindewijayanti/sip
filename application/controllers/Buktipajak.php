@@ -59,7 +59,8 @@ class Buktipajak extends CI_Controller {
             'nama_buktipajak'=>$this->input->post('nama_buktipajak'),
 			'id_rekening'=>$this->input->post('id_rekening')
         );
-		
+		$data['id_user']=$this->session->userdata('username');
+		$data['id_opd']=$this->session->userdata('id_opd');
         $this->model_buktipajak->updatedatabuktipajak($data, $id_buktipajak);
         redirect('buktipajak');
 	}

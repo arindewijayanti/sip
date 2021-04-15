@@ -61,7 +61,8 @@ class Bpp extends CI_Controller {
             'penerimaan'=>$this->input->post('penerimaan'),
             'pengeluaran'=>$this->input->post('pengeluaran')
         );
-		
+		$data['id_user']=$this->session->userdata('username');
+		$data['id_opd']=$this->session->userdata('id_opd');
         $this->model_bpp->updatedatabpp($data, $id_bpp);
         redirect('bpp');
 	}

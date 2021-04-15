@@ -56,7 +56,8 @@ class Bbp extends CI_Controller {
             'kredit'=>$this->input->post('kredit'),
             'id_rekening'=>$this->input->post('id_rekening')
         );
-		
+		$data['id_user']=$this->session->userdata('username');
+		$data['id_opd']=$this->session->userdata('id_opd');
         $this->model_bbp->updatedatabbp($data, $id_bbp);
         redirect('bbp');
 	}

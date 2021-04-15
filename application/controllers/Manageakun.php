@@ -31,7 +31,6 @@ class Manageakun extends CI_Controller {
 	
 	function action_menambahdatamanageakun()
     {       
-                    $id_opd = $this->session->userdata('id_opd');
                     $data = array(
                             'name'=>$this->input->post('name'),
                             'username'=>$this->input->post('username'),
@@ -40,7 +39,8 @@ class Manageakun extends CI_Controller {
                     $data['password']="12345";
                     $data['status']="member";
                     $data['is_active']="1";
-                    $data['id_opd']=$id_opd;
+                    $data['id_user']=$this->session->userdata('username');
+		            $data['id_opd']=$this->session->userdata('id_opd');
 					$this->model_manageakun->menambahdatamanageakun($data);
 					redirect('manageakun','refresh');
 	}
@@ -57,6 +57,8 @@ class Manageakun extends CI_Controller {
         $data = array(
             'name'=>$this->input->post('name')
         );
+        $data['id_user']=$this->session->userdata('username');
+		$data['id_opd']=$this->session->userdata('id_opd');
         $this->model_manageakun->updatedatamanageakun($data, $id);
         redirect('manageakun');
 	}
