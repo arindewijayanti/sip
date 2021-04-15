@@ -54,6 +54,18 @@ $this->load->view('include/header');
                     <label for="kredit">Kredit</label>
                     <input value="<?= $data->kredit?>"class="form-control" id="kredit" type="text" aria-describedby="nameHelp" name="kredit" required/>
                   </div>
+
+                  <div class="col-md-6">
+                    <label for="id_rekening">Nama Rekening</label>
+                    <select class="form-control form-control-sm" id="id_rekening" name="id_rekening" required />
+                    <option value="<?= $data->id_rekening?>"><?= $data->id_rekening?></option>
+                        <?php $id_rekening = $this->db->query("SELECT * FROM tbl_rekening");
+                
+                        foreach ($id_rekening->result() as $id_rekening) : ?>
+                        
+                        <option value="<?= $id_rekening->id_rekening?>"><?= $id_rekening->nama_rekening?></option>
+                         <?php endforeach; ?>
+                       </select> </div></div>
                 </div>
               </div>
 

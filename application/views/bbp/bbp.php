@@ -32,6 +32,7 @@ $this->load->view('include/header');
                   <th>Uraian</th>
                   <th>Debet</th>
                   <th>Kredit</th>
+                  <th>ID Rekening</th>
                   <th>Opsi</th>
                 </tr>
               </thead>
@@ -49,6 +50,7 @@ $this->load->view('include/header');
                   <td><?= $data->uraian ?></td>
                   <td><?= 'Rp '.number_format($data->debet,2,',','.');?></td>
                   <td><?= 'Rp '.number_format($data->kredit,2,',','.');?></td>
+                  <td><?= $data->id_rekening ?></td>
                   <td> 
                     <a href="<?php echo base_url()?>bbp/updatedatabbp/<?php echo $data->id_bbp; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
                     <a href="<?php echo base_url()?>bbp/action_deletedatabbp/<?php echo $data->id_bbp; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>

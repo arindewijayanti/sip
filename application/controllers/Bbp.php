@@ -31,7 +31,8 @@ class Bbp extends CI_Controller {
                             'tanggal'=>$this->input->post('tanggal'),
                             'uraian'=>$this->input->post('uraian'),
                             'debet'=>$this->input->post('debet'),
-                            'kredit'=>$this->input->post('kredit')
+                            'kredit'=>$this->input->post('kredit'),
+                            'id_rekening'=>$this->input->post('id_rekening')
 					);
                     $data['id_user']=$this->session->userdata('username');
 					$data['id_opd']=$this->session->userdata('id_opd');
@@ -52,7 +53,8 @@ class Bbp extends CI_Controller {
             'tanggal'=>$this->input->post('tanggal'),
             'uraian'=>$this->input->post('uraian'),
             'debet'=>$this->input->post('debet'),
-            'kredit'=>$this->input->post('kredit')
+            'kredit'=>$this->input->post('kredit'),
+            'id_rekening'=>$this->input->post('id_rekening')
         );
 		
         $this->model_bbp->updatedatabbp($data, $id_bbp);

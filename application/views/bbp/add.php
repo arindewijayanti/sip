@@ -52,6 +52,24 @@ $this->load->view('include/header');
                   </div>
                 </div>
               </div>
+              <div class="form-group">
+              <div class="form-row">
+                 
+                  <div class="col-md-6">
+                    <label for="id_rekening">Rekening</label>
+                    <select class="form-control form-control-sm" id="id_rekening" name="id_rekening" required />
+                    <option>Pilih Rekening</option>
+                        <?php $id_rekening = $this->db->query("SELECT * FROM tbl_rekening");
+                
+                        foreach ($id_rekening->result() as $id_rekening) : ?>
+                        
+                        <option value="<?= $id_rekening->id_rekening?>"><?= $id_rekening->nama_rekening?></option>
+                         <?php endforeach; ?>
+                       </select> 
+                       </div>
+                  
+                </div>
+              </div>
 
 <br>
              <div class="form-group">
