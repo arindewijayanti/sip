@@ -40,13 +40,11 @@ class Model_bbp extends CI_Model {
     {
         $id_opd = $this->session->userdata('id_opd');
         $this->db->where('tbl_bbp.id_opd', $id_opd);
-		$this->db->where('tbl_buktipajak.id_rekening', $id_rekening);
 		$this->db->where('tanggal >=', $tanggalmulai);
 		$this->db->where('tanggal <=', $tanggalselesai);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bbp')
-          ->join('tbl_buktipajak','tbl_buktipajak.id_buktipajak=tbl_bbp.id_buktipajak')
-		  ->join('tbl_rekening','tbl_rekening.id_rekening=tbl_buktipajak.id_rekening')
+		  ->join('tbl_rekening','tbl_rekening.id_rekening=tbl_bbp.id_rekening')
           ->get()
           ->result();
     }
@@ -54,7 +52,7 @@ class Model_bbp extends CI_Model {
 	function Gethasilatas($id_rekening,$tahun) 
     {
         $id_opd = $this->session->userdata('id_opd');
-        $this->db->where('tbl_bbp.id_opd', $id_opd);
+        $this->db->where('id_opd', $id_opd);
 		$this->db->where('id_rekening', $id_rekening);		
 		$this->db->from('tbl_rekening');
 		return $this->db->get()
@@ -63,7 +61,7 @@ class Model_bbp extends CI_Model {
 	function Getpagu($id_rekening,$tahun) 
     {
         $id_opd = $this->session->userdata('id_opd');
-        $this->db->where('tbl_bbp.id_opd', $id_opd);
+        $this->db->where('id_opd', $id_opd);
 		$this->db->where('tahun', $tahun);
 		$this->db->where('id_rekening', $id_rekening);		
 		$this->db->from('tbl_apbd');
@@ -78,7 +76,6 @@ class Model_bbp extends CI_Model {
 		$this->db->where('tanggal', $tanggal);
         $this->db->order_by('tanggal', 'ASC');
         return $this->db->from('tbl_bbp')
-         ->join('tbl_buktipajak','tbl_buktipajak.id_buktipajak=tbl_bbp.id_buktipajak')
           ->get()
           ->result();
     }

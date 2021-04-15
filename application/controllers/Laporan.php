@@ -111,6 +111,10 @@ class Laporan extends CI_Controller {
 		$data['tanggalmulai'] = $this->input->post('tanggalmulai');
 		$data['tanggalselesai'] = $this->input->post('tanggalselesai');
 		$data['hasil'] = $this->model_bpp->GetBPP($tanggalmulai, $tanggalselesai);
+
+		
+		$data['hasilSK1'] = $this->model_sk->GetSK1($tanggalselesai);
+		$data['hasilSK2'] = $this->model_sk->GetSK2($tanggalselesai);
         $this->load->view('laporan/printbukupembantupajak',$data);
 		
 	}
@@ -178,6 +182,9 @@ public function printbukubesarpembantu()
 	
 	$data['tanggalmulai'] = $this->input->post('tanggalmulai');
 	$data['tanggalselesai'] = $this->input->post('tanggalselesai');
+
+	$data['hasilSK1'] = $this->model_sk->GetSK1($tanggalselesai);
+	$data['hasilSK2'] = $this->model_sk->GetSK2($tanggalselesai);
 	$this->load->view('laporan/printbukubesarpembantu',$data);
 }
 ///////////////////////////

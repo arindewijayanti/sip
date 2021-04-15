@@ -84,8 +84,8 @@ table{
                     <tr>
                         <td align="center"><?= $no;?></td>
                         <td><?= date("d/m/Y", strtotime($item->tanggal));?></td>
-                        <td><?= $item->kode_buktipajak;?></td>
-                        <td><?= $item->nama_buktipajak;?></td>
+                        <td><?= $item->kode_bbp;?></td>
+                        <td><?= $item->uraian;?></td>
                         <td align="center"><?='Rp '.number_format($item->debet,2,',','.'); ?></td>
                         <td align="center"><?='Rp '.number_format($item->kredit,2,',','.'); ?></td>     
                         <td align="center"><?='Rp '.number_format($saldo,2,',','.'); ?></td>                    
@@ -121,14 +121,14 @@ table{
 <tr height="75px"></tr>
 <tr>
 <td width="10%"></td>
-    <td width="30%">Sulaiman Lubis, S.E.</td>
-    <td width="30%">Asir Aryadi, S.E.</td>
+    <td width="30%"><?= $hasilSK1->nama ?></td>
+    <td width="30%"><?= $hasilSK2->nama ?></td>
 </tr>
 
 <tr>
 <td width="10%"></td>
-    <td width="30%">NIP. 196905011993031004  </td>
-    <td width="30%">NIP. 197602072005021002</td>
+    <td width="30%">NIP. <?= $hasilSK1->nip ?>  </td>
+    <td width="30%">NIP. <?= $hasilSK2->nip ?></td>
 </tr>
 
 </table>

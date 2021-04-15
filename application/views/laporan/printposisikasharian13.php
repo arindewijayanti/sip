@@ -112,7 +112,7 @@ $tahun = date("Y", strtotime($tanggal));
                     ?>
                     <tr>
                          <td align="center"><?=$no?></td><td></td><td></td><td></td>
-                        <td><?= $item->nama_buktipajak;?></td>
+                        <td><?= $item->uraian;?></td>
                         <td align="right"><?='Rp '.number_format($item->kredit,2,',','.'); ?></td>
                         <td align="right"><?='Rp '.number_format($item->debet,2,',','.'); ?></td>                     
                     </tr>
@@ -130,7 +130,10 @@ $tahun = date("Y", strtotime($tanggal));
                         $totalpengeluaranbpp += $item->pengeluaran;
                     ?>
                     <tr>
-                        <td align="center"><?=$no?></td><td></td><td></td><td></td>
+                        <td align="center"><?=$no?></td>
+                        <td><?= $item->no_sp2d;?></td>
+                        <td><?= $item->no_sts;?></td>
+                        <td><?= $item->no_lainlain;?></td>
                         <td><?= $item->uraian;?></td>
                         <td align="right"><?='Rp '.number_format($item->penerimaan,2,',','.'); ?></td>
                         <td align="right"><?='Rp '.number_format($item->pengeluaran,2,',','.'); ?></td>                     
@@ -156,7 +159,9 @@ $tahun = date("Y", strtotime($tanggal));
                     ?>
                     <tr>
                     <td></td>
-                        <td></td><td></td><td></td>
+                        <td><?= $item->no_sp2d;?></td>
+                        <td><?= $item->no_sts;?></td>
+                        <td><?= $item->no_lainlain;?></td>
                         <td><?= $item->uraian;?></td>
                         <td align="right"><?='Rp '.number_format($item->penerimaan,2,',','.'); ?></td>
                         <td align="right"><?='Rp '.number_format($item->pengeluaran,2,',','.'); ?></td>                     
