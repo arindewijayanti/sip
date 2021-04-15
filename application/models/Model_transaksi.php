@@ -106,6 +106,32 @@ class Model_transaksi extends CI_Model {
           	->result();
     }
 
+	function GetTransaksiBulananBBP($tanggalmulai, $tanggalselesai)
+    {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->select('*');
+        $this->db->order_by('id_bbp', 'ASC');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
+        return $this->db->from('tbl_bbp')
+    		->get()
+          	->result();
+    }
+
+	function GetTransaksiBulananBPP($tanggalmulai, $tanggalselesai)
+    {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->select('*');
+        $this->db->order_by('id_bpp', 'ASC');
+        $this->db->where('tbl_bpp.id_bpp', $id_opd);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
+        return $this->db->from('tbl_bpp')
+    		->get()
+          	->result();
+    }
+
 	function GetSaldoBank($tanggal)
     {
 		$id_opd = $this->session->userdata('id_opd');
@@ -117,7 +143,17 @@ class Model_transaksi extends CI_Model {
 		return $this->db->get()->row_array();	
 	}
 
-	
+	function GetUraianRekon($tanggal)
+    {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->select('*');
+        $this->db->order_by('id_selisihrekon', 'ASC');
+        $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
+		$this->db->where('tanggal_selisih <=', $tanggal);
+        return $this->db->from('tbl_selisihrekon')
+    		->get()
+          	->result();
+    }
 
 	function GetUraianA($tanggal)
     {
@@ -126,7 +162,7 @@ class Model_transaksi extends CI_Model {
         $this->db->order_by('id_selisihrekon', 'ASC');
         $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
 		$this->db->where('kode_keterangan', 'A');
-		$this->db->where('tanggal_selisih', $tanggal);
+		$this->db->where('tanggal_selisih <=', $tanggal);
         return $this->db->from('tbl_selisihrekon')
     		->get()
           	->result();
@@ -139,7 +175,7 @@ class Model_transaksi extends CI_Model {
         $this->db->order_by('id_selisihrekon', 'ASC');
         $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
 		$this->db->where('kode_keterangan', 'B');
-		$this->db->where('tanggal_selisih', $tanggal);
+		$this->db->where('tanggal_selisih <=', $tanggal);
         return $this->db->from('tbl_selisihrekon')
     		->get()
           	->result();
@@ -152,7 +188,7 @@ class Model_transaksi extends CI_Model {
         $this->db->order_by('id_selisihrekon', 'ASC');
         $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
 		$this->db->where('kode_keterangan', 'C');
-		$this->db->where('tanggal_selisih', $tanggal);
+		$this->db->where('tanggal_selisih <=', $tanggal);
         return $this->db->from('tbl_selisihrekon')
     		->get()
           	->result();
@@ -165,7 +201,7 @@ class Model_transaksi extends CI_Model {
         $this->db->order_by('id_selisihrekon', 'ASC');
         $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
 		$this->db->where('kode_keterangan', 'D');
-		$this->db->where('tanggal_selisih', $tanggal);
+		$this->db->where('tanggal_selisih <=', $tanggal);
         return $this->db->from('tbl_selisihrekon')
     		->get()
           	->result();

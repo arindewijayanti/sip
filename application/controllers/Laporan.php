@@ -64,6 +64,11 @@ class Laporan extends CI_Controller {
 
 		$data['saldobanktahunlalu'] = $this->model_saldobank->Getsaldobanktahunlalu($tanggal);
 		$data['saldobankhariini'] = $this->model_saldobank->Getsaldobankhariini($tanggal);
+
+		$data['uraiana'] = $this->model_transaksi->GetUraianA($tanggal);
+		$data['uraianb'] = $this->model_transaksi->GetUraianB($tanggal);
+		$data['uraianc'] = $this->model_transaksi->GetUraianC($tanggal);
+		$data['uraiand'] = $this->model_transaksi->GetUraianD($tanggal);
 	
 	
 	if (isset($_POST['P77'])){
@@ -86,6 +91,8 @@ class Laporan extends CI_Controller {
 		$data['tanggalmulai'] = $this->input->post('tanggalmulai');
 		$data['tanggalselesai'] = $this->input->post('tanggalselesai');
 		$data['hasil'] = $this->model_transaksi->GetTransaksiBulanan($tanggalmulai,$tanggalselesai);
+		$data['hasilbbp'] = $this->model_transaksi->GetTransaksiBulananBBP($tanggalmulai,$tanggalselesai);
+		$data['hasilbpp'] = $this->model_transaksi->GetTransaksiBulananBPP($tanggalmulai,$tanggalselesai);
         $this->load->view('laporan/printbukukasumum',$data);
 	}
 

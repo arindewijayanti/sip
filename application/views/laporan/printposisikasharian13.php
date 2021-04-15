@@ -98,29 +98,10 @@ $tahun = date("Y", strtotime($tanggal));
                         
                     </tr> 
                 </thead>
-                <?php
-                    $no = 1 ;
-                    $totalpenerimaan = 0;
-                    $totalpengeluaran = 0;
-                    foreach ($hasil as $item)
-                    {
-                        $totalpenerimaan += $item->penerimaan;
-                        $totalpengeluaran += $item->pengeluaran;
-                    ?>
-                    <tr>
-                        <td align="center"><?= $no;?></td>
-                        <td></td><td></td><td></td>
-                        <td><?= $item->uraian;?></td>
-                        <td align="right"><?='Rp '.number_format($item->penerimaan,2,',','.'); ?></td>
-                        <td align="right"><?='Rp '.number_format($item->pengeluaran,2,',','.'); ?></td>                     
-                    </tr>
-                   
-                    <?php
-                    $no +=1;
-                    }
-                    ?>
+                
                 
                     <?php
+                    $no =1;
                     $totalpenerimaanbbp = 0;
                     $totalpengeluaranbbp = 0;
                     foreach ($hasilBBP as $item)
@@ -162,18 +143,38 @@ $tahun = date("Y", strtotime($tanggal));
                 <tr>
                     <td></td><td></td><td></td><td></td>
                         <td align="left" ><b>Jumlah</b></td> 
-                        <td align="right"><b><?='Rp '.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,2,',','.'); ?></b></td>
-                        <td align="right"><b><?='Rp '.number_format($totalpengeluaran+$totalpengeluaranbbp+$totalpengeluaranbpp,2,',','.'); ?></b></td>
+                        <td align="right"><b><?='Rp '.number_format($totalpenerimaanbbp+$totalpenerimaanbpp,2,',','.'); ?></b></td>
+                        <td align="right"><b><?='Rp '.number_format($totalpengeluaranbbp+$totalpengeluaranbpp,2,',','.'); ?></b></td>
                 </tr>   
+                <?php if ($hasil>=1) {
+                    $totalpenerimaan = 0;
+                    $totalpengeluaran = 0;
+                    foreach ($hasil as $item)
+                    {
+                        $totalpenerimaan += $item->penerimaan;
+                        $totalpengeluaran += $item->pengeluaran;
+                    ?>
+                    <tr>
+                    <td></td>
+                        <td></td><td></td><td></td>
+                        <td><?= $item->uraian;?></td>
+                        <td align="right"><?='Rp '.number_format($item->penerimaan,2,',','.'); ?></td>
+                        <td align="right"><?='Rp '.number_format($item->pengeluaran,2,',','.'); ?></td>                     
+                    </tr>
+                   
+                    <?php
+                    }
+                }else{
+                ?>
                 <tr>
-
-                <tr>
-                    <td></td><td></td><td></td><td></td>
+                        <td></td><td></td><td></td>
                         <td align="left" ><b>Pembayaran PPN & PPh</b></td> 
                         <td align="right"><?='Rp '.number_format(0,2,',','.'); ?></td>
                         <td align="right"><?='Rp '.number_format(0,2,',','.'); ?></td>
                 </tr>   
-                <tr>
+                <?php
+                }
+                ?>
 
                 <tr>
                     <td></td><td></td><td></td><td></td>
@@ -184,7 +185,7 @@ $tahun = date("Y", strtotime($tanggal));
                 <tr>    
                         <td align="right" colspan="5">Perubahan Posisi Kas hari ini</td> 
                         <td align="right"><b><?='Rp '.number_format(0,2,',','.'); ?></b></td>
-                        <td align="right"><b><?='Rp '.number_format($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp,2,',','.'); ?></b></td>
+                        <td align="right"><b><?='Rp '.number_format(($totalpenerimaan+$totalpenerimaanbbp+$totalpenerimaanbpp)-($totalpengeluaran+$totalpengeluaranbbp+$totalpengeluaranbpp),2,',','.'); ?></b></td>
                 </tr>
                 <tr>
                         <td align="right" colspan="5">Posisi Kas (H-1)</td> 
@@ -225,7 +226,7 @@ Rekapitulasi Posisi Kas di BUD
 
 <tr>
     <td width="35%">Selisih</td>
-    <td width="15%" align="right"><u><b><?='Rp '.number_format($saldobankhariini['saldobankhariini']-(($saldobanktahunlalu['saldobanktahunlalu'])+($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp'])),2,',','.'); ?></b></u></td>   
+    <td width="15%" align="right"><u><b><?='Rp '.number_format((($saldobanktahunlalu['saldobanktahunlalu'])+($h['totalpenerimaan']-$h['totalpengeluaran']+$hbpp['totalpenerimaanbpp']-$hbpp['totalpengeluaranbpp']+$hbbp['totalpenerimaanbbp']-$hbbp['totalpengeluaranbbp']))-$saldobankhariini['saldobankhariini'],2,',','.'); ?></b></u></td>   
 </tr>
 
 </table>
@@ -243,12 +244,68 @@ Rekapitulasi Posisi Kas di BUD
 
 <tr>
     <td width="35%">Potongan PPN dan PPh</td>
-    <td width="15%" align="right"><u><?='Rp '.number_format(0,2,',','.'); ?></u></td>
+    <td width="15%" align="right"><?='Rp '.number_format(0,2,',','.'); ?></td>
 </tr>
+
+                    <?php
+                    $totala = 0;
+                    foreach ($uraiana as $item)
+                    {
+                        $totala += $item->nominal;
+                    ?>
+                    <tr><p>
+                        <td width ="35%"><?= $item->uraian;?></td>
+                        <td width ="15%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>                
+                    </p></tr>
+                    <?php
+                    }
+                    ?>
+
+                    <?php
+                    $totalb = 0;
+                    foreach ($uraianb as $item)
+                    {
+                        $totalb += $item->nominal;
+                    ?>
+                    <tr><p>
+                        <td width ="35%"><?= $item->uraian;?></td>
+                        <td width ="15%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>                
+                    </p></tr>
+                    <?php
+                    }
+                    ?>
+
+                    <?php
+                    $totalc = 0;
+                    foreach ($uraianc as $item)
+                    {
+                        $totalc += $item->nominal;
+                    ?>
+                    <tr><p>
+                        <td width ="35%"><?= $item->uraian;?></td>
+                        <td width ="15%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>                
+                    </p></tr>
+                    <?php
+                    }
+                    ?>
+
+                    <?php
+                    $totald = 0;
+                    foreach ($uraiand as $item)
+                    {
+                        $totald += $item->nominal;
+                    ?>
+                    <tr><p>
+                        <td width ="35%"><?= $item->uraian;?></td>
+                        <td width ="15%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>                
+                    </p></tr>
+                    <?php
+                    }
+                    ?>
 
 <tr>
     <td width="35%"></td>
-    <td width="15%" align="right"><b><u><?='Rp '.number_format(0,2,',','.'); ?></u></b></td>  
+    <td width="15%" align="right"><b><u><?='Rp '.number_format(($totalc+$totald)-($totala+$totalb),2,',','.'); ?></u></b></td>  
 </tr>
 </table>
 

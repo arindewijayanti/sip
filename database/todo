@@ -1,7 +1,5 @@
 - Session
 - Data Tabel
-- Pastikan semua crud menampilkan data diurutkan dari yang terakhir
-  di input ditarik berdasarkan session id opd
 - Buat halaman untuk master(untuk kita) untuk akses (crud OPD, crud USER)
 - Selesaikan Laporan F13 dan F77 ditarik berdasarkan session id opd
     A. Laporan Posisi Kas Harian
