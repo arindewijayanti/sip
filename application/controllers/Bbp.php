@@ -8,6 +8,12 @@ class Bbp extends CI_Controller {
         parent::__construct();
        $this->load->model('model_bbp'); 
         $this->load->library('session');
+        
+$roleid=$this->session->userdata('username');
+if(empty($roleid))
+{
+    redirect('auth');
+}
     }
 
 	function index()
