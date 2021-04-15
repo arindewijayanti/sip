@@ -40,7 +40,7 @@ class Model_bpp extends CI_Model {
     {
 		$id_opd = $this->session->userdata('id_opd');
         $this->db->where('tbl_bpp.id_opd', $id_opd);
-        $this->db->order_by('tanggal', 'ASC');
+        $this->db->order_by('id_bpp', 'desc');
         return $this->db->from('tbl_bpp')
           ->get()
           ->result();

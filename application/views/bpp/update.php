@@ -27,12 +27,27 @@ $this->load->view('include/header');
         <form action="<?php echo config_item('base_url'); ?>/bpp/action_updatedatabpp/<?= $data->id_bpp?>" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id_bpp"  value="<?= $data->id_bpp?>" />
         <div class="form-group">
-              <div class="form-row">                     
+              <div class="form-row">           
+                  <div class="col-md-6">
+                    <label for="tanggal">Tanggal</label>
+                    <input value="<?= $data->tanggal?>" class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
+                  </div>          
                   
                   <div class="col-md-6">
-                    <label for="id_buktipajak">Nomor Bukti</label>
-                    <input value="<?= $data->id_buktipajak?>" class="form-control" id="id_buktipajak" type="text" aria-describedby="nameHelp" name="id_buktipajak" required/>
-                </div>
+                    <label for="no_sp2d">No SP2D</label>
+                    <input value="<?= $data->no_sp2d?>" class="form-control" id="no_sp2d" type="text" aria-describedby="nameHelp" name="no_sp2d"/>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="no_sts">No STS</label>
+                    <input value="<?= $data->no_sts?>" class="form-control" id="no_sts" type="text" aria-describedby="nameHelp" name="no_sts"/>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="no_lainlain">No Lain</label>
+                    <input value="<?= $data->no_lainlain?>" class="form-control" id="no_lainlain" type="text" aria-describedby="nameHelp" name="no_lainlain"/>
+                  </div>
+
                 <div class="col-md-6">
                     <label for="uraian">Uraian</label>
                     <input value="<?= $data->uraian?>" class="form-control" id="uraian" type="text" aria-describedby="nameHelp" name="uraian" required/>
@@ -41,10 +56,7 @@ $this->load->view('include/header');
 
               <div class="form-group">
               <div class="form-row">                     
-                  <div class="col-md-6">
-                    <label for="tanggal">Tanggal</label>
-                    <input value="<?= $data->tanggal?>" class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
-                  </div>
+                  
                   <div class="col-md-6">
                     <label for="penerimaan">Penerimaan</label>
                     <input value="<?= $data->penerimaan?>" class="form-control" id="penerimaan" type="text" value="0" aria-describedby="nameHelp" name="penerimaan" required/>

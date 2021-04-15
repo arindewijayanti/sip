@@ -25,32 +25,40 @@ $this->load->view('include/header');
 
         <div class="form-group">
               <div class="form-row">                     
+              <div class="col-md-6">
+                    <label for="tanggal">Tanggal</label>
+                    <input class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
+                  </div>
                   
-                  <div class="col-md-6">
-                    <label for="id_buktipajak">Nomor Bukti</label>
-                    <input class="form-control" id="id_buktipajak" type="text" aria-describedby="nameHelp" name="id_buktipajak"/>
-                </div>
                 <div class="col-md-6">
-                    <label for="uraian">Uraian</label>
-                    <input class="form-control" id="uraian" type="text" aria-describedby="nameHelp" name="uraian" required/>
+                    <label for="no_sp2d"> No SP2D</label>
+                    <input class="form-control" id="no_sp2d" type="text" aria-describedby="nameHelp" name="no_sp2d"/>
                   </div>
               </div>
 
               <div class="form-group">
               <div class="form-row">                     
-                  <div class="col-md-6">
-                    <label for="tanggal">Tanggal</label>
-                    <input class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
-                  </div>
-                  <div class="col-md-6">
-                    <label for="penerimaan">Penerimaan</label>
-                    <input class="form-control" id="penerimaan" type="text" value="0" aria-describedby="nameHelp" name="penerimaan" required/>
+              <div class="col-md-6">
+                    <label for="no_sts">No STS</label>
+                    <input class="form-control" id="no_sts" type="text" aria-describedby="nameHelp" name="no_sts"/>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="no_lainlain">No Lain</label>
+                    <input class="form-control" id="no_lainlain" type="text" aria-describedby="nameHelp" name="no_lainlain"/>
                 </div>
               </div>
               
               <div class="form-group">
               <div class="form-row">
-                 
+              <div class="col-md-6">
+                    <label for="uraian">Uraian</label>
+                    <input class="form-control" id="uraian" type="text" value="0" aria-describedby="nameHelp" name="uraian" required/>
+                </div>
+              <div class="col-md-6">
+                    <label for="penerimaan">Penerimaan</label>
+                    <input class="form-control" id="penerimaan" type="text" value="0" aria-describedby="nameHelp" name="penerimaan" required/>
+                </div>
                   <div class="col-md-6">
                     <label for="pengeluaran">Pengeluaran</label>
                     <input class="form-control" id="pengeluaran" type="text" value="0" aria-describedby="nameHelp" name="pengeluaran" required/>

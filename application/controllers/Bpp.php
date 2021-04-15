@@ -28,7 +28,9 @@ class Bpp extends CI_Controller {
 	function action_menambahdatabpp()
     {       
                     	$data = array(
-                            'id_buktipajak'=>$this->input->post('id_buktipajak'),
+                            'no_sp2d'=>$this->input->post('no_sp2d'),
+                            'no_sts'=>$this->input->post('no_sts'),
+                            'no_lainlain'=>$this->input->post('no_lainlain'),
                             'uraian'=>$this->input->post('uraian'),
                             'tanggal'=>$this->input->post('tanggal'),
                             'penerimaan'=>$this->input->post('penerimaan'),
@@ -51,7 +53,9 @@ class Bpp extends CI_Controller {
     function action_updatedatabpp($id_bpp ='')
     {
         $data = array(
-            'id_buktipajak'=>$this->input->post('id_buktipajak'),
+            'no_sp2d'=>$this->input->post('no_sp2d'),
+            'no_sts'=>$this->input->post('no_sts'),
+            'no_lainlain'=>$this->input->post('no_lainlain'),
             'uraian'=>$this->input->post('uraian'),
             'tanggal'=>$this->input->post('tanggal'),
             'penerimaan'=>$this->input->post('penerimaan'),
