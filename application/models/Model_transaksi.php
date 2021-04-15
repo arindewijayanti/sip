@@ -213,7 +213,7 @@ class Model_transaksi extends CI_Model {
         $this->db->select('*');
         $this->db->order_by('id_selisihrekon', 'ASC');
         $this->db->where('tbl_selisihrekon.id_opd', $id_opd);
-		$this->db->where('tanggal_selisih', $tanggal);
+		$this->db->where('tanggal_selisih <=', $tanggal);
         return $this->db->from('tbl_selisihrekon')
     		->get()
           	->result();

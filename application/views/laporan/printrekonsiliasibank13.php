@@ -191,7 +191,7 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     <tr><p>
                         <td width ="55%"></td> 
                         <td width ="15%" align="right"><u><?='Rp '.number_format($totald,2,',','.'); ?></u></td>
-                        <td width ="15%" align="right"><b><u><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'])-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,2,',','.');?></u></b></td>               
+                        <td width ="15%" align="right"><b><u><?= 'Rp '.number_format($totald,2,',','.');?></u></b></td>               
                     </p></tr></table>
 
                     <table width ="85%" align="center">
@@ -201,7 +201,7 @@ $tahun2 = date("Y", strtotime($tanggal2));
                     <tr><p>
                         <td width ="55%"><b>Jumlah.....</b></td> 
                         <td width ="15%" align="right"></td>
-                        <td width ="15%" align="right"><b><u><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'])-$saldobank['saldo']-$totala-$totalb+$totalc+$totald,2,',','.');?></u></b></td>               
+                        <td width ="15%" align="right"><b><u><?= 'Rp '.number_format(($totalc+$totald)-($totala+$totalb),2,',','.');?></u></b></td>               
                     </p></tr></table>
 
                   

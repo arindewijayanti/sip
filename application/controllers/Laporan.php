@@ -93,6 +93,9 @@ class Laporan extends CI_Controller {
 		$data['hasil'] = $this->model_transaksi->GetTransaksiBulanan($tanggalmulai,$tanggalselesai);
 		$data['hasilbbp'] = $this->model_transaksi->GetTransaksiBulananBBP($tanggalmulai,$tanggalselesai);
 		$data['hasilbpp'] = $this->model_transaksi->GetTransaksiBulananBPP($tanggalmulai,$tanggalselesai);
+
+		$data['hasilSK1'] = $this->model_sk->GetSK1($tanggalselesai);
+		$data['hasilSK2'] = $this->model_sk->GetSK2($tanggalselesai);
         $this->load->view('laporan/printbukukasumum',$data);
 	}
 
