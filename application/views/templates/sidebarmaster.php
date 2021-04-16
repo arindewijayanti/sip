@@ -27,7 +27,7 @@
             <hr class="sidebar-divider">
             <li class="nav-item active">
                     <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('masteropd/masteropd');?>">
+                <a class="nav-link" href="<?= base_url('master/bbp');?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Master Besar Pembantu</span></a>
             </li>
@@ -35,7 +35,7 @@
             <hr class="sidebar-divider">
             <li class="nav-item active">
                     <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('masteropd/masteropd');?>">
+                <a class="nav-link" href="<?= base_url('master/bpp');?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Master Pembantu Pajak</span></a>
             </li>
@@ -43,7 +43,7 @@
             <hr class="sidebar-divider">
             <li class="nav-item active">
                     <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('masteropd/masteropd');?>">
+                <a class="nav-link" href="<?= base_url('master/kasharian');?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Master Laporan Kas Harian </span></a>
             </li>
@@ -51,7 +51,7 @@
             <hr class="sidebar-divider">
             <li class="nav-item active">
                     <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('masteropd/masteropd');?>">
+                <a class="nav-link" href="<?= base_url('master/kasumum');?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Master Buku Kas Umum </span></a>
             </li>
