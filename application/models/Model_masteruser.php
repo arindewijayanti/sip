@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Model_manageakun extends CI_Model {
+class Model_masteruser extends CI_Model {
   
  
     public function __construct()
@@ -8,22 +8,22 @@ class Model_manageakun extends CI_Model {
         $this->load->library('session');
 	}
 
-	function GetManageAkun()
+	function Getmasteruser()
     {
-		$id_opd = $this->session->userdata('id_opd');
-        $this->db->where('user.id_opd', $id_opd);
-        $this->db->where('status', 'member');
-        $this->db->order_by('name', 'ASC');
+		
+        $this->db->order_by('user.status', 'ASC');
+        $this->db->order_by('user.id_opd', 'ASC');
         return $this->db->from('user')
+			->join('tbl_opd','tbl_opd.id_opd=user.id_opd')     
     		->get();
     }
 
-	public function menambahdatamanageakun($data)
+	public function menambahdatamasteruser($data)
 	{
 		$this->db->insert('user', $data);
 	}
 	
-	public function updatedatamanageakun($data, $id)
+	public function updatedatamasteruser($data, $id)
 	{
 		$this->db->where('id', $id);
 		$this->db->update('user', $data);
@@ -35,7 +35,7 @@ class Model_manageakun extends CI_Model {
 		$this->db->update('user', $data);
 	}
 
-	public function deletedatamanageakun($id)
+	public function deletedatamasteruser($id)
 	{
 		$this->db->where('id', $id);
 		$this->db->delete('user');

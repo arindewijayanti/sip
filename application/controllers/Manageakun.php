@@ -69,6 +69,16 @@ if(empty($roleid))
         redirect('manageakun');
 	}
 
+    function action_resetpassword($id ='')
+    {
+        $data = array(
+            'password'=>$this->input->post('password')
+        );
+        $data['password']='123456';
+        $this->model_manageakun->updatedataresetpassword($data, $id);
+        redirect('manageakun');
+	}
+
 	public function action_deletedatamanageakun($id = '')
 	{
 			$this->model_manageakun->deletedatamanageakun($id);
