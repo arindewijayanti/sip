@@ -31,17 +31,19 @@
 <script src="<?php echo base_url('assets/js/sb-admin-datatables.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/sb-admin-charts.min.js'); ?>"></script>
 
+
 </body>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#tabel').DataTable({
-                "language":{
-                    "url":"//cdn.datatables.net/plug-ins/1.10.9/i18n/Indonesian.json",
-                    "sEmptyTable":"Tidads"  
-                }
+<script>
+      $(function () {
+        $("#example").DataTable({        
+          "language": {
+            "url": "http://cdn.datatables.net/plug-ins/1.10.9/i18n/Indonesian.json",
+            "sEmptyTable": "Tidak ada data di database"
+        }
         });
-    });
-</script>
+     
+      });
+    </script>
 
 </html>

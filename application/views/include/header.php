@@ -31,7 +31,7 @@
   
   <link href="<?php echo base_url().'assets/css/jquery.datatables.min.css'?>" rel="stylesheet" type="text/css"/>
   <link href="<?php echo base_url().'assets/css/dataTables.bootstrap.css'?>" rel="stylesheet" type="text/css"/>
-  
+ 
 
   <!-- =======================================================
   * Template Name: Multi - v4.0.1
