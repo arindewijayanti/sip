@@ -218,4 +218,42 @@ class Model_transaksi extends CI_Model {
     		->get()
           	->result();
     }
+
+
+
+	function GetTransaksiBulananmaster($id_opd,$tanggalmulai, $tanggalselesai)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_transaksi', 'ASC');
+        $this->db->where('tbl_transaksi.id_opd', $id_opd);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
+        return $this->db->from('tbl_transaksi')
+    		->get()
+          	->result();
+    }
+
+	function GetTransaksiBulananBBPmaster($id_opd,$tanggalmulai, $tanggalselesai)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_bbp', 'ASC');
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
+        return $this->db->from('tbl_bbp')
+    		->get()
+          	->result();
+    }
+
+	function GetTransaksiBulananBPPmaster($id_opd,$tanggalmulai, $tanggalselesai)
+    {
+        $this->db->select('*');
+        $this->db->order_by('id_bpp', 'ASC');
+        $this->db->where('tbl_bpp.id_bpp', $id_opd);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
+        return $this->db->from('tbl_bpp')
+    		->get()
+          	->result();
+    }
 }

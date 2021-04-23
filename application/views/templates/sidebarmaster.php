@@ -43,14 +43,6 @@
             <hr class="sidebar-divider">
             <li class="nav-item active">
                     <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('master/kasharian');?>">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Master Laporan Kas Harian </span></a>
-            </li>
-
-            <hr class="sidebar-divider">
-            <li class="nav-item active">
-                    <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('master/kasumum');?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Master Buku Kas Umum </span></a>

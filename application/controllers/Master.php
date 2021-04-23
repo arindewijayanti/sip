@@ -9,6 +9,7 @@ class master extends CI_Controller {
         $this->load->model('model_opd');
         $this->load->model('model_bbp');
         $this->load->model('model_bpp');
+        $this->load->model('model_transaksi');
         $this->load->library('session');
         
 $roleid=$this->session->userdata('username');
@@ -84,4 +85,30 @@ if(empty($roleid))
 	}
 
     ///////////////////////////
+
+    public function kasumum()
+	{
+		$this->load->view('master/kasumum');
+	}
+    public function printbukukasumum()
+	{
+        $id_opd = $this->input->post('id_opd');
+		$tanggalmulai = $this->input->post('tanggalmulai');
+		$tanggalselesai = $this->input->post('tanggalselesai');
+
+        $data['id_opd'] = $id_opd;
+		$data['tanggalmulai'] = $this->input->post('tanggalmulai');
+		$data['tanggalselesai'] = $this->input->post('tanggalselesai');
+
+        $data['namaopd'] = $this->model_opd->Getopdmaster($id_opd);
+    
+		$data['hasil'] = $this->model_transaksi->GetTransaksiBulananMaster($id_opd,$tanggalmulai,$tanggalselesai);
+		$data['hasilbbp'] = $this->model_transaksi->GetTransaksiBulananBBPMaster($id_opd,$tanggalmulai,$tanggalselesai);
+		$data['hasilbpp'] = $this->model_transaksi->GetTransaksiBulananBPPMaster($id_opd,$tanggalmulai,$tanggalselesai);
+
+		//$data['hasilSK1'] = $this->model_sk->GetSK1($tanggalselesai);
+		//$data['hasilSK2'] = $this->model_sk->GetSK2($tanggalselesai);
+        
+        $this->load->view('master/printbukukasumum',$data);
+	}
 }
