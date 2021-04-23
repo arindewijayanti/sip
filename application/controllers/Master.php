@@ -3,6 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class master extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('model_opd');
+        $this->load->model('model_bbp');
+        $this->load->library('session');
+        
+$roleid=$this->session->userdata('username');
+if(empty($roleid))
+{
+    redirect('auth');
+}
+    }
+
     public function index(){
         $data['title'] = 'SISTEM INFORMASI PERBENDAHARAAN';
         $data['master'] = $this->db->get_where('tbl_administrator', ['username' => $this->session->userdata('username')])->row_array();
@@ -21,21 +35,25 @@ class master extends CI_Controller {
 
     public function printbbp()
     {
+        $id_opd = $this->input->post('id_opd');
         $tanggalmulai = $this->input->post('tanggalmulai');
         $tanggalselesai = $this->input->post('tanggalselesai');
         $tahun = date("Y", strtotime($tanggalmulai));;
-        $id_rekening = $this->input->post('id_rekening');
-        $data['id_rekening'] = $id_rekening;
-        $data['hasilatas'] = $this->model_bbp->Gethasilatas($id_rekening,$tahun);
-        $data['pagu'] = $this->model_bbp->Getpagu($id_rekening,$tahun);
-        $data['hasil'] = $this->model_bbp->GetBBP($id_rekening,$tanggalmulai,$tanggalselesai);
-        
+
+        $data['id_opd'] = $id_opd;
         $data['tanggalmulai'] = $this->input->post('tanggalmulai');
         $data['tanggalselesai'] = $this->input->post('tanggalselesai');
 
-        $data['hasilSK1'] = $this->model_sk->GetSK1($tanggalselesai);
-        $data['hasilSK2'] = $this->model_sk->GetSK2($tanggalselesai);
-        $this->load->view('laporan/printbukubesarpembantu',$data);
+        
+        $data['namaopd'] = $this->model_opd->Getopdmaster($id_opd);
+        $data['hasil'] = $this->model_bbp->GetBBPmaster($id_opd,$tanggalmulai,$tanggalselesai);
+
+        //$data['pagu'] = $this->model_bbp->Getpagumaster($id_opd,$tahun);
+        //$data['hasilatas'] = $this->model_bbp->Gethasilatasmaster($id_rekening,$tahun);
+        //$data['hasilSK1'] = $this->model_sk->GetSK1master($tanggalselesai);
+        //$data['hasilSK2'] = $this->model_sk->GetSK2master($tanggalselesai);
+
+        $this->load->view('master/printbukubesarpembantu',$data);
     }
 ///////////////////////////
 }

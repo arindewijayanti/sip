@@ -9,8 +9,15 @@ class Model_opd extends CI_Model {
 	}
 
 	function Getopd()
-    {
+    	{
 		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('id_opd', $id_opd);
+        return $this->db->from('tbl_opd')  
+    		->get()->row_array();	
+		}
+
+	function Getopdmaster($id_opd)
+    	{
         $this->db->where('id_opd', $id_opd);
         return $this->db->from('tbl_opd')  
     		->get()->row_array();	

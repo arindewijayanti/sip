@@ -124,6 +124,19 @@ class Model_bbp extends CI_Model {
         $this->db->from('tbl_bbp');
         return $this->db->get()->row_array();	  
     }
-	
 
+
+    function GetBBPmaster($id_opd,$tanggalmulai,$tanggalselesai) 
+    {
+        $this->db->where('tbl_bbp.id_opd', $id_opd);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
+        $this->db->order_by('tanggal', 'ASC');
+        return $this->db->from('tbl_bbp')
+		  ->join('tbl_rekening','tbl_rekening.id_rekening=tbl_bbp.id_rekening')
+          ->get()
+          ->result();
+    }
+    
+	
 }
