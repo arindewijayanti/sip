@@ -47,6 +47,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Master Buku Kas Umum </span></a>
             </li>
+            <hr class="sidebar-divider">
 
 
            
