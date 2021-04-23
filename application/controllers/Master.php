@@ -8,6 +8,7 @@ class master extends CI_Controller {
         parent::__construct();
         $this->load->model('model_opd');
         $this->load->model('model_bbp');
+        $this->load->model('model_bpp');
         $this->load->library('session');
         
 $roleid=$this->session->userdata('username');
@@ -55,5 +56,32 @@ if(empty($roleid))
 
         $this->load->view('master/printbukubesarpembantu',$data);
     }
-///////////////////////////
+
+    ///////////////////////////
+
+    public function bpp()
+	{
+		$this->load->view('master/bpp');
+	}
+    public function printbpp()
+	{
+        
+        $id_opd = $this->input->post('id_opd');
+		$tanggalmulai = $this->input->post('tanggalmulai');
+		$tanggalselesai = $this->input->post('tanggalselesai');
+
+        $data['id_opd'] = $id_opd;
+		$data['tanggalmulai'] = $this->input->post('tanggalmulai');
+		$data['tanggalselesai'] = $this->input->post('tanggalselesai');
+		
+        $data['namaopd'] = $this->model_opd->Getopdmaster($id_opd);
+        $data['hasil'] = $this->model_bpp->GetBPPmaster($id_opd,$tanggalmulai,$tanggalselesai);
+
+		
+		//$data['hasilSK1'] = $this->model_sk->GetSK1($tanggalselesai);
+		//$data['hasilSK2'] = $this->model_sk->GetSK2($tanggalselesai);
+        $this->load->view('master/printbukupembantupajak',$data);	
+	}
+
+    ///////////////////////////
 }

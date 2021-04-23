@@ -101,4 +101,14 @@ class Model_bpp extends CI_Model {
         return $this->db->get()->row_array();	  
     }
 
+    function GetBPPmaster($id_opd,$tanggalmulai,$tanggalselesai)
+    {
+        $this->db->where('tbl_bpp.id_opd', $id_opd);
+		$this->db->where('tanggal >=', $tanggalmulai);
+		$this->db->where('tanggal <=', $tanggalselesai);
+		return $this->db->from('tbl_bpp')
+			->get()
+          	->result();
+	}
+
 }
