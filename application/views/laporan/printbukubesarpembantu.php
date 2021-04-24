@@ -6,7 +6,7 @@
    @page 
 
    {
-    size: 8.27in 12.99in;
+    size: 12.99in 8.27in;
   }
 }
 .jarak-lh{

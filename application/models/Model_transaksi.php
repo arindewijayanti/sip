@@ -42,6 +42,20 @@ class Model_transaksi extends CI_Model {
         $this->db->select('*');
         $this->db->order_by('id_transaksi', 'ASC');
 		$this->db->where('tanggal', $tanggal);
+		$this->db->where('keterangan', "Transaksi Utama");
+        return $this->db->from('tbl_transaksi')
+    		->get()
+          	->result();
+    }
+
+	function GetTransaksiHarianTambahan($tanggal)
+    {
+		$id_opd = $this->session->userdata('id_opd');
+        $this->db->where('tbl_transaksi.id_opd', $id_opd);
+        $this->db->select('*');
+        $this->db->order_by('id_transaksi', 'ASC');
+		$this->db->where('tanggal', $tanggal);
+		$this->db->where('keterangan', "Transaksi Tambahan");
         return $this->db->from('tbl_transaksi')
     		->get()
           	->result();

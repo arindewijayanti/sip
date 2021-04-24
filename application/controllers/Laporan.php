@@ -43,22 +43,13 @@ class Laporan extends CI_Controller {
 		$data['hari'] = $hari_indonesia[$hari];
 		//print_r($hari); exit(); 
 		$data['tanggal'] = $tgl;
+
 		$data['hasil'] = $this->model_transaksi->GetTransaksiHarian($tanggal);
+		$data['hasiltambahan'] = $this->model_transaksi->GetTransaksiHarianTambahan($tanggal);
 
 		$data['semuah'] = $this->model_transaksi->GetTransaksisemua($tanggal);
-		$data['semuahbpp'] = $this->model_bpp->GetTransaksisemua($tanggal);
-		$data['semuahbbp'] = $this->model_bbp->GetTransaksisemua($tanggal);
-		
 		$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
-		$data['hbpp'] = $this->model_bpp->GetTransaksiH($tanggal);
-		$data['hbbp'] = $this->model_bbp->GetTransaksiH($tanggal);
-
 		$data['hmin1'] = $this->model_transaksi->GetTransaksiHmin1($tanggal);
-		$data['hmin1bpp'] = $this->model_bpp->GetTransaksiHmin1($tanggal);
-		$data['hmin1bbp'] = $this->model_bbp->GetTransaksiHmin1($tanggal);
-		
-		$data['hasilBBP'] = $this->model_bbp->GetTransaksiHarianBBP($tanggal);
-		$data['hasilBPP'] = $this->model_bpp->GetTransaksiHarianBPP($tanggal);
        
 		$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
 		$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
