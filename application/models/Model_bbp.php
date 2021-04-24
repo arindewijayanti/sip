@@ -32,6 +32,7 @@ class Model_bbp extends CI_Model {
         $this->db->where('tbl_bbp.id_opd', $id_opd);
         $this->db->order_by('id_bbp', 'DESC');
         return $this->db->from('tbl_bbp')
+		  ->join('tbl_rekening','tbl_rekening.id_rekening=tbl_bbp.id_rekening')
           ->get()
           ->result();
     }
@@ -40,6 +41,7 @@ class Model_bbp extends CI_Model {
     {
         $id_opd = $this->session->userdata('id_opd');
         $this->db->where('tbl_bbp.id_opd', $id_opd);
+		$this->db->where('tbl_bbp.id_rekening', $id_rekening);
 		$this->db->where('tanggal >=', $tanggalmulai);
 		$this->db->where('tanggal <=', $tanggalselesai);
         $this->db->order_by('tanggal', 'ASC');
