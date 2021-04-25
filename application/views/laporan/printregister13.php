@@ -82,11 +82,11 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr><td>Tanggal Penutupan Kas ......</td>	 <td>:</td> <td> <?php echo $tanggalhuruf;?> <?php echo $bulannama;?> <?php echo $tahun;?></td></tr>
 <tr><td>Nama Penutup Kas/Kuasa BUS</td>     <td>:</td>	<td><?= $hasilSK2->nama ?></td></tr>
 <tr><td>Tanggal Penutupan Kas yang lalu ......</td>     <td>:</td>	<td><?php echo $tanggalhurufsebelumnya;?> <?php echo $bulannamasebelumnya;?> <?php echo $tahunsebelumnya?></td></tr>
-<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp '.number_format($h['totalpenerimaan']+$hbpp['totalpenerimaanbpp']+$hbbp['totalpenerimaanbbp'],2,',','.'); ?></td></tr>
-<tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp '.number_format($h['totalpengeluaran']+$hbbp['totalpengeluaranbbp']+$hbpp['totalpengeluaranbpp'],2,',','.'); ?></td></tr>
+<tr><td>Jumlah Penerimaan ......</td>     <td>:</td>	<td><?='Rp '.number_format($h['totalpenerimaan'],2,',','.'); ?></td></tr>
+<tr><td>Jumlah Pengeluaran ......</td>     <td>:</td>	<td><?='Rp '.number_format($h['totalpengeluaran'],2,',','.'); ?></td></tr>
 <tr><td></td>     <td></td>	<td><hr  color="black" size="2px"/></td></tr>
 <br>
-<tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp']),2,',','.'); ?></td></tr>
+<tr><td>Saldo Buku Kas ......</td>     <td>:</td>	<td><?='Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']),2,',','.'); ?></td></tr>
 <tr><td>Saldo Kas ......</td>     <td>:</td>	<td><?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
 </table>
 <table style="width:100%">
@@ -98,7 +98,7 @@ $tahunsebelumnya = date("Y", strtotime($tanggalsebelumnya));
 <tr><td width="5%">d. </td><td width="60%">M e t e r a i ......</td>     	<td>Rp ....</td></tr>
 <tr><td width="5%">e. </td><td width="60%">Dan Lain-lain ......</td>     	<td>Rp ....</td></tr>
 <tr><td width="5%"></td><td width="60%">&nbsp J u m l a h ......</td>      <td><?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></td></tr>
-<tr><td width="5%"></td><td width="60%">&nbsp Selisih ......</td>      <td><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'])-$saldobank['saldo'],2,',','.');?></td></tr>
+<tr><td width="5%"></td><td width="60%">&nbsp Selisih ......</td>      <td><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran'])-$saldobank['saldo'],2,',','.');?></td></tr>
 </table>
 
 <table width="50%">

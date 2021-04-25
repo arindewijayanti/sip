@@ -179,21 +179,13 @@ public function printbapemeriksaankas()
 	$tanggal =$this->input->post('tanggal');
 	$data['tanggal'] = $tanggal;
 	$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
-	$data['hbpp'] = $this->model_bpp->GetTransaksiH($tanggal);
-	$data['hbbp'] = $this->model_bbp->GetTransaksiH($tanggal);
 
 	$data['hmin1'] = $this->model_transaksi->GetTransaksiHmin1($tanggal);
-	$data['hmin1bpp'] = $this->model_bpp->GetTransaksiH($tanggal);
-	$data['hmin1bbp'] = $this->model_bbp->GetTransaksiH($tanggal);
 	
-	$data['hasilBBP'] = $this->model_bbp->GetTransaksiHarianBBP($tanggal);
-	$data['hasilBPP'] = $this->model_bpp->GetTransaksiHarianBPP($tanggal);
 
 	$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
 
 	$data['semuah'] = $this->model_transaksi->GetTransaksisemua($tanggal);
-	$data['semuahbpp'] = $this->model_bpp->GetTransaksisemua($tanggal);
-	$data['semuahbbp'] = $this->model_bbp->GetTransaksisemua($tanggal);
 
 	$data['hasilSK1'] = $this->model_sk->GetSK1($tanggal);
 	$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
@@ -222,15 +214,8 @@ public function printregister()
 	$data['tanggallalu'] = $tanggallalu;
 	$data['harianregister'] = $this->model_transaksi->GetTransaksiHarianRegister($tanggal);
 	$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
-	$data['hbpp'] = $this->model_bpp->GetTransaksiH($tanggal);
-	$data['hbbp'] = $this->model_bbp->GetTransaksiH($tanggal);
 
 	$data['hmin1'] = $this->model_transaksi->GetTransaksiHmin1($tanggal);
-	$data['hmin1bpp'] = $this->model_bpp->GetTransaksiH($tanggal);
-	$data['hmin1bbp'] = $this->model_bbp->GetTransaksiH($tanggal);
-	
-	$data['hasilBBP'] = $this->model_bbp->GetTransaksiHarian($tanggal);
-	$data['hasilBPP'] = $this->model_bpp->GetTransaksiHarian($tanggal);
 
 	$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
 	$data['uraian'] = $this->model_transaksi->GetUraian($tanggal);
@@ -239,8 +224,6 @@ public function printregister()
 	$data['hasilSK2'] = $this->model_sk->GetSK2($tanggal);
 
 	$data['semuah'] = $this->model_transaksi->GetTransaksisemua($tanggal);
-		$data['semuahbpp'] = $this->model_bpp->GetTransaksisemua($tanggal);
-		$data['semuahbbp'] = $this->model_bbp->GetTransaksisemua($tanggal);
 	
 	
 	if (isset($_POST['P77'])){
