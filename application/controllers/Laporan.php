@@ -83,8 +83,6 @@ class Laporan extends CI_Controller {
 		$data['tanggalmulai'] = $this->input->post('tanggalmulai');
 		$data['tanggalselesai'] = $this->input->post('tanggalselesai');
 		$data['hasil'] = $this->model_transaksi->GetTransaksiBulanan($tanggalmulai,$tanggalselesai);
-		$data['hasilbbp'] = $this->model_transaksi->GetTransaksiBulananBBP($tanggalmulai,$tanggalselesai);
-		$data['hasilbpp'] = $this->model_transaksi->GetTransaksiBulananBPP($tanggalmulai,$tanggalselesai);
 
 		$data['hasilSK1'] = $this->model_sk->GetSK1($tanggalselesai);
 		$data['hasilSK2'] = $this->model_sk->GetSK2($tanggalselesai);
@@ -123,19 +121,11 @@ class Laporan extends CI_Controller {
 		$data['tanggal'] = $tanggal;
 		
 		$data['h'] = $this->model_transaksi->GetTransaksiH($tanggal);
-		$data['hbpp'] = $this->model_bpp->GetTransaksiH($tanggal);
-		$data['hbbp'] = $this->model_bbp->GetTransaksiH($tanggal);
 
 		$data['semuah'] = $this->model_transaksi->GetTransaksisemua($tanggal);
-		$data['semuahbpp'] = $this->model_bpp->GetTransaksisemua($tanggal);
-		$data['semuahbbp'] = $this->model_bbp->GetTransaksisemua($tanggal);
 
 		$data['hmin1'] = $this->model_transaksi->GetTransaksiHmin1($tanggal);
-		$data['hmin1bpp'] = $this->model_bpp->GetTransaksiH($tanggal);
-		$data['hmin1bbp'] = $this->model_bbp->GetTransaksiH($tanggal);
 		
-		$data['hasilBBP'] = $this->model_bbp->GetTransaksiHarianBBP($tanggal);
-		$data['hasilBPP'] = $this->model_bpp->GetTransaksiHarianBPP($tanggal);
 		
 		$data['saldobank'] = $this->model_transaksi->GetSaldoBank($tanggal);
 

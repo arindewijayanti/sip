@@ -84,7 +84,7 @@ table{
                     <tr>
                         <td align="center"><?= $no;?></td>
                         <td><?= date("d/m/Y", strtotime($item->tanggal));?></td>
-                        <td><?= $item->kode_bbp;?></td>
+                        <td><?= $item->no_bukti;?></td>
                         <td><?= $item->uraian;?></td>
                         <td align="center"><?='Rp '.number_format($item->debet,2,',','.'); ?></td>
                         <td align="center"><?='Rp '.number_format($item->kredit,2,',','.'); ?></td>     

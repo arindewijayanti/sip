@@ -67,30 +67,30 @@ $tahun2 = date("Y", strtotime($tanggal2));
 
 
 <br>
-<table width ="85%" align="center">
+<table width ="100%" align="center">
 <tr><p>
-<td width ="55%">1. Saldo Kas Umum Daerah menurut Buku</td>
-<td width ="15%"></td>
-<td width ="15%" align="right"><b><?='Rp '.number_format($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'],2,',','.'); ?></b></td>
+<td width ="45%">1. Saldo Kas Umum Daerah menurut Buku</td>
+<td width ="20%"></td>
+<td width ="25%" align="right"><b><?='Rp '.number_format($semuah['totalpenerimaan']-$semuah['totalpengeluaran'],2,',','.'); ?></b></td>
 </p></tr>
 
 <tr><p>
-<td width ="55%">2. Saldo Kas Umum menurut Bank</td>
-<td width ="15%"></td>
-<td width ="15%" align="right"><b><?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></b></td>
+<td width ="45%">2. Saldo Kas Umum menurut Bank</td>
+<td width ="20%"></td>
+<td width ="25%" align="right"><b><?='Rp '.number_format($saldobank['saldo'],2,',','.'); ?></b></td>
 </p></tr>
 
 <tr><p>
-<td width ="55%"></td>
-<td width ="15%"></td>
-<td width ="15%" align="right"><hr  color="black" size="2px"/></td>
+<td width ="45%"></td>
+<td width ="20%"></td>
+<td width ="25%" align="right"><hr  color="black" size="2px"/></td>
 </p></tr>
 
 
 <tr><p>
-<td width ="55%">&nbsp &nbsp  <b>Selisih</b></td>
-<td width ="15%"></td>
-<td width ="15%" align="right"><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'])-$saldobank['saldo'],2,',','.');?></td>
+<td width ="45%">&nbsp &nbsp  <b>Selisih</b></td>
+<td width ="20%"></td>
+<td width ="25%" align="right"><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran'])-$saldobank['saldo'],2,',','.');?></td>
 </p></tr>
 
 <tr height="15"></tr>
@@ -105,23 +105,23 @@ $tahun2 = date("Y", strtotime($tanggal2));
                         $totala += $item->nominal;
                     ?>
                     <tr><p>
-                        <td width ="55%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td width ="15%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>
-                        <td width ="15%"></td>                  
+                        <td width ="45%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td width ="20%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>
+                        <td width ="25%"></td>                  
                     </p></tr>
                     <?php
                             $no++;
                     }
                     ?>
                     <tr><p>
-                        <td width ="55%"></td>
-                        <td width ="15%" align="right"><u><?='Rp '.number_format($totala,2,',','.'); ?></u></td>
-                        <td width ="15%" align="right"><b><u><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'])-$saldobank['saldo']-$totala,2,',','.');?></u></b></td>               
+                        <td width ="45%"></td>
+                        <td width ="20%" align="right"><u><?='Rp '.number_format($totala,2,',','.'); ?></u></td>
+                        <td width ="25%" align="right"><b><u><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran'])-$saldobank['saldo']-$totala,2,',','.');?></u></b></td>               
                     </p></tr>
 
 </table>
 
-<table width ="85%" align="center">
+<table width ="100%" align="center">
 <tr><p><td>B. Pengeluaran yang telah dicatat oleh buku,</td>
 <tr><p><td> &nbsp &nbsp belum dicatat oleh Bank</td>
 <?php
@@ -132,20 +132,20 @@ $tahun2 = date("Y", strtotime($tanggal2));
                         $totalb += $item->nominal;
                     ?>
                     <tr><p>
-                        <td width ="55%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td width ="15%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>  
-                        <td width ="15%"></td>                
+                        <td width ="45%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td width ="20%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>  
+                        <td width ="25%"></td>                
                     </p></tr>
                     <?php
                             $no++;
                     }
                     ?>
                     <tr><p>
-                        <td width ="55%"></td> 
-                        <td width ="15%" align="right"><u><?='Rp '.number_format($totalb,2,',','.'); ?></u></td>
-                        <td width ="15%" align="right"><b><u><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'])-$saldobank['saldo']-$totala-$totalb,2,',','.');?></u></b></td>               
+                        <td width ="45%"></td> 
+                        <td width ="20%" align="right"><u><?='Rp '.number_format($totalb,2,',','.'); ?></u></td>
+                        <td width ="25%" align="right"><b><u><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran'])-$saldobank['saldo']-$totala-$totalb,2,',','.');?></u></b></td>               
                     </p></tr></table>
-<table width ="85%" align="center">
+<table width ="100%" align="center">
 <tr><p><td>C. Penerimaan yang telah dicatat oleh Bank,</td>
 <tr><p><td> &nbsp &nbsp belum dicatat oleh Buku</td>
 <?php
@@ -156,20 +156,20 @@ $tahun2 = date("Y", strtotime($tanggal2));
                         $totalc += $item->nominal;
                     ?>
                     <tr><p>
-                        <td width ="55%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td width ="15%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>
-                        <td width ="15%"></td>                  
+                        <td width ="45%">&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td width ="20%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>
+                        <td width ="25%"></td>                  
                     </p></tr>
                     <?php
                             $no++;
                     }
                     ?>
                     <tr><p>
-                        <td width ="55%"></td> 
-                        <td width ="15%" align="right"><u><?='Rp '.number_format($totalc,2,',','.'); ?></u></td>
-                        <td width ="15%" align="right"><b><u><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'])-$saldobank['saldo']-$totala-$totalb+$totalc,2,',','.');?></u></b></td>               
+                        <td width ="45%"></td> 
+                        <td width ="20%" align="right"><u><?='Rp '.number_format($totalc,2,',','.'); ?></u></td>
+                        <td width ="25%" align="right"><b><u><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran'])-$saldobank['saldo']-$totala-$totalb+$totalc,2,',','.');?></u></b></td>               
                     </p></tr></table>
-<table width ="85%" align="center">
+<table width ="100%" align="center">
 <tr><p><td>D. Pengeluaran yang telah dicatat oleh Bank,</td>
 <tr><p><td> &nbsp &nbsp belum dicatat oleh Buku</td>
 <?php
@@ -180,28 +180,28 @@ $tahun2 = date("Y", strtotime($tanggal2));
                         $totald+= $item->nominal;
                     ?>
                     <tr><p>
-                        <td width ="55%" >&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
-                        <td width ="15%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>       
-                        <td width ="15%"></td>           
+                        <td width ="45%" >&nbsp &nbsp &nbsp &nbsp &nbsp <?= $no;?>. <?= $item->uraian;?></td>
+                        <td width ="20%" align="right"><?='Rp '.number_format($item->nominal,2,',','.'); ?></td>       
+                        <td width ="25%"></td>           
                     </p></tr>
                     <?php
                             $no++;
                     }
                     ?>
                     <tr><p>
-                        <td width ="55%"></td> 
-                        <td width ="15%" align="right"><u><?='Rp '.number_format($totald,2,',','.'); ?></u></td>
-                        <td width ="15%" align="right"><b><u><?= 'Rp '.number_format($totald,2,',','.');?></u></b></td>               
+                        <td width ="45%"></td> 
+                        <td width ="20%" align="right"><u><?='Rp '.number_format($totald,2,',','.'); ?></u></td>
+                        <td width ="25%" align="right"><b><u><?= 'Rp '.number_format($totald,2,',','.');?></u></b></td>               
                     </p></tr></table>
 
-                    <table width ="85%" align="center">
+                    <table width ="100%" align="center">
 
 <tr><p><td></td>
 <tr><p><td>   </td>  
                     <tr><p>
-                        <td width ="55%"><b>Jumlah.....</b></td> 
-                        <td width ="15%" align="right"></td>
-                        <td width ="15%" align="right"><b><u><?= 'Rp '.number_format(($totalc+$totald)-($totala+$totalb),2,',','.');?></u></b></td>               
+                        <td width ="45%"><b>Jumlah.....</b></td> 
+                        <td width ="20%" align="right"></td>
+                        <td width ="25%" align="right"><b><u><?= 'Rp '.number_format(($totalc+$totald)-($totala+$totalb),2,',','.');?></u></b></td>               
                     </p></tr></table>
 
                   

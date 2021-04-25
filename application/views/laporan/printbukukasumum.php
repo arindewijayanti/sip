@@ -67,48 +67,9 @@ table{
                   
                 </thead>
                 <tbody>
-               
-
                     <?php
                     $no = 1 ;
                     $saldo = 0;
-                    foreach ($hasilbbp as $itembbp)
-                    {
-                        $saldo += $itembbp->kredit-$itembbp->debet;
-                    ?>
-                    <tr>
-                        <td align="center"><?= $no;?></td>
-                        <td><?= date("d/m/Y", strtotime($itembbp->tanggal));?></td>
-                        <td></td>
-                        <td><?= $itembbp->uraian;?></td>
-                        <td align="center"><?='Rp '.number_format($itembbp->kredit,2,',','.'); ?></td>
-                        <td align="center"><?='Rp '.number_format($itembbp->debet,2,',','.'); ?></td>                     
-                        <td align="center"><?='Rp '.number_format($saldo,2,',','.'); ?></td> 
-                    </tr>
-                    <?php
-                            $no++;
-                    }
-                    ?>
-
-<?php
-                    foreach ($hasilbpp as $itembpp)
-                    {
-                        $saldo += $itembpp->penerimaan-$itembpp->pengeluaran;
-                    ?>
-                    <tr>
-                        <td align="center"><?= $no;?></td>
-                        <td><?= date("d/m/Y", strtotime($itembpp->tanggal));?></td>
-                        <td><?= $itembpp->no_sp2d;?></td>
-                        <td><?= $itembpp->uraian;?></td>
-                        <td align="center"><?='Rp '.number_format($itembpp->penerimaan,2,',','.'); ?></td>
-                        <td align="center"><?='Rp '.number_format($itembpp->pengeluaran,2,',','.'); ?></td>                     
-                        <td align="center"><?='Rp '.number_format($saldo,2,',','.'); ?></td> 
-                    </tr>
-                    <?php
-                            $no++;
-                    }
-                    ?>
-                     <?php
                     foreach ($hasil as $item)
                     {
                         $saldo += $item->penerimaan-$item->pengeluaran;

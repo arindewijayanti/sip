@@ -111,7 +111,7 @@ class Model_transaksi extends CI_Model {
     {
 		$id_opd = $this->session->userdata('id_opd');
         $this->db->select('*');
-        $this->db->order_by('id_transaksi', 'ASC');
+        $this->db->order_by('tanggal', 'ASC');
         $this->db->where('tbl_transaksi.id_opd', $id_opd);
 		$this->db->where('tanggal >=', $tanggalmulai);
 		$this->db->where('tanggal <=', $tanggalselesai);

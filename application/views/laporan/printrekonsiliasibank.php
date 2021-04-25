@@ -56,7 +56,7 @@ table{
 <tr><p>
 <td width ="45%" align="left"><b>1. Saldo Kas Umum Daerah menurut Buku</b></td>
 <td width ="20%"></td>
-<td width ="25%" align="right"><b><?='Rp '.number_format($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'],2,',','.'); ?></b></td>
+<td width ="25%" align="right"><b><?='Rp '.number_format($semuah['totalpenerimaan']-$semuah['totalpengeluaran'],2,',','.'); ?></b></td>
 </p></tr>
 
 <tr><p>
@@ -74,7 +74,7 @@ table{
 <tr><p>
 <td width ="45%">&nbsp &nbsp  <i>Selisih</i></td>
 <td width ="20%"></td>
-<td width ="25%" align="right"><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran']+$semuahbpp['totalpenerimaanbpp']-$semuahbpp['totalpengeluaranbpp']+$semuahbbp['totalpenerimaanbbp']-$semuahbbp['totalpengeluaranbbp'])-$saldobank['saldo'],2,',','.');?></td>
+<td width ="25%" align="right"><?= 'Rp '.number_format(($semuah['totalpenerimaan']-$semuah['totalpengeluaran'])-$saldobank['saldo'],2,',','.');?></td>
 </p></tr>
 
 <tr height="15"></tr>
