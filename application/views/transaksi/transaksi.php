@@ -34,7 +34,6 @@ $this->load->view('include/header');
                   <th>Uraian</th>
                   <th>Penerimaan</th>
                   <th>Pengeluaran</th>
-                  <th>Saldo</th>
                   <th>Opsi</th>
                 </tr>
               </thead>
@@ -55,7 +54,6 @@ $this->load->view('include/header');
                   <td><?= $data->uraian ?></td>
                   <td><?= 'Rp '.number_format($data->penerimaan,2,',','.');?></td>
                   <td><?= 'Rp '.number_format($data->pengeluaran,2,',','.');?></td>
-                  <td><?= 'Rp '.number_format($saldo,2,',','.');?></td>
                   <td> 
                     <a href="<?php echo base_url()?>transaksi/updatedatatransaksi/<?php echo $data->id_transaksi; ?>" class="btn btn-warning" style="margin-bottom: 1px;">Edit<i class="fa fa-tag"></i></a>
                     <a href="<?php echo base_url()?>transaksi/action_deletedatatransaksi/<?php echo $data->id_transaksi; ?>" onclick="return confirm('Apakah anda yakin?');" class="btn btn-danger">Hapus<i class="fa fa-trash"></i></a>

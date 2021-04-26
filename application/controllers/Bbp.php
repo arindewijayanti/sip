@@ -35,6 +35,7 @@ if(empty($roleid))
     {       
                     	$data = array(
                             'tanggal'=>$this->input->post('tanggal'),
+                            'no_bukti'=>$this->input->post('no_bukti'),
                             'uraian'=>$this->input->post('uraian'),
                             'debet'=>$this->input->post('debet'),
                             'kredit'=>$this->input->post('kredit'),
@@ -57,6 +58,7 @@ if(empty($roleid))
     {
         $data = array(
             'tanggal'=>$this->input->post('tanggal'),
+            'no_bukti'=>$this->input->post('no_bukti'),
             'uraian'=>$this->input->post('uraian'),
             'debet'=>$this->input->post('debet'),
             'kredit'=>$this->input->post('kredit'),

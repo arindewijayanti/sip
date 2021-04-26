@@ -35,6 +35,12 @@ $this->load->view('include/header');
                   </div>
 
                   <div class="col-md-6">
+                    <label for="no_bukti">No Bukti</label>
+                    <input value="<?= $data->no_bukti?>"class="form-control" id="no_bukti" type="text" aria-describedby="nameHelp" name="no_bukti"/>
+                 
+                 </div>
+
+                  <div class="col-md-6">
                     <label for="uraian">Uraian</label>
                     <input value="<?= $data->uraian?>"class="form-control" id="uraian" type="text" aria-describedby="nameHelp" name="uraian" required/>
                  

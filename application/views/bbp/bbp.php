@@ -29,6 +29,7 @@ $this->load->view('include/header');
                 <tr class="text-center">
                   <th>No</th>
                   <th>Tanggal</th>
+                  <th>No Bukti</th>
                   <th>Uraian</th>
                   <th>Debet</th>
                   <th>Kredit</th>
@@ -47,6 +48,7 @@ $this->load->view('include/header');
                   ?>
                   <td><?= $i ?></td>
                   <td><?php echo date("d/m/Y", strtotime($data->tanggal));?></td>
+                  <td><?= $data->no_bukti ?></td>
                   <td><?= $data->uraian ?></td>
                   <td><?= 'Rp '.number_format($data->debet,2,',','.');?></td>
                   <td><?= 'Rp '.number_format($data->kredit,2,',','.');?></td>

@@ -32,10 +32,15 @@ $this->load->view('include/header');
                     <input class="form-control" id="tanggal" type="date" aria-describedby="nameHelp" name="tanggal" required/>
                   </div>
                   <div class="col-md-6">
+                    <label for="no_bukti">No Bukti</label>
+                    <input class="form-control" id="no_bukti" type="text" aria-describedby="nameHelp" name="no_bukti"/>
+                  
+                  </div>
+                  <div class="col-md-6">
                     <label for="uraian">Uraian</label>
                     <input class="form-control" id="uraian" type="text" aria-describedby="nameHelp" name="uraian" required/>
                   
-                       </div>
+                  </div>
                 </div>
               </div>
               
