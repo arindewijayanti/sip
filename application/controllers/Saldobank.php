@@ -37,13 +37,18 @@ if(empty($roleid))
 	
 	function action_menambahdatasaldobank()
     {        
-		$tanggal = $this->input->post('tanggal');
-		$this->form_validation->set_rules('tanggal', 'Tanggal', 'xss_clean|is_unique[tbl_saldobank.tanggal]');
-
-		if($this->form_validation->run() === FALSE) {
-					$this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Data Sudah Ada!</div>');
+		$id_opd=$this->session->userdata('id_opd');
+        $tanggal = $this->input->post('tanggal');
+        $this->db->from('tbl_saldobank');
+        $this->db->where('tanggal', $tanggal);
+        $this->db->where('id_opd', $id_opd);
+        $query = $this->db->get();  
+        $rowcount = $query->num_rows();
+ 
+        if ($rowcount>0){
+            $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Data sudah ada</div>');
 					redirect('saldobank','refresh');
-		}else{
+        }else{
 					$data = array(
                             'tanggal'=>$this->input->post('tanggal'),
                             'saldo'=>$this->input->post('saldo'),

@@ -34,12 +34,25 @@ if(empty($roleid))
 
     function action_menambahdatamanageuser()
     {       
+        $user_id = $this->input->post('user_id');
+        $menu_id = $this->input->post('menu_id');
+        $this->db->from('user_access_menu');
+        $this->db->where('user_id', $user_id);
+        $this->db->where('menu_id', $menu_id);
+        $query = $this->db->get();  
+        $rowcount = $query->num_rows();
+ 
+        if ($rowcount>0){
+            $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Menu sudah pernah ditambahkan pada Username yang anda pilih</div>');
+					redirect('manageuser','refresh');
+        }else{
                     $data = array(
                             'user_id'=>$this->input->post('user_id'),
                             'menu_id'=>$this->input->post('menu_id')
                     );
                     $this->model_manageuser->menambahdatamanageuser($data);
                     redirect('manageuser','refresh');
+    }
     }
 
     public function action_deletedatamanageuser($id = '')

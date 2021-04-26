@@ -37,14 +37,28 @@ if(empty($roleid))
 	
 	function action_menambahdatarekening()
     {       
-		$kode_rekening = $this->input->post('kode_rekening');
-		$nama_rekening = $this->input->post('nama_rekening');
-		$this->form_validation->set_rules('kode_rekening', 'Kode Rekening', 'is_unique[tbl_rekening.kode_rekening]');
-		$this->form_validation->set_rules('nama_rekening', 'Nama Rekening', 'is_unique[tbl_rekening.nama_rekening]');
+		$id_opd=$this->session->userdata('id_opd');
+        $kode_rekening = $this->input->post('kode_rekening');
+        $nama_rekening = $this->input->post('nama_rekening');
 
-		if($this->form_validation->run() === FALSE) {
-					$this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Data Sudah Ada!</div>');
-					redirect('rekening','refresh');
+        $this->db->from('tbl_rekening');
+        $this->db->where('kode_rekening', $kode_rekening);
+        $this->db->where('id_opd', $id_opd);
+        $query = $this->db->get();  
+        $rowcount = $query->num_rows();
+
+		$this->db->from('tbl_rekening');
+        $this->db->where('nama_rekening', $nama_rekening);
+        $this->db->where('id_opd', $id_opd);
+        $query2 = $this->db->get();  
+        $rowcount2 = $query2->num_rows();
+ 
+        if ($rowcount>0){
+            $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Kode Rekening sudah ada</div>');
+			redirect('rekening','refresh');
+        }else if ($rowcount2>0){
+			$this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Nama Rekening sudah ada</div>');
+			redirect('rekening','refresh');
 		}else{
 					$id_opd = $this->session->userdata('id_opd');
                     $data = array(

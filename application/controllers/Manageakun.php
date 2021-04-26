@@ -36,29 +36,42 @@ if(empty($roleid))
 		}
 	
 	function action_menambahdatamanageakun()
-    {       
+    {    
         $username = $this->input->post('username');
-		$this->form_validation->set_rules('username', 'Username', 'xss_clean|is_unique[user.username]');
-
-		if($this->form_validation->run() === FALSE) {
-					$this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Username Sudah Ada!</div>');
+        $this->db->from('user');
+        $this->db->where('username', $username);
+        $query = $this->db->get();  
+        $rowcount = $query->num_rows();
+ 
+        if ($rowcount>0){
+            $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Username Sudah Terdaftar! Mohon Gunakan Username lain</div>');
 					redirect('manageakun','refresh');
-		}else{
-
-                    $data = array(
-                            'name'=>$this->input->post('name'),
-                            'username'=>$this->input->post('username'),
-                            'password'=>$this->input->post('password')
-					);
-                    $data['password']="12345";
-                    $data['status']="member";
-                    $data['is_active']="1";
-                    $data['id_user']=$this->session->userdata('username');
-		            $data['id_opd']=$this->session->userdata('id_opd');
-					$this->model_manageakun->menambahdatamanageakun($data);
-					redirect('manageakun','refresh');
-                }
+        }else{
+        $data = array(
+                'name'=>$this->input->post('name'),
+                'username'=>$this->input->post('username'),
+                'password'=>$this->input->post('password')
+        );
+        $data['password']="12345";
+        $data['status']="member";
+        $data['is_active']="1";
+        $data['id_user']=$this->session->userdata('username');
+        $data['id_opd']=$this->session->userdata('id_opd');
+        $this->model_manageakun->menambahdatamanageakun($data);
+        redirect('manageakun','refresh');
+        }
+                    
+                    
 	}
+
+    function CheckUsername($username){
+        if ($this->model->check_username($username)==''){
+           return true;
+        }else{
+           $this->form_validation->set_message('username', 'Username '. $username .' telah terdaftar');
+           return false;		
+        }
+     }
 
 	function updatedatamanageakun($id = NULL)
     {
