@@ -40,7 +40,8 @@ if(empty($roleid))
                             'no_lainlain'=>$this->input->post('no_lainlain'),                             
                             'uraian'=>$this->input->post('uraian'),
                             'penerimaan'=>$this->input->post('penerimaan'),
-                            'pengeluaran'=>$this->input->post('pengeluaran')
+                            'pengeluaran'=>$this->input->post('pengeluaran'),
+                            'keterangan'=>$this->input->post('keterangan')
 					);
                     $data['id_user']=$this->session->userdata('username');
 		            $data['id_opd']=$this->session->userdata('id_opd');
@@ -64,7 +65,8 @@ if(empty($roleid))
             'no_lainlain'=>$this->input->post('no_lainlain'),                     
             'uraian'=>$this->input->post('uraian'),
             'penerimaan'=>$this->input->post('penerimaan'),
-            'pengeluaran'=>$this->input->post('pengeluaran')
+            'pengeluaran'=>$this->input->post('pengeluaran'),
+            'keterangan'=>$this->input->post('keterangan')
         );
 		$data['id_user']=$this->session->userdata('username');
 		$data['id_opd']=$this->session->userdata('id_opd');

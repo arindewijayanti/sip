@@ -12,7 +12,7 @@ class Model_transaksi extends CI_Model {
     {
 		$id_opd = $this->session->userdata('id_opd');
         $this->db->where('tbl_transaksi.id_opd', $id_opd);
-        $this->db->order_by('id_transaksi', 'ASC');
+        $this->db->order_by('tanggal', 'DESC');
         return $this->db->from('tbl_transaksi')
            ->get();
     }

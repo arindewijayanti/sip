@@ -66,6 +66,15 @@ $this->load->view('include/header');
                   </div>
                 </div>
               </div>
+
+              <div class="col-md-6">
+                    <label for="keterangan">Keterangan</label>
+                    <select class="form-control form-control-sm" id="keterangan" name="keterangan" required />
+                    <option value="<?= $data->keterangan?>"><?= $data->keterangan?></option>
+                    <option value="Transaksi Utama">Transaksi Utama</option>
+                    <option value="Transaksi Tambahan">Transaksi Tambahan</option>
+                       </select></div>
+                </div>
             
               
               <div class="form-group">
