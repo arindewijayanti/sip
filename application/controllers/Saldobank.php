@@ -8,6 +8,7 @@ class Saldobank extends CI_Controller {
         parent::__construct();
        $this->load->model('model_saldobank');
 	   $this->load->library('session');
+	   $this->load->helper('form');
 	   
 $roleid=$this->session->userdata('username');
 if(empty($roleid))
@@ -35,8 +36,15 @@ if(empty($roleid))
 		}
 	
 	function action_menambahdatasaldobank()
-    {       
-                    	$data = array(
+    {        
+		$tanggal = $this->input->post('tanggal');
+		$this->form_validation->set_rules('tanggal', 'Tanggal', 'xss_clean|is_unique[tbl_saldobank.tanggal]');
+
+		if($this->form_validation->run() === FALSE) {
+					$this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Data Sudah Ada!</div>');
+					redirect('saldobank','refresh');
+		}else{
+					$data = array(
                             'tanggal'=>$this->input->post('tanggal'),
                             'saldo'=>$this->input->post('saldo'),
 					);
@@ -45,6 +53,7 @@ if(empty($roleid))
 					$data['id_opd']=$this->session->userdata('id_opd');
 					$this->model_saldobank->menambahdatasaldobank($data);
 					redirect('saldobank','refresh');
+		}
 	}
 
 	function updatedatasaldobank($id = NULL)

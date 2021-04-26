@@ -19,6 +19,7 @@ $this->load->view('include/header');
   <!-- Example DataTables Card-->
   <div class="card mb-3">
         <div class="card-header">
+        <?php echo $this->session->flashdata('msg'); ?>
           <i class="fa fa-table"></i>Manage akun</div>
         <div class="card-body">
           <div class="table-responsive">

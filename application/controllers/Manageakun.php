@@ -37,6 +37,14 @@ if(empty($roleid))
 	
 	function action_menambahdatamanageakun()
     {       
+        $username = $this->input->post('username');
+		$this->form_validation->set_rules('username', 'Username', 'xss_clean|is_unique[user.username]');
+
+		if($this->form_validation->run() === FALSE) {
+					$this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Username Sudah Ada!</div>');
+					redirect('manageakun','refresh');
+		}else{
+
                     $data = array(
                             'name'=>$this->input->post('name'),
                             'username'=>$this->input->post('username'),
@@ -49,6 +57,7 @@ if(empty($roleid))
 		            $data['id_opd']=$this->session->userdata('id_opd');
 					$this->model_manageakun->menambahdatamanageakun($data);
 					redirect('manageakun','refresh');
+                }
 	}
 
 	function updatedatamanageakun($id = NULL)

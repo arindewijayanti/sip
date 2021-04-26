@@ -35,6 +35,15 @@ if(empty($roleid))
 	
 	function action_menambahdataapbd()
     {       
+        $id_rekening = $this->input->post('id_rekening');
+		$tahun = $this->input->post('tahun');
+		$this->form_validation->set_rules('id_rekening', 'ID Rekening', 'xss_clean|is_unique[tbl_apbd.id_rekening]');
+		$this->form_validation->set_rules('tahun', 'Tahun', 'xss_clean|is_unique[tbl_apbd.tahun]');
+
+		if($this->form_validation->run() === FALSE) {
+					$this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Data Sudah Ada!</div>');
+					redirect('apbd','refresh');
+		}else{
 
                     	$data = array(
                             'id_rekening'=>$this->input->post('id_rekening'),
@@ -46,6 +55,7 @@ if(empty($roleid))
                     $data['id_opd'] = $this->session->userdata('id_opd');
 					$this->model_apbd->menambahdataapbd($data);
 					redirect('apbd','refresh');
+                }
 	}
 
 	function updatedataapbd($id_apbd = NULL)

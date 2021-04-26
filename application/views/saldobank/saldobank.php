@@ -9,17 +9,20 @@ $this->load->view('include/header');
         <li class="breadcrumb-item">
           <a href="<?php echo base_url('user/index')?>">Halaman Utama</a>
         </li>
-  
+        
         <li class="breadcrumb-item active">Saldo Bank</li>
       </ol>
 
       <div class="container">
       <a href="<?php echo base_url('saldobank/menambahdatasaldobank')?>" class="btn btn-primary" style="margin-bottom: 10px;"><i class="fa fa-plus">Tambah Data</a></i>
-  
   <!-- Example DataTables Card-->
   <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Saldo Bank</div>
+        <?php echo $this->session->flashdata('msg'); ?>
+          <i class="fa fa-table"></i>Saldo Bank
+          
+        </div>
+          
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="example" width="100%" cellspacing="0">

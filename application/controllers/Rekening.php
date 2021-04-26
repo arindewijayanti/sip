@@ -37,6 +37,15 @@ if(empty($roleid))
 	
 	function action_menambahdatarekening()
     {       
+		$kode_rekening = $this->input->post('kode_rekening');
+		$nama_rekening = $this->input->post('nama_rekening');
+		$this->form_validation->set_rules('kode_rekening', 'Kode Rekening', 'is_unique[tbl_rekening.kode_rekening]');
+		$this->form_validation->set_rules('nama_rekening', 'Nama Rekening', 'is_unique[tbl_rekening.nama_rekening]');
+
+		if($this->form_validation->run() === FALSE) {
+					$this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">Data Sudah Ada!</div>');
+					redirect('rekening','refresh');
+		}else{
 					$id_opd = $this->session->userdata('id_opd');
                     $data = array(
                             'kode_rekening'=>$this->input->post('kode_rekening'),
@@ -45,6 +54,7 @@ if(empty($roleid))
 					$data['id_opd']=$id_opd;
 					$this->model_rekening->menambahdatarekening($data);
 					redirect('rekening','refresh');
+		}
 	}
 
 	function updatedatarekening($id_rekening = NULL)
