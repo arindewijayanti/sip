@@ -34,19 +34,12 @@ $this->load->view('include/header');
 
                   <div class="form-group">
               <div class="form-row">
-              
-                           
-              <div class="col-md-6">
-                    <label for="tahun">Pilih Tahun</label>
-                    <br>
-                    <select class="form-control" name="tahun">
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>   
-                <option value="2019">2019</option>
-                <option value="2018">2018</option>
-                <option value="2017">2017</option>
-                
-            </select></div>
+
+                  <div class="col-md-6">
+                    <label for="tahun">Tahun</label>
+                    <input value="<?= $data->tahun?>"class="form-control" id="tahun" type="text" aria-describedby="nameHelp" name="tahun" required/>
+                  </div>
+
                   <div class="col-md-6">
                     <label for="pagu_apbd">Pagu Apbd</label>
                     <input value="<?= $data->pagu_apbd?>"class="form-control" id="pagu_apbd" type="text" aria-describedby="nameHelp" name="pagu_apbd" required/>
