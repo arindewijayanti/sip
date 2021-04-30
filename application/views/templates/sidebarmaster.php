@@ -53,7 +53,12 @@
            
 
             <!-- Nav Item - Dashboard -->
-            
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('changepasswordmaster');?>">
+                    <i class="fas fa-fw fa-sign-out-alt"></i>
+                    <span>Ganti Password</span></a>
+            </li>
+            <hr class="sidebar-divider">
             
            <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('administrator/logout');?>" data-toggle="modal" data-target="#logoutModal">
